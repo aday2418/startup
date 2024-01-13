@@ -5,4 +5,4 @@
 
 ### Dates
 
-+ [January 12] (/Notes/January12.md)
++ [January 12](/Notes/January12.md)

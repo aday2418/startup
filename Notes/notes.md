@@ -3,6 +3,6 @@
 + Notes are organized by topic
 + Click the links below to access notes.
 
-### Topic
+### Topics
 
-+ [Github](/Notes/January12.md)
++ [Github](/Notes/github.md)

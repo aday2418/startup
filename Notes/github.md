@@ -13,7 +13,7 @@
     2. git commit -m "The message you want attached to your commit"
     3. git push
 
-### Handling Conflict
+### Handling Conflicts
 + When working with others, sometimes people will make commits that change part of the code you are working on
 + When this happens you need a way to both save changes you have made while not overriding code they already pushed
 + In order to do this you need to handle conflicts

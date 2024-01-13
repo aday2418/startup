@@ -1,8 +1,8 @@
 # Notes
 
-+ Notes are organized by date
++ Notes are organized by topic
 + Click the links below to access notes.
 
 ### Dates
 
-+ [January 12](/Notes/January12.md)
++ [Github](/Notes/January12.md)

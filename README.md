@@ -1,4 +1,4 @@
-# startup
+# Startup
 
 ### Project Description
 + I am still deciding exactly what my startup project is going to be

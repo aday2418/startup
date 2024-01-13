@@ -1,2 +1,1 @@
-Preliminary Text...
-This is text that I added in github's editor
+I was supposed to change the whole line

@@ -19,10 +19,11 @@ Have you ever wondered what your friends are jamming out to? With **SoundCircle*
 + App manually updates to reflect current listening trends
 
 ## Technologies
-+ HTML - Application will use 3 HTML pages
++ HTML - Application will use 4 HTML pages
     1. Login Page
     2. Dashboard
     3. Settings Page
+    4. Following / Followers Page
 + CSS - Application styling will be used to create consistent themes and ensure that pages are formated cleanly
 + JavaScript - Provides login, preferences options, creates graphs for data
 + Service - Backend service with endpoints for:

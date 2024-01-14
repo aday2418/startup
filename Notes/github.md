@@ -9,9 +9,9 @@
 ### Committing Changes
 + In order to save your local changes, you need to commit them to a remote repository
 + To do this, first add the changes, then commit them, and finally push them 
-    1. git add . 
-    2. git commit -m "The message you want attached to your commit"
-    3. git push
+    1. ```git add .```
+    2. ```git commit -m " "``` 
+    3. ```git push``
 
 ### Handling Conflicts
 + When working with others, sometimes people will make commits that change part of the code you are working on

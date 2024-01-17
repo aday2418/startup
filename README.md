@@ -2,10 +2,9 @@
 Hey! This is a project that I'm making for my CS 260 class. Feel free to use this code for any projects you like! If you want to learn more about web programming, check out the [notes](/Notes/notes.md) I took from this class!
 
 ## Elevator Pitch
-Have you ever wondered what your friends are jamming out to? With **SoundCircle**, you're always in the loop, diving into their favorite genres, artists, and top songs. Our platform isn't just about sharing playlists; it's a unique way to connect through music. You can compare listening stats and discover new tunes, all within a user-friendly interface that integrates seamlessly with your existing Spotify playlists. **SoundCircle** is the perfect way to deepen your connections through the universal language of music.
+Have you ever wondered what your friends are jamming out to? With **SoundCircle**, you're always in the loop, diving into their favorite genres, artists, and top songs. **SoundCircle** isn't just about sharing playlists; it's a unique way to connect through music. You can compare listening stats and discover new tunes, all within a user-friendly interface that integrates seamlessly with your existing Spotify playlists. **SoundCircle** is the perfect way to deepen your connections through the universal language of music.
 
 ### Design
-
 Each user gets a personalized dashboard showcasing their music stats. Users will be able to click on their friends profiles to easily access and explore their friends' tastes. They will also be able to customize personal settings (such as whether to use light or dark mode).
 
 ![Dashboard](/Images/dashboard.png)
@@ -35,4 +34,4 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
     + Retrieving and Displaying Friend Data
 + DB/Login - Store users, app preferences, and listening data in database. Users are not able to see friend data until they are logged in
 + WebSocket - As users continually listen to music, their top songs, artists, and minutes are all automatically updated
-+ React - Application ported to use the React web framework
++ React - Application will eventually be ported to use the React web framework

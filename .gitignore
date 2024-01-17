@@ -1,3 +1,20 @@
 # .gitignore
 
+#Environment Variables
 .env
+
+# MacOS file system files
+.DS_Store
+
+# Production build files
+/dist
+/build
+
+# Logs
+*.log
+
+# Editor directories and files
+.idea/
+*.swp
+*.swo
+.vscode/

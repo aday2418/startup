@@ -1,5 +1,6 @@
 #Environment Variables
 .env
+*.pem
 
 # MacOS file system files
 .DS_Store

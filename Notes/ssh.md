@@ -3,7 +3,7 @@
 ### SSH
 + SSH is a secure way to connect to servers remotely
 + In this class, we are hosting our remote server using AWS
-+ To connect to a server using ssh run '''ssh -i [key pair file] ubuntu@[ip address]'''
++ To connect to a server using ssh run ```ssh -i [key pair file] ubuntu@[ip address]```
 
 ### AWS Server Hosting
 + When creating an AWS server, you have to create a key-pair that is stored in a secure location

@@ -9,8 +9,8 @@
 + When creating an AWS server, you have to create a key-pair that is stored in a secure location
 + This file should not be pushed to github because that could compromise the security of your project
 + In order to keep your file secure you should do the following:
-1. In a gitignore file paste the following ```*.pem```
-2. Run the following terminal command ```chmod 600 [keyFileName]```
+    1. In a gitignore file paste the following ```*.pem```
+    2. Run the following terminal command ```chmod 600 [keyFileName]```
 
 ### Elastic ID's
 + In AWS it costs to keep a server running

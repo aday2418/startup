@@ -50,7 +50,8 @@
   <footer>
     <div>Footer - <span>Span</span></div>
   </footer>
-</body> '''
+</body> 
+'''
 
 ### Importance of Block vs Inline Elements in HTML
 + Understanding the difference between block and inline elements in HTML is crucial for creating well-structured and visually coherent web pages

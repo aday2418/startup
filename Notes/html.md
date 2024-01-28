@@ -18,7 +18,7 @@
 + `span`: A generic inline container
 
 ### Example HTML Document Structure
-```html
+```
 <body>
   <header>
     <p>Header - <span>Span</span></p>

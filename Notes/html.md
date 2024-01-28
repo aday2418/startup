@@ -50,8 +50,7 @@
   <footer>
     <div>Footer - <span>Span</span></div>
   </footer>
-</body> 
-'''
+</body> ```
 
 ### Importance of Block vs Inline Elements in HTML
 + Understanding the difference between block and inline elements in HTML is crucial for creating well-structured and visually coherent web pages
@@ -80,6 +79,6 @@
 
 ### Example
 + Consider a paragraph with emphasized text:
-<p>This is a <strong>significant</strong> word in the sentence.</p>
+```<p>This is a <strong>significant</strong> word in the sentence.</p>```
 + 'p' is a block element, creating a new line and containing the whole sentence
 + 'strong' is an inline element, emphasizing a word without breaking the flow of the sentence

@@ -4,10 +4,10 @@
 + Click the links below to access notes
 
 ### Topics
-+ [Github](/Notes/github.md)
-+ [AWS and SSH](/Notes/ssh.md)
-+ [Secure Connections and Domain Names](/Notes/https.md)
-+ [HTML](/Notes/html.md)
++ [Github](/notes/github.md)
++ [AWS and SSH](/notes/ssh.md)
++ [Secure Connections and Domain Names](/notes/https.md)
++ [HTML](/notes/html.md)
 
 ### Test Files
-+ [Conlict Test](/Notes/conflictTest.md) - Note that this file was just for practicing handling conflicts. It doesn't contain any helpful notes
++ [Conlict Test](/notes/conflictTest.md) - Note that this file was just for practicing handling conflicts. It doesn't contain any helpful notes

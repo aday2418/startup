@@ -41,7 +41,9 @@
 
 ### Example
 + Consider a paragraph with emphasized text:
-```<p>This is a <strong>significant</strong> word in the sentence.</p>```
+```html
+<p>This is a <strong>significant</strong> word in the sentence.</p>
+```
 + 'p' is a block element, creating a new line and containing the whole sentence
 + 'strong' is an inline element, emphasizing a word without breaking the flow of the sentence
 

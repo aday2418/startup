@@ -7,7 +7,7 @@ Have you ever wondered what your friends are jamming out to? With **SoundCircle*
 ### Design
 Each user gets a personalized dashboard showcasing their music stats. Users will be able to click on their friends profiles to easily access and explore their friends' tastes. They will also be able to customize personal settings (such as whether to use light or dark mode).
 
-![Dashboard](/Images/dashboard.png)
+![Dashboard](/src/Images/dashboard.png)
 
 ## Project Requirements
 1. Authentication: **SoundCircle** will allow users to login and personalize their dashboard

@@ -17,9 +17,6 @@
 + `div`: A generic container for flow content
 + `span`: A generic inline container
 
-### Importance of Block vs Inline Elements in HTML
-+ Understanding the difference between block and inline elements in HTML is crucial for creating well-structured and visually coherent web pages
-
 ### Block Elements
 + **Definition**: Block elements create a visible block on a page — they will start on a new line and take up the full width available
 + **Characteristics**:

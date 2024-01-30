@@ -36,5 +36,6 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + WebSocket - As users continually listen to music, their top songs, artists, and minutes are all automatically updated
 + React - Application will eventually be ported to use the React web framework
 
-<hr style="border:2px solid black">
+<hr style="border:2px background-color: black; border: none;">
+
 # HTML Deliverable

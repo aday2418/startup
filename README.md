@@ -35,3 +35,6 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + DB/Login - Store users, app preferences, and listening data in database. Users are not able to see friend data until they are logged in
 + WebSocket - As users continually listen to music, their top songs, artists, and minutes are all automatically updated
 + React - Application will eventually be ported to use the React web framework
+
+<hr style="border:2px solid black">
+# HTML Deliverable

@@ -52,3 +52,5 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 | ![Home Page](/src/images/homeHTML.png) | ![Dashboard](/src/images/dashboardHTML.png) | ![Friends](/src/images/friendsHTML.png) | ![Settings](/src/images/settingsHTML.png) |
 | :-: | :-: | :-: | :-: |
 | Home Page | Dashboard | Friends | Settings |
+
+Half of the dashboard got cut off in the screenshot above so you'll have to check out the [site](https://startup.soundcircle.xyz) to see the rest!

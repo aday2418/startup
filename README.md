@@ -48,7 +48,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
     3.**Friends** - Lets users view current friends and add new ones
     4.**Settings** - Lets users update profile information and change app settings
 
-|     |     |     |     |
-| :-: | :-: | :-: | :-: |
+
 | ![Home Page](/src/images/homeHTML.png) | ![Dashboard](/src/images/dashboardHTML.png) | ![Friends](/src/images/friendsHTML.png) | ![Settings](/src/images/settingsHTML.png) |
+| :-: | :-: | :-: | :-: |
 | Home Page | Dashboard | Friends | Settings |

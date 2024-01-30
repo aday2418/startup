@@ -36,6 +36,19 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + WebSocket - As users continually listen to music, their top songs, artists, and minutes are all automatically updated
 + React - Application will eventually be ported to use the React web framework
 
-<hr style="border:4px">
-
 # HTML Deliverable
+
+### Simon HTML Deployment
++ Check out the simon HTML that I deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
+
+### HTML Pages
++ I added 4 new HTML pages to my application
+    1.**Home** - Allows the user to login
+    2.**Dashboard** - Contains information about listening history, top songs, and top artists
+    3.**Friends** - Lets users view current friends and add new ones
+    4.**Settings** - Lets users update profile information and change app settings
+
+|     |     |     |     |
+| :-: | :-: | :-: | :-: |
+| ![Home Page](/src/images/homeHTML.png) | ![Dashboard](/src/images/dashboardHTML.png) | ![Friends](/src/images/friendsHTML.png) | ![Settings](/src/images/settingsHTML.png) |
+| Home Page | Dashboard | Friends | Settings |

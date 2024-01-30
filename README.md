@@ -43,10 +43,10 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 
 #### HTML Pages
 + I added 4 new HTML pages to my application
-    1.**Home** - Allows the user to login
-    2.**Dashboard** - Contains information about listening history, top songs, and top artists
-    3.**Friends** - Lets users view current friends and add new ones
-    4.**Settings** - Lets users update profile information and change app settings
+    1. **Home** - Allows the user to login
+    2. **Dashboard** - Contains information about listening history, top songs, and top artists
+    3. **Friends** - Lets users view current friends and add new ones
+    4. **Settings** - Lets users update profile information and change app settings
 + Code was deployed to [startup.soundcircle.xyz](https://startup.soundcircle.xyz)
 
 

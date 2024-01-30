@@ -38,10 +38,10 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 
 # HTML Deliverable
 
-### Simon HTML Deployment
+#### Simon HTML Deployment
 + Check out the simon HTML that I deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
 
-### HTML Pages
+#### HTML Pages
 + I added 4 new HTML pages to my application
     1.**Home** - Allows the user to login
     2.**Dashboard** - Contains information about listening history, top songs, and top artists
@@ -51,6 +51,19 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 
 | ![Home Page](/src/images/homeHTML.png) | ![Dashboard](/src/images/dashboardHTML.png) | ![Friends](/src/images/friendsHTML.png) | ![Settings](/src/images/settingsHTML.png) |
 | :-: | :-: | :-: | :-: |
-| Home Page | Dashboard | Friends | Settings |
+| **Home Page** | **Dashboard** | **Friends** | **Settings** |
 
-Half of the dashboard got cut off in the screenshot above so you'll have to check out the [site](https://startup.soundcircle.xyz) to see the rest!
+* Half of the dashboard got cut off in the screenshot above so you'll have to check out the [site](https://startup.soundcircle.xyz) to see the rest!
+
+#### Project Requirements
++ **HTML Pages** - 4 pages included for each component of my application (see above)
++ **HTML Tags** - All pages included proper use of HTML tags including BODY, NAV, MAIN, HEADER, FOOTER
++ **Links** - All pages included links to all other pages in the header
++ **Textual Content** - Each HTML Page contained sufficient text to convey the app structure clearly
++ **3rd Party Calls** - A button was included on the dashboard to refresh the call to the Spotify API 
++ **Application Images** - Images were included on every page for uses including icons, album covers, profile pictures, and artist photos
++ **Login Placeholder** - A login placeholder for both a users username and password were included on the home page
++ **Database Data** - The database data for this application will be a users friends. A placeholder for this information is included on the friends page
++ **WebSocket Data** - The websocket data that will be returned from the spotify API include a users total minutes listened, top songs, and top artists. Placeholders for this information are contained on the dashboard page
+
+

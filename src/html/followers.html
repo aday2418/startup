@@ -1,45 +1,92 @@
-<body>
-    <h1>Followers</h1>
-    <a href='/src/html/settings.html'>Link to Settings</a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundCircle HTML</title>
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <!-- Use header, main, and footer elements to give semantic structure -->
     <header>
-      <p>Header - <span>Span</span></p>
+      <h1>SoundCircle<sup>&reg;</sup></h1>
+
+      <!-- Navigation elements -->
       <nav>
-        Navigation
-        <div>Div</div>
-        <div>Div</div>
-      </nav>
-    </header>
-  
-    <main>
-      <section>
-        <p>Section</p>
-        <ul>
-          <li>List</li>
-          <li>List</li>
-          <li>List</li>
-        </ul>
-      </section>
-      <section>
-        <p>Section</p>
         <table>
           <tr>
-            <th>Table</th>
-            <th>Table</th>
-            <th>Table</th>
+            <td><a href="/index.html"> <img src="/src/images/home.svg" alt="Home" width="30" height="30">Home</a></td>
           </tr>
           <tr>
-            <td>table</td>
-            <td>table</td>
-            <td>table</td>
+            <td>
+              <a href="/src/html/dashboard.html"> <img src="/src/images/dashboard.svg" alt="Dashboard" width="30" height="30"> Dashboard</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="/src/html/followers.html"> <img src="/src/images/followers.svg" alt="Followers" width="30" height="30"> Followers</a></td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="/src/html/settings.html"> <img src="/src/images/settings.svg" alt="Settings" width="30" height="30"> Settings</a>
+            </td>
           </tr>
         </table>
-      </section>
-      <aside>
-        <p>Aside</p>
-      </aside>
+      </nav>
+
+      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
+      <hr />
+    </header>
+
+    <main>
+      <h1>Friends</h1>
+      <table>
+        <tr>
+          <td><img src="/src/images/followers.svg" alt="Friend Icon" width="20"></td>
+          <td>JohnyCash2123</td>
+        </tr>
+        <tr>
+          <td><img src="/src/images/followers.svg" alt="Friend Icon" width="20"></td>
+          <td>RockLover2240</td>
+        </tr>
+        <tr>
+          <td><img src="/src/images/followers.svg" alt="Friend Icon" width="20"></td>
+          <td>SoundMixer1231</td>
+        </tr>
+        <tr>
+          <td><img src="/src/images/followers.svg" alt="Friend Icon" width="20"></td>
+          <td>JustinMusic1231</td>
+        </tr>
+        <tr>
+          <td><img src="/src/images/followers.svg" alt="Friend Icon" width="20"></td>
+          <td>ClassicalBangers04</td>
+        </tr>
+      </table>
+      <hr/>
+      <h1>Add New Friends</h1>
+      <form>
+        <div>
+          <label for="name">Search For New Friends: </label>
+          <span><input type="text" id="friendSearch" placeholder="Enter Friend's Username"/> <button type="submit"> Search </input> </span>
+        </div>
+      </form>
+      <br/>
+      <table>
+        <tr>
+          <td><img src="/src/images/addFriend.svg" alt="Add Friend Icon" width="20"></td>
+          <td>NewFriendToBeAdded23491</td>
+        </tr>
+      </table>
     </main>
-  
+    <br/>
+
     <footer>
-      <div>Footer - <span>Span</span></div>
+      <hr />
+      <span class="text-reset">Alison Day</span>
+      <br />
+      <a href="https://github.com/aday2418/startup">GitHub for SoundCircle</a>
     </footer>
-</body>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 # SoundCircle
-Hey! This is a project that I'm making for my CS 260 class. Feel free to use this code for any projects you like! If you want to learn more about web programming, check out the [notes](/notes/notes.md) I took from this class!
+Hey! This is a project that I'm making for my CS 260 class. Feel free to use this code for any projects you like! If you want to learn more about web programming, check out the [notes](/public/notes/notes.md) I took from this class!
 
 #### Elevator Pitch
 Have you ever wondered what your friends are jamming out to? With **SoundCircle**, you're always in the loop, diving into their favorite genres, artists, and top songs. **SoundCircle** isn't just about sharing playlists; it's a unique way to connect through music. You can compare listening stats and discover new tunes, all within a user-friendly interface that integrates seamlessly with your existing Spotify playlists. **SoundCircle** is the perfect way to deepen your connections through the universal language of music.
@@ -7,7 +7,7 @@ Have you ever wondered what your friends are jamming out to? With **SoundCircle*
 #### Design
 Each user gets a personalized dashboard showcasing their music stats. Users will be able to click on their friends profiles to easily access and explore their friends' tastes. They will also be able to customize personal settings (such as whether to use light or dark mode).
 
-![Dashboard](/src/images/dashboard.png)
+![Dashboard](/public/images/dashboard.png)
 
 #### Project Requirements
 1. Authentication: **SoundCircle** will allow users to login and personalize their dashboard
@@ -50,7 +50,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + Code was deployed to [startup.soundcircle.xyz](https://startup.soundcircle.xyz)
 
 
-| ![Home Page](/src/images/homeHTML.png) | ![Dashboard](/src/images/dashboardHTML.png) | ![Friends](/src/images/friendsHTML.png) | ![Settings](/src/images/settingsHTML.png) |
+| ![Home Page](/public/images/homeHTML.png) | ![Dashboard](/src/images/dashboardHTML.png) | ![Friends](/public/images/friendsHTML.png) | ![Settings](/public/images/settingsHTML.png) |
 | :-: | :-: | :-: | :-: |
 | **Home Page** | **Dashboard** | **Friends** | **Settings** |
 
@@ -66,5 +66,3 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + **Login Placeholder** - A login placeholder for both a users username and password were included on the home page
 + **Database Data** - The database data for this application will be a users friends. A placeholder for this information is included on the friends page
 + **WebSocket Data** - The websocket data that will be returned from the spotify API include a users total minutes listened, top songs, and top artists. Placeholders for this information are contained on the dashboard page
-
-

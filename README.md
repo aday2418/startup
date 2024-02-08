@@ -50,7 +50,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + Code was deployed to [startup.soundcircle.xyz](https://startup.soundcircle.xyz)
 
 
-| ![Home Page](/public/images/homeHTML.png) | ![Dashboard](/src/images/dashboardHTML.png) | ![Friends](/public/images/friendsHTML.png) | ![Settings](/public/images/settingsHTML.png) |
+| ![Home Page](/public/images/homeHTML.png) | ![Dashboard](/public/images/dashboardHTML.png) | ![Friends](/public/images/friendsHTML.png) | ![Settings](/public/images/settingsHTML.png) |
 | :-: | :-: | :-: | :-: |
 | **Home Page** | **Dashboard** | **Friends** | **Settings** |
 

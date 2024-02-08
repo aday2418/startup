@@ -17,3 +17,25 @@
 *.swp
 *.swo
 .vscode/
+
+# node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# next.js
+/.next/
+/out/
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

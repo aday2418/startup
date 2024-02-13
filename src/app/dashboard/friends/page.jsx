@@ -1,8 +1,14 @@
 import Image from 'next/image'
 
-export default function Home() {
+export default function Friends() {
   return (
-    <div>
+        <div>
+            
+        </div>
+    )
+}
+
+/*    <div>
 
         <main>
         <h2>Friends</h2>
@@ -53,5 +59,4 @@ export default function Home() {
         <a href="https://github.com/aday2418/startup">GitHub for SoundCircle</a>
         </footer>
     </div>
-    )
-}
+*/

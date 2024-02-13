@@ -4,7 +4,6 @@ import House from '/src/components/icons/House'
 import Dashboard from '/src/components/icons/Dashboard'
 import Friend from '/src/components/icons/Friend'
 import Gear from '/src/components/icons/Gear'
-import Tab from './dashboard/Tab'
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +14,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className='w-full flex flex-col'>
-        <div>
+        {children}
+      </body>
+    </html>
+  )
+}
+
+/*<div>
           <h1>SoundCircle<sup>&reg;</sup></h1>
           <nav class="flex flex-col">
               <ul>
@@ -25,9 +30,7 @@ export default function RootLayout({ children }) {
                 <Tab icon={<Gear/>} pageName="Settings" link="/dashboard/settings"/>
               </ul>
             </nav>
-        </div>
-        {children}
-      </body>
-    </html>
-  )
-}
+        </div>*/
+
+//Needs proper use of BODY, NAV, MAIN, HEADER, FOOTER (Layout will handle header, footer, nav) <-- All in this file!!
+

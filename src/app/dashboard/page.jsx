@@ -1,8 +1,13 @@
 import Image from 'next/image'
 
-export default function Home() {
+export default function Dahsboard() {
   return (
-    <div>
+    <div className='w-full h-[20px] bg-white'>
+      <h1 className='text-white'>Dashboard</h1>
+    </div>
+  )
+}
+/*<div>
       <h1>SoundCircle<sup>&reg;</sup></h1>
 
       <hr />
@@ -83,6 +88,4 @@ export default function Home() {
       <br />
       <a href="https://github.com/aday2418/startup">GitHub</a>
     </footer>
-    </div>
-  )
-}
+    </div>*/

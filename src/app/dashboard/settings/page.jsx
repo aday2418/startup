@@ -32,10 +32,10 @@ export default function Settings() {
             <h1 className='text-2xl mt-4 mb-4'>Preferences</h1>
             <div className='flex flex-col gap-2'>
                 <div className='flex gap-4 items-center'>
-                    <label class="switch">
-                        <input type="checkbox"/>
-                        <span class="slider round"/>
-                    </label>
+                        <label class="switch">
+                            <input type="checkbox"/>
+                            <span class="slider round"/>
+                        </label>
                     <p>Dark Mode</p>
                 </div>
                 <button className='flex items-center border w-[150px] rounded-md border-white justify-center p-1'>Save Preferences</button>

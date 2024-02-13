@@ -1,8 +1,14 @@
 import Image from 'next/image'
 
 export default function Settings() {
-  return (    
-    <div>
+  return ( 
+    <PageInfo title="Settings">
+
+    </PageInfo>    
+    
+    )
+}
+/*<div>
         <h1>SoundCircle<sup>&reg;</sup></h1>
 
         <hr />
@@ -40,6 +46,4 @@ export default function Settings() {
         <br />
         <a href="https://github.com/aday2418/startup">GitHub for SoundCircle</a>
         </footer>
-    </div>
-    )
-}
+    </div>*/

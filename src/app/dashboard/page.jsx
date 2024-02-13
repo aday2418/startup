@@ -1,10 +1,49 @@
 import Image from 'next/image'
+import PageInfo from './PageInfo'
+import Friend from '@/components/icons/Friend'
 
 export default function Dahsboard() {
   return (
-    <div className='w-full h-[20px] bg-white'>
-      <h1 className='text-white'>Dashboard</h1>
-    </div>
+    <PageInfo title="Dashboard">
+      <div className='flex flex-col gap-4'>
+        <div className='flex flex-row h-[100px] bg-blue-500'>
+          <Friend fillColor="#FFFFFF" width={40} height={40} />
+          <div>
+              <h1 className="text-white text-base tracking-wide w-fit truncate">John Doe</h1>
+              <h1 className="text-white text-xs tracking-wide w-fit truncate">username12345</h1>
+          </div>
+        </div>
+        <div className="flex flex-row h-[100px] bg-blue-500 justify-center gap-20">
+          <div className='flex'>
+            <div className='flex flex-col'>
+              <h1>Top Songs</h1>
+              <div>
+                <p>1. Song 1</p>
+                <p>2. Song 2</p>
+                <p>3. Song 3</p>
+                <p>4. Song 4</p>
+                <p>5. Song 5</p>
+              </div>
+            </div>
+            <Image className='object-contain' src="/images/phoebeBridgers.jpeg" width={100} height={100}/>
+          </div>
+            
+          <div className='flex'>
+            <div className='flex flex-col'>
+                <h1>Top Artists</h1>
+                <div>
+                  <p>1. Artist 1</p>
+                  <p>2. Artist 2</p>
+                  <p>3. Artist 3</p>
+                  <p>4. Artist 4</p>
+                  <p>5. Artist 5</p>
+                </div>
+              </div>
+            <Image className='object-contain' src="/images/somethingInTheOrange.jpeg" width={100} height={100}/>
+          </div>
+        </div>
+      </div>
+    </PageInfo> 
   )
 }
 /*<div>

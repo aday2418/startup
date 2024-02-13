@@ -9,8 +9,14 @@ export default function DashboardLayout({children})
     return (
         <div className="relative w-full h-screen bg-black overflow-hidden">
             <div className="relative w-full header header-height border-b flex justify-between items-center border-gray-400 px-[40px]">
-                <div>
+                <div className='flex flex-row gap-4'>
                     <h1 className="text-white font-semibold tracking-wider text-2xl">SoundCircle</h1>
+                    <div className='flex flex-row gap-3 text-white items-center'>
+                        <a hhref="/">Home</a>
+                        <a href="/dashboard">Dashboard</a>
+                        <a href="/dashboard/friends">Friends</a>
+                        <a href="/dashboard/settings">Settings</a>
+                    </div>
                 </div>
                 <div>
                     <a href="/">
@@ -26,12 +32,11 @@ export default function DashboardLayout({children})
                         <Tab pageName="Settings" link="/dashboard/settings" selected= "settings"/>
                     </div>
                     <div>
-                        <Link href="/dashboard">
-                            <div className="relative w-full h-fit flex flex-row justify-center gap-2 border-t py-[20px] px-[15px] border-gray-400 hover:bg-gray-900 cursor-pointer hover:border-gray-500 smoothe">
-                                <Friend fillColor="#FFFFFF" width={40} height={40} />\
+                        <Link href="https://github.com/aday2418/startup">
+                            <div className="relative w-full h-fit flex flex-row  gap-2 border-t py-[20px] px-[15px] border-gray-400 hover:bg-gray-900 cursor-pointer hover:border-gray-500 smoothe text-white">
                                 <div>
-                                    <h1 className="text-white text-base tracking-wide w-fit truncate">John Doe</h1>
-                                    <h1 className="text-white text-xs tracking-wide w-fit truncate">username12345</h1>
+                                    <h1 className="text-white text-base tracking-wide w-fit truncate">Alison Day</h1>
+                                    <p>Github</p>
                                 </div>
                                 
                             </div>

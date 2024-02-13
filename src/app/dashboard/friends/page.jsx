@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import PageInfo from '../PageInfo'
 
 export default function Friends() {
   return (
         <PageInfo title="Friends">
-            
+
         </PageInfo> 
     )
 }

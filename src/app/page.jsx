@@ -16,8 +16,8 @@ export default function Home() {
             <div className='flex flex-row gap-3'>
               <a hhref="/">Home</a>
               <a href="/dashboard">Dashboard</a>
-              <a href="/friends">Friends</a>
-              <a href="/settings">Settings</a>
+              <a href="/dashboard/friends">Friends</a>
+              <a href="/dashboard/settings">Settings</a>
             </div>
         </nav>
         <div className='flex flex-col h-full bg-white items-center justify-center gap-10'>

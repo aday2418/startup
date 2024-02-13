@@ -1,5 +1,5 @@
 import Image from 'next/image'
-
+import PageInfo from '../PageInfo'
 export default function Settings() {
   return ( 
     <PageInfo title="Settings">

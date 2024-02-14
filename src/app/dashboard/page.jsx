@@ -18,7 +18,7 @@ export default function Dahsboard() {
 
   return (
     <PageInfo title="Dashboard">
-      <div className='flex flex-col gap-4 text-white'>
+      <div className='flex flex-col text-white'>
         <div className='flex flex-row h-[150px] gap-8'>
           <div className="border rounded-full border-white">
             <Friend fillColor="#FFFFFF" width={40} height={40} />
@@ -29,15 +29,14 @@ export default function Dahsboard() {
               <h1 className="text-md ">username12345 | 115 Friends</h1>
           </div>
         </div>
-        <div className='flex gap-4'> 
+        <div className='flex gap-4 mt-8'> 
           <TableTab name="Top Songs" selected={tab == "songs"} value="songs" changeTab={changeTab}/>
           <TableTab name="Top Artists" selected={tab == "artists"} value="artists" changeTab={changeTab}/>
           <TableTab name="Top Genres" selected={tab == "genres"} value="genres" changeTab={changeTab}/>
         </div>
-        {tab == "songs" ? <Songs/> : tab == "artists" ? <Artists/> : <Genres/>}
-        
-        
-       
+        <div className='border p-4'>
+          {tab == "songs" ? <Songs/> : tab == "artists" ? <Artists/> : <Genres/>}
+        </div>
         
       </div>
     </PageInfo> 

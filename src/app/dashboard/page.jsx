@@ -26,7 +26,7 @@ export default function Dahsboard() {
           <div className='flex justify-between w-full items-center pb-8'>
             <div className='flex flex-col'>
                 <h1 className="text-3xl ">Firstname Lastname</h1>
-                <p className="text-md ">username12345 | 115 Friends</p>
+                <p className="text-md ">username12345 | 10 Friends</p>
             </div>
             <button className='flex items-center border rounded-lg border-white justify-center w-[160px] h-[40px] p-2 hover:bg-gray-700'>Refresh API Data</button>
             

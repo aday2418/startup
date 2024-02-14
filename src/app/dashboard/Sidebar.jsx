@@ -26,7 +26,7 @@ export default function Sidebar(){
                 <Tab svg={<Gear fillColor="#FFFFFF"/>} link="/dashboard/settings" selected={current =="settings"}/>
                 <Tab svg={<GitHub fillColor='#FFFFFF'/>} link="https://github.com/aday2418/startup" selected={false}/>
             </div>
-            <div>
+            <footer>
                 <Link href="https://github.com/aday2418/startup">
                     <div className="relative w-full h-fit flex flex-row  gap-2 border-t py-[20px] px-[15px] border-gray-400 hover:bg-gray-900 cursor-pointer hover:border-gray-500 smoothe text-white">
                         <div className="flex flex-col">
@@ -35,7 +35,7 @@ export default function Sidebar(){
                         </div>
                     </div>
                 </Link>
-            </div>
+            </footer>
         </div>
     )
 }

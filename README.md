@@ -73,9 +73,6 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + I'm planning on adding a dark mode option in the future so I coded the dashboard section of the app in dark mode 
     + Later there will be a light mode version as well
 
-#### Simon HTML Deployment
-+ Check out the simon HTML that I deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
-
 #### Project Requirements
 + **Simon Deployed** - Code was deployed to [startup.soundcircle.xyz](https://startup.soundcircle.xyz)
 + **Github Link** - Every page contains a link to my project github

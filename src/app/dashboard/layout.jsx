@@ -1,7 +1,10 @@
 import Tab from './Tab'
 import Link from "next/link";
 import Friend from '/src/components/icons/Friend'
-
+import House from '@/components/icons/House';
+import Dashboard from '@/components/icons/Dashboard';
+import Gear from '@/components/icons/Gear';
+import Sidebar from './Sidebar';
 
 
 export default function DashboardLayout({children})
@@ -12,7 +15,7 @@ export default function DashboardLayout({children})
                 <div className='flex flex-row gap-4'>
                     <h1 className="text-white font-semibold tracking-wider text-2xl">SoundCircle</h1>
                     <div className='flex flex-row gap-3 text-white items-center'>
-                        <a hhref="/">Home</a>
+                        <a href="/">Home</a>
                         <a href="/dashboard">Dashboard</a>
                         <a href="/dashboard/friends">Friends</a>
                         <a href="/dashboard/settings">Settings</a>
@@ -25,24 +28,7 @@ export default function DashboardLayout({children})
                 </div>
             </div> 
             <div className="relative flex w-full">
-                <div className="relative w-[200px] sidebar-height border-r border-gray-400 flex flex-col pt-[40px] gap-4 justify-between ">
-                    <div>
-                        <Tab pageName="Dashboard" link="/dashboard" selected="dashboard"/>
-                        <Tab pageName="Friends" link="/dashboard/friends" selected="friends"/>
-                        <Tab pageName="Settings" link="/dashboard/settings" selected= "settings"/>
-                    </div>
-                    <div>
-                        <Link href="https://github.com/aday2418/startup">
-                            <div className="relative w-full h-fit flex flex-row  gap-2 border-t py-[20px] px-[15px] border-gray-400 hover:bg-gray-900 cursor-pointer hover:border-gray-500 smoothe text-white">
-                                <div>
-                                    <h1 className="text-white text-base tracking-wide w-fit truncate">Alison Day</h1>
-                                    <p>Github</p>
-                                </div>
-                                
-                            </div>
-                        </Link>
-                    </div>
-                </div>
+                <Sidebar/>
                 {children}
             </div>
         </div>

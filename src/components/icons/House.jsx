@@ -1,6 +1,6 @@
-export default function House() {
+export default function House({fillColor}) {
     return(
-        <svg className="h-full" fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.398 495.398">
+        <svg className="h-full" fill={fillColor} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.398 495.398">
             <g>
                 <g>
                     <g>

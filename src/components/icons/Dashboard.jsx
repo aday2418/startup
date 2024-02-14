@@ -1,6 +1,6 @@
-export default function Dashboard() {
+export default function Dashboard({fillColor}) {
     return(
-        <svg className="h-full" fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <svg className="h-full" fill={fillColor} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         <title>dashboard</title>
         <rect x="24" y="21" width="2" height="5" />
         <rect x="20" y="16" width="2" height="10" />

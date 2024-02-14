@@ -40,7 +40,6 @@ export default function Settings() {
                 </div>
                 <button className='flex items-center border w-[150px] rounded-md border-white justify-center p-1'>Save Preferences</button>
             </div>
-            
         </div>
     </PageInfo>    
     

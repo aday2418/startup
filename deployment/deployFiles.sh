@@ -33,12 +33,12 @@ cp -r pages service public build # Adjust as needed for your app's structure
 
 printf "\n----> Clearing out previous distribution on the target\n"
 ssh -i "$key" ubuntu@$hostname << ENDSSH
-rm -rf services/${service}/public
-mkdir -p services/${service}/public
+rm -rf services/${service}
+mkdir -p services/${service}:
 ENDSSH
 
 printf "\n----> Copy the distribution package to the target\n"
-scp -i "$key" -r ./src/* ubuntu@$hostname:services/$service/public
+scp -i "$key" -r ./* ubuntu@$hostname:services/$service
 
 printf "\n----> Deploy the service on the target\n"
 ssh -i "$key" ubuntu@$hostname << ENDSSH

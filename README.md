@@ -38,9 +38,6 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 
 # HTML Deliverable
 
-#### Simon HTML Deployment
-+ Check out the simon HTML that I deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
-
 #### HTML Pages
 + I added 4 new HTML pages to my application
     1. **Home** - Allows the user to login
@@ -66,3 +63,33 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + **Login Placeholder** - A login placeholder for both a users username and password were included on the home page
 + **Database Data** - The database data for this application will be a users friends. A placeholder for this information is included on the friends page
 + **WebSocket Data** - The websocket data that will be returned from the spotify API include a users total minutes listened, top songs, and top artists. Placeholders for this information are contained on the dashboard page
+
+# CSS Deliverable
+
++ One of the major changes that I made during the CSS deliverable was changing the structure of the app to react nextjs
+    + Did this because I found myself repeating a lot of HTML code
+    + In react you can create and import custom components to keep from repeating code
++ Used tailwind for inline CSS declarations
++ I'm planning on adding a dark mode option in the future so I coded the dashboard section of the app in dark mode 
+    + Later there will be a light mode version as well
+
+#### Simon HTML Deployment
++ Check out the simon HTML that I deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
+
+#### Project Requirements
++ **Simon Deployed** - Code was deployed to [startup.soundcircle.xyz](https://startup.soundcircle.xyz)
++ **Github Link** - Every page contains a link to my project github
++ **CSS Notes** - Thorough notes were taken detailing what I learned about CSS
++ **Git Commits** - Many more than 10 commits :)
++ **Styling** - Properly styled CSS header, footer, and main content body
++ **Navigation** - Properly styled CSS navigation elements
++ **Window Resizing** - Responds properly when windows are resized
++ **Application Elements** - Properly styled CSS application elements
++ **Application Text Elements** - Properly styled CSS application text content
++ **Images** - Properly styled CSS application images (most of mine were in the form of svgs)
+
+#### Final Page Styling
+| ![Home Page](/public/images/homeCSS.png) | ![Dashboard](/public/images/dashboardCSS.png) | ![Friends](/public/images/friendsCSS.png) | ![Settings](/public/images/settingsCSS.png) |
+| :-: | :-: | :-: | :-: |
+| **Home Page** | **Dashboard** | **Friends** | **Settings** |
+

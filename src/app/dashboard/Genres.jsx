@@ -1,8 +1,7 @@
+import GenreChart from "./GenreChart"
 export default function Genres(){
     return(
-        <div className="text-white">
-            <h1>Genres</h1>
-        </div>
+        <GenreChart/>
     )
 }
 /*<div className="flex flex-row h-[100px] bg-blue-500 justify-center gap-20">

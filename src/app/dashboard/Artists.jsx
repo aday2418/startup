@@ -1,7 +1,24 @@
+import ArtistRow from "./ArtistRow"
 export default function Artists(){
     return(
-        <div className="text-white">
-            <h1>Artists</h1>
+        <div className="flex flex-col">
+            <ArtistRow number="" artist="Artist" song="Most Played Song" picture="Artist Photo"/>
+            <div class="w-full border-t border-gray-200"></div>
+            <ArtistRow number="1" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="2" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="3" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="4" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="5" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="6" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="7" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="8" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="9" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="10" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="11" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="12" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="13" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="14" song="firstSong" artist="firstartist" picture="picture"/>
+            <ArtistRow number="15" song="firstSong" artist="firstartist" picture="picture"/>
         </div>
     )
 }

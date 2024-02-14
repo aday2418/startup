@@ -86,7 +86,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + **Images** - Properly styled CSS application images (most of mine were in the form of svgs)
 
 #### Final Page Styling
-| ![Home Page](/public/images/homeCSS.png) | ![Dashboard](/public/images/dashboardCSS.png) | ![Friends](/public/images/friendsCSS.png) | ![Settings](/public/images/settingsCSS.png) |
+| ![Home Page](public/images/homeCSS.png) | ![Dashboard](/public/images/dashboardCSS.png) | ![Friends](/public/images/friendsCSS.png) | ![Settings](/public/images/settingsCSS.png) |
 | :-: | :-: | :-: | :-: |
 | **Home Page** | **Dashboard** | **Friends** | **Settings** |
 

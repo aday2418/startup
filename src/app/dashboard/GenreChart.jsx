@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export default function GenreChart() {
+export default function GenreChart() { // Used to Fill in the data for the chart
   const data = {
     labels: ['Rock', 'Indie', 'Pop', 'Electronic', 'Hip Hop', 'Jazz', 'Classical'],
     datasets: [

@@ -4,6 +4,7 @@ export default function Genres(){
         <GenreChart/>
     )
 }
+
 /*<div className="flex flex-row h-[100px] bg-blue-500 justify-center gap-20">
           <div className='flex'>
             <div className='flex flex-col'>

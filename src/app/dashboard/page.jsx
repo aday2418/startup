@@ -19,13 +19,15 @@ export default function Dahsboard() {
   const storedFirstName = localStorage.getItem('firstName');
   const storedLastName = localStorage.getItem('lastName');
   const storedSpotify = localStorage.getItem('spotifyUsername');
+  const storedPicture = localStorage.getItem('profilePicture')
 
   return (
     <PageInfo title="Dashboard">
       <div className='flex flex-col text-white'>
         <div className='flex flex-row h-[150px] gap-8'>
-          <div className="border rounded-full border-white">
-            <Friend fillColor="#FFFFFF" width={40} height={40} />
+          <div className="flex flex-shrink-0 flex-grow-0 border rounded-full border-white h-[150px] w-[150px] overflow-hidden items-center">
+            {storedPicture ? <img src={storedPicture} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor="#FFFFFF"/>}
+            
           </div>
           <div className='flex justify-between w-full items-center pb-8'>
             <div className='flex flex-col'>
@@ -53,3 +55,5 @@ export default function Dahsboard() {
     </PageInfo> 
   )
 }
+
+//<Friend fillColor="#FFFFFF" width={40} height={40} />

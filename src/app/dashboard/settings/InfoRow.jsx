@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from 'react'
 
-export default function InfoRow({blockName, passedValue}){
+export default function InfoRow({blockName, localStorageKey, passedValue}){
     const [editing, setEditing] = useState(false);
     const [value, setValue] = useState(passedValue);
 
     // Effect to load the initial value from localStorage or use the provided prop
     useEffect(() => {
-        const storedValue = localStorage.getItem(blockName);
+        const storedValue = localStorage.getItem(localStorageKey);
         if (storedValue) {
         setValue(storedValue);
         }
-    }, [blockName]);
+    }, [localStorageKey]);
 
     // Function to handle value change
     const handleChange = (event) => {
@@ -21,7 +21,7 @@ export default function InfoRow({blockName, passedValue}){
 
     // Function to save the value to localStorage and exit edit mode
     const handleSave = () => {
-        localStorage.setItem(blockName, value);
+        localStorage.setItem(localStorageKey, value);
         setEditing(false);
     };
     
@@ -29,7 +29,8 @@ export default function InfoRow({blockName, passedValue}){
         <div className='flex flex-row items-center justify-between'>
             <div>
                 <h1 className='text-3xl'>{blockName}</h1>
-                <p>{passedValue}</p>
+                {editing ? (<input type="text" value={value} onChange={handleChange} className="border bg-black rounded-lg p-2"/>) : (<p>{value}</p>)}
+                
             </div>
             
             { editing ? (

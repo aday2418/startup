@@ -22,9 +22,9 @@ export default function Settings() {
                     <button className='text-sm'>Change Profile Picture</button>
                 </div>
                 <div className='flex flex-col justify-top w-full gap-4'>
-                    <InfoRow blockName="First Name" passedValue={storedFirstName}/>
-                    <InfoRow blockName="Last Name" passedValue={storedLastName}/>
-                    <InfoRow blockName="Spotify Account" passedValue={storedSpotify}/>
+                    <InfoRow blockName="First Name" passedValue={storedFirstName} localStorageKey="firstName"/>
+                    <InfoRow blockName="Last Name" passedValue={storedLastName} localStorageKey="lastName"/>
+                    <InfoRow blockName="Spotify Account" passedValue={storedSpotify} localStorageKey="spotifyUsername"/>
                 </div>
             </div>
             <h1 className='text-3xl mt-8 mb-4'>Preferences</h1>

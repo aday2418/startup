@@ -16,6 +16,10 @@ export default function Dahsboard() {
     setTab(newTab)
   }
 
+  const storedFirstName = localStorage.getItem('firstName');
+  const storedLastName = localStorage.getItem('lastName');
+  const storedSpotify = localStorage.getItem('spotifyUsername');
+
   return (
     <PageInfo title="Dashboard">
       <div className='flex flex-col text-white'>
@@ -25,8 +29,11 @@ export default function Dahsboard() {
           </div>
           <div className='flex justify-between w-full items-center pb-8'>
             <div className='flex flex-col'>
-                <h1 className="text-3xl ">Firstname Lastname</h1>
-                <p className="text-md ">username12345 | 10 Friends</p>
+                <div className='flex text-3xl gap-3'>
+                  <h1>{storedFirstName}</h1>
+                  <h1>{storedLastName}</h1>
+                </div>
+                <p className="text-md ">{storedSpotify} | 10 Friends</p>
             </div>
             <button className='flex items-center border rounded-lg border-white justify-center w-[160px] h-[40px] p-2 hover:bg-gray-700'>Refresh API Data</button>
             

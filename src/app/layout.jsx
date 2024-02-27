@@ -22,17 +22,5 @@ export default function RootLayout({ children }) {
   )
 }
 
-/*<div>
-          <h1>SoundCircle<sup>&reg;</sup></h1>
-          <nav class="flex flex-col">
-              <ul>
-                <Tab icon={<House/>} pageName="Home" link="/"/>
-                <Tab icon={<Dashboard/>} pageName="Dashboard" link="/dashboard"/>
-                <Tab icon={<Friend/>} pageName="Friends" link="/dashboard/friends"/>
-                <Tab icon={<Gear/>} pageName="Settings" link="/dashboard/settings"/>
-              </ul>
-            </nav>
-        </div>*/
-
 //Needs proper use of BODY, NAV, MAIN, HEADER, FOOTER (Layout will handle header, footer, nav) <-- All in this file!!
 

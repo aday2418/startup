@@ -1,35 +1,33 @@
+"use client"
 import Image from 'next/image'
 import PageInfo from '../PageInfo'
 import Friend from '@/components/icons/Friend'
+import { useState } from 'react'
+import InfoRow from './InfoRow'
+
 export default function Settings() {
-  return ( 
+  
+    const storedFirstName = localStorage.getItem('firstName');
+    const storedLastName = localStorage.getItem('lastName');
+    const storedSpotify = localStorage.getItem('spotifyUsername');
+
+    return ( 
     <PageInfo title="Settings">
         <div className='flex flex-col text-white'>
             <div className='flex flex-row h-[200px] gap-8'>
-                <div className='flex flex-col'>
-                    <div className='border rounded-full'>
+                <div className='flex flex-col justify-center gap-4'>
+                    <div className='border rounded-full h-[150px]'>
                         <Friend fillColor="#FFFFFF"/>
                     </div>
                     <button className='text-sm'>Change Profile Picture</button>
                 </div>
                 <div className='flex flex-col justify-top w-full gap-4'>
-                    <div className='flex flex-row items-center justify-between'>
-                        <div>
-                            <h1 className='text-3xl'>Username</h1>
-                            <p>User12345</p>
-                        </div>
-                        <button className="flex items-center border rounded-lg border-white w-[200px] h-[40px] justify-center p-3 hover:bg-gray-700">Change Username</button>
-                    </div>
-                    <div className='flex flex-row items-center justify-between'>
-                        <div>
-                            <h1 className='text-3xl'>Spotify Account</h1>
-                            <p>spotifyUser12345</p>
-                        </div>
-                        <button className="flex items-center border rounded-lg border-white justify-center w-[200px] h-[40px] p-3 hover:bg-gray-700">Update Linked Account</button>
-                    </div>
+                    <InfoRow blockName="First Name" passedValue={storedFirstName}/>
+                    <InfoRow blockName="Last Name" passedValue={storedLastName}/>
+                    <InfoRow blockName="Spotify Account" passedValue={storedSpotify}/>
                 </div>
             </div>
-            <h1 className='text-2xl mt-4 mb-4'>Preferences</h1>
+            <h1 className='text-3xl mt-8 mb-4'>Preferences</h1>
             <div className='flex flex-col gap-2'>
                 <div className='flex gap-4 items-center'>
                         <label class="switch">

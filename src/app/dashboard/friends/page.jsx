@@ -8,7 +8,9 @@ import fakeUsers from './fakeUsers.json'
 
 
 export default function Friends() {
-    const [friends, setFriends] = useState([])
+    const storedFriends = localStorage.getItem('friends');
+    console.log(storedFriends)
+    const [friends, setFriends] = useState(JSON.parse(storedFriends) || [])
     const [search, setSearch] = useState(''); 
 
     const handleSearchChange = (event) => {
@@ -18,6 +20,7 @@ export default function Friends() {
     const addFriend = (newFriend) => {
         if(!friends.includes(newFriend)){
             setFriends([...friends, newFriend])
+            localStorage.setItem('friends', JSON.stringify([...friends, newFriend]))
         }
     }
 

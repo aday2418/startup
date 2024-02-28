@@ -28,7 +28,7 @@ export default function Sidebar(){
             </div>
             <footer>
                 <Link href="https://github.com/aday2418/startup">
-                    <div className="relative w-full h-fit flex flex-row  gap-2 border-t py-[20px] px-[15px] border-gray-400 hover:bg-gray-900 cursor-pointer hover:border-gray-500 smooth">
+                    <div className="relative w-full h-fit flex flex-row gap-2 border-t py-[20px] px-[15px] border-gray-400 hover:bg-gray-900 cursor-pointer hover:border-gray-500 smooth">
                         <div className="flex flex-col">
                             <h1 className="text-xs text-base tracking-wide w-fit truncate">Alison Day</h1>
                             <p className="text-xs">Github</p>

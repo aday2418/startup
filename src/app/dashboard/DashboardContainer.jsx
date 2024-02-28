@@ -10,7 +10,7 @@ export default function DashboardContainer({children}){
     const { darkMode } = useContext(DarkModeContext)
 
     return(
-        <div className={`relative w-full h-screen smooth ${darkMode ? "bg-black text-white":"bg-white text-black"} overflow-hidden`}>
+        <div className={`relative w-full h-screen smooth ${darkMode ? "bg-black text-white fill-white ":"bg-white text-black fill-black border-black"} overflow-hidden`}>
             <Header/>
             <div className="relative flex w-full">
                 <Sidebar/>

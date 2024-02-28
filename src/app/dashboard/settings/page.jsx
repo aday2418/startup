@@ -38,7 +38,7 @@ export default function Settings() {
         <div className='flex flex-col'>
             <div className='flex flex-row h-[200px] gap-8'>
                 <div className='flex flex-col justify-center gap-4 min-w-[160px] items-center'>
-                    <div className='flex border rounded-full h-[150px] w-[150px] overflow-hidden '>
+                    <div className={`flex border ${darkMode ? "border-white": "border-black"} rounded-full h-[150px] w-[150px] overflow-hidden `}>
                     {profilePic ? <img src={profilePic} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor="#FFFFFF"/>}
                     </div>
                     <input type="file" id="profilePic" onChange={handleChangeProfilePicture} style={{ display: 'none' }} />

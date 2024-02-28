@@ -1,12 +1,13 @@
 import SongRow from "./SongRow"
 import topSongs from "./topSongs.json"
+import Image from 'next/image'
 
 export default function Songs({}){
     return(
         <div className="flex flex-col">
             <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover"/>
             <div class="w-full border-t border-gray-200"></div>
-            {topSongs.map((song, index) => <SongRow number={index+1} song={song.song} artist={song.artist} album={song.album}picture={song.album_cover}/>)}
+            {topSongs.map((song, index) => <SongRow number={index+1} song={song.song} artist={song.artist} album={song.album}picture={<Image width={80} height={80} src="/images/somethingInTheOrange.jpeg"/>}/>)}
             
         </div>
         

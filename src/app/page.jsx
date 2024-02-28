@@ -40,7 +40,7 @@ export default function Home() {
     <div>
       <div className="relative w-full h-screen flex flex-col bg-gray-900">
         <header>
-          <nav className='flex flex-row h-[100px] bg-green-300 items-center gap-5'>
+          <nav className='flex flex-row h-[100px] border-b border-black bg-green-200 items-center gap-5'>
               <div className='flex flex-row m-4 font-mono text-2xl font-bold'>
                 <h1>SoundCircle</h1>
               </div>
@@ -62,7 +62,7 @@ export default function Home() {
               <LoginRow name="Password" textType="password" variable={password} functionName={setPassword}/>
             </div>
             <div className='flex justify-center '>
-              <button className='flex min-w-[350px] bg-green-300 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
+              <button className='flex min-w-[350px] bg-green-200 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
             </div>
           </div>
         </div>

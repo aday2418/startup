@@ -42,7 +42,7 @@ export default function Settings() {
                     {profilePic ? <img src={profilePic} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor="#FFFFFF"/>}
                     </div>
                     <input type="file" id="profilePic" onChange={handleChangeProfilePicture} style={{ display: 'none' }} />
-                    <label htmlFor="profilePic" className='flex text-sm cursor-pointer p-1 justify-center hover:border border-white rounded-lg'>Change Profile Picture</label>
+                    <label htmlFor="profilePic" className={`flex text-sm cursor-pointer p-1 border justify-center ${darkMode ? "border-black hover:border-white hover:bg-gray-700": "border-white hover:border-black hover:bg-gray-300"} rounded-lg`}>Change Profile Picture</label>
                 </div>
                 <div className='flex flex-col justify-top w-full gap-4'>
                     <InfoRow blockName="First Name" passedValue={storedFirstName} localStorageKey="firstName"/>

@@ -5,7 +5,7 @@ import { useContext } from "react"
 export default function Header(){
     const { darkMode } = useContext(DarkModeContext)
     return(
-        <nav className={`relative w-full header header-height border-b ${darkMode? "bg-inherit" : "bg-green-200"} flex justify-between items-center border-gray-400 px-[40px]`}>
+        <nav className={`relative w-full header header-height border-b ${darkMode? "bg-black" : "bg-green-200"} flex justify-between items-center border-gray-400 px-[40px]`}>
             <div className='flex flex-row gap-4'>
                 <h1 className=" font-semibold tracking-wider text-2xl">SoundCircle</h1>
                 <div className='flex flex-row gap-3 items-center'>

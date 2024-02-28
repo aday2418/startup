@@ -35,8 +35,8 @@ export default function InfoRow({blockName, localStorageKey, passedValue}){
             </div>
             
             { editing ? (
-            <button onClick={handleSave} className={`flex items-center border rounded-lg ${darkMode? "border-white bg-red-700 hover:bg-red-900" : "border-black bg-red-300 hover:bg-red-400"} w-[300px] h-[40px] justify-center p-3  `}>Save Changes</button>) : (
-            <button onClick={() => setEditing(true)} className={`flex items-center border rounded-lg ${darkMode? "border-white hover:bg-gray-700" : "border-black hover:bg-gray-300"} w-[300px] h-[40px] justify-center p-3 `}> Change {blockName} </button> )
+            <button onClick={handleSave} className={`flex items-center border rounded-lg ${darkMode? "border-white bg-green-700 hover:bg-green-900" : "border-black bg-green-200 hover:bg-green-400"} w-[300px] h-[40px] justify-center p-3  `}>Save Changes</button>) : (
+            <button onClick={() => setEditing(true)} className={`flex items-center border rounded-lg ${darkMode? "border-white hover:bg-gray-700" : "border-black bg-gray-100 hover:bg-gray-300"} w-[300px] h-[40px] justify-center p-3 `}> Change {blockName} </button> )
             }
         </div>
     )

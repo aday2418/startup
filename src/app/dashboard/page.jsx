@@ -8,9 +8,12 @@ import TableTab from './TableTab'
 import Songs from './Songs'
 import Artists from './Artists'
 import Genres from './Genres'
+import { useContext } from 'react'
+import { DarkModeContext } from './DarkModeProvider'
 
 export default function Dashboard() {
   const [tab, setTab] = useState("songs")
+  const {darkMode} = useContext(DarkModeContext)
 
   const changeTab = (newTab) => {
     setTab(newTab)
@@ -25,7 +28,7 @@ export default function Dashboard() {
     <PageInfo title="Dashboard">
       <div className='flex flex-col'>
         <div className='flex flex-row h-[150px] gap-8'>
-          <div className="flex flex-shrink-0 flex-grow-0 border rounded-full border-white h-[150px] w-[150px] overflow-hidden items-center">
+          <div className={`flex flex-shrink-0 flex-grow-0 border rounded-full ${darkMode? "border-white" : "border-black"} h-[150px] w-[150px] overflow-hidden items-center`}>
             {storedPicture ? <img src={storedPicture} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor="#FFFFFF"/>}
             
           </div>
@@ -37,7 +40,7 @@ export default function Dashboard() {
                 </div>
                 <p className="text-md ">{storedSpotify} | 10 Friends</p>
             </div>
-            <button className='flex items-center border rounded-lg border-white justify-center w-[160px] h-[40px] p-2 hover:bg-gray-700'>Refresh API Data</button>
+            <button className={`flex items-center border rounded-lg ${darkMode? "border-white  hover:bg-gray-700" : "border-black bg-gray-100 hover:bg-gray-300"} justify-center w-[160px] h-[40px] p-2`}>Refresh API Data</button>
             
           </div>
           
@@ -47,7 +50,7 @@ export default function Dashboard() {
           <TableTab name="Top Artists" selected={tab == "artists"} value="artists" changeTab={changeTab}/>
           <TableTab name="Top Genres" selected={tab == "genres"} value="genres" changeTab={changeTab}/>
         </div>
-        <div className='border p-4'>
+        <div className={`border rounded-r-2xl p-4 ${darkMode ? "border-white" : "border-black"}`}>
           {tab == "songs" ? <Songs/> : tab == "artists" ? <Artists/> : <Genres/>}
         </div>
         

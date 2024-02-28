@@ -1,13 +1,16 @@
+import { useContext } from "react"
 import SongRow from "./SongRow"
 import topSongs from "./topSongs.json"
 import Image from 'next/image'
+import { DarkModeContext } from "./DarkModeProvider"
 
 export default function Songs({}){
+    const {darkMode} = useContext(DarkModeContext)
     return(
         <div className="flex flex-col">
-            <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover"/>
-            <div class="w-full border-t border-gray-200"></div>
-            {topSongs.map((song, index) => <SongRow number={index+1} song={song.song} artist={song.artist} album={song.album}picture={<Image width={80} height={80} src="/images/somethingInTheOrange.jpeg"/>}/>)}
+            <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover" firstRow={true}/>
+            <div class={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
+            {topSongs.map((song, index) => <SongRow firstRow={false} number={index+1} song={song.song} artist={song.artist} album={song.album}picture={<Image width={80} height={80} src="/images/somethingInTheOrange.jpeg"/>}/>)}
             
         </div>
         

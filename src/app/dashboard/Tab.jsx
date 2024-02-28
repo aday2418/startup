@@ -9,7 +9,7 @@ export default function Tab({selected, svg, link}){
     
     return(
         <Link href={link}>
-            <div className={`relative w-full h-[60px] flex  py-3 justify-center items-center cursor-pointer border-y smooth 
+            <div className={`relative w-full h-[60px] flex  py-3 justify-center items-center cursor-pointer border-y 
             ${selected? darkMode
                 ? "border-gray-500 bg-gray-800 " // selected + darkMode
                 : "border-gray-500 bg-green-200" // selected + !darkMode
@@ -23,5 +23,3 @@ export default function Tab({selected, svg, link}){
         
     )
 }
-
-//${selected ? " border-gray-500 bg-gray-900" : "border-transparent"}

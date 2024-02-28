@@ -4,20 +4,28 @@ import PageInfo from '../PageInfo'
 import AddFriendGrid from './AddFriendGrid'
 import FriendGrid from './FriendGrid'
 import { useState } from 'react';
+import fakeUsers from './fakeUsers.json'
 
 
 export default function Friends() {
-    const [search, setSearch] = useState(''); // State to hold the search term
+    const [friends, setFriends] = useState([])
+    const [search, setSearch] = useState(''); 
 
     const handleSearchChange = (event) => {
         setSearch(event.target.value);
     };
 
+    const addFriend = (newFriend) => {
+        if(!friends.includes(newFriend)){
+            setFriends([...friends, newFriend])
+        }
+    }
+
     return (
         <PageInfo title="Friends">
             <div className='flex flex-col text-white'>
                 <h1 className='text-2xl mb-2'>My Friends</h1>
-                <FriendGrid/>
+                <FriendGrid friends={friends}/>
                 
                 <h1 className='text-white mt-4 text-2xl mt-6 mb-6'>Add New Friends</h1>
                 <div className='flex flex-col gap-2'>
@@ -27,7 +35,7 @@ export default function Friends() {
                     </div>
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <AddFriendGrid search={search}/>
+                    <AddFriendGrid users={fakeUsers} search={search} addFriend={addFriend} friends={friends}/>
                 </div>
             </div>
         </PageInfo> 

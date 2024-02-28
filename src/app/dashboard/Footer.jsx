@@ -7,7 +7,7 @@ export default function Footer(){
     const { darkMode } = useContext(DarkModeContext)
     return(
         <footer>
-                <Link href="https://github.com/aday2418/startup">
+                <Link target="_blank" href="https://github.com/aday2418/startup">
                     <div className={`relative w-full h-fit flex flex-row gap-2 border-t py-[20px] px-[15px] border-gray-400  cursor-pointer hover:border-gray-500 smooth ${darkMode? "bg-transparent hover:bg-gray-900": "bg-gray-100 hover:bg-gray-400"}`}>
                         <div className="flex flex-col">
                             <h1 className="text-xs text-base tracking-wide w-fit truncate">Alison Day</h1>

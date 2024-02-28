@@ -31,10 +31,10 @@ export default function Friends() {
                 <FriendGrid friends={friends}/>
                 
                 <h1 className='mt-4 text-2xl mt-6 mb-6'>Add New Friends</h1>
-                <div className='flex flex-col gap-2'>
-                    <div className='flex flex-row gap-2 mb-6'>
+                <div className='flex flex-col gap-2 justify-center'>
+                    <div className='flex flex-row gap-2 mb-6 items-center'>
                         <p>Search For Friend: </p>
-                        <input className='border rounded text-black min-w-[200px]' type="text" placeholder="Enter Username" onChange={handleSearchChange} value={search}/>
+                        <input className='border rounded text-black min-w-[200px] border-gray-500 p-1' type="text" placeholder="Enter Username" onChange={handleSearchChange} value={search}/>
                     </div>
                 </div>
                 <div className='flex flex-col gap-2'>

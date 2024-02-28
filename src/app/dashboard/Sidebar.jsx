@@ -24,7 +24,7 @@ export default function Sidebar(){
                 <Tab svg={<Dashboard fillColor="#FFFFFF"/>} link="/dashboard" selected={root == "dashboard" && !current}/>
                 <Tab svg={<Friend fillColor="#FFFFFF"/>} link="/dashboard/friends" selected={current == "friends"}/>
                 <Tab svg={<Gear fillColor="#FFFFFF"/>} link="/dashboard/settings" selected={current =="settings"}/>
-                <Tab svg={<GitHub fillColor='#FFFFFF'/>} link="https://github.com/aday2418/startup" selected={false}/>
+                <Tab svg={<GitHub fillColor='#FFFFFF'/>} link="https://github.com/aday2418/startup" selected={false} newTab={true} />
             </div>
             <Footer/>
         </div>

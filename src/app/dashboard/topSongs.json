@@ -1,0 +1,92 @@
+[
+    {
+        "song": "Imagine",
+        "artist": "John Lennon",
+        "album": "Imagine",
+        "album_cover": "imagine_cover.jpg"
+    },
+    {
+        "song": "Bohemian Rhapsody",
+        "artist": "Queen",
+        "album": "A Night at the Opera",
+        "album_cover": "a_night_at_the_opera_cover.jpg"
+    },
+    {
+        "song": "Like a Rolling Stone",
+        "artist": "Bob Dylan",
+        "album": "Highway 61 Revisited",
+        "album_cover": "highway_61_revisited_cover.jpg"
+    },
+    {
+        "song": "I Can't Get No Satisfaction",
+        "artist": "The Rolling Stones",
+        "album": "Out of Our Heads",
+        "album_cover": "out_of_our_heads_cover.jpg"
+    },
+    {
+        "song": "Smells Like Teen Spirit",
+        "artist": "Nirvana",
+        "album": "Nevermind",
+        "album_cover": "nevermind_cover.jpg"
+    },
+    {
+        "song": "Stairway to Heaven",
+        "artist": "Led Zeppelin",
+        "album": "Led Zeppelin IV",
+        "album_cover": "led_zeppelin_iv_cover.jpg"
+    },
+    {
+        "song": "Yesterday",
+        "artist": "The Beatles",
+        "album": "Help!",
+        "album_cover": "help_cover.jpg"
+    },
+    {
+        "song": "Hotel California",
+        "artist": "The Eagles",
+        "album": "Hotel California",
+        "album_cover": "hotel_california_cover.jpg"
+    },
+    {
+        "song": "A Day in the Life",
+        "artist": "The Beatles",
+        "album": "Sgt. Pepper's Lonely Hearts Club Band",
+        "album_cover": "sgt_pepper_cover.jpg"
+    },
+    {
+        "song": "Like a Prayer",
+        "artist": "Madonna",
+        "album": "Like a Prayer",
+        "album_cover": "like_a_prayer_cover.jpg"
+    },
+    {
+        "song": "Thriller",
+        "artist": "Michael Jackson",
+        "album": "Thriller",
+        "album_cover": "thriller_cover.jpg"
+    },
+    {
+        "song": "Purple Rain",
+        "artist": "Prince",
+        "album": "Purple Rain",
+        "album_cover": "purple_rain_cover.jpg"
+    },
+    {
+        "song": "What's Going On",
+        "artist": "Marvin Gaye",
+        "album": "What's Going On",
+        "album_cover": "whats_going_on_cover.jpg"
+    },
+    {
+        "song": "London Calling",
+        "artist": "The Clash",
+        "album": "London Calling",
+        "album_cover": "london_calling_cover.jpg"
+    },
+    {
+        "song": "Born to Run",
+        "artist": "Bruce Springsteen",
+        "album": "Born to Run",
+        "album_cover": "born_to_run_cover.jpg"
+    }
+]

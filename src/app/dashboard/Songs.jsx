@@ -1,24 +1,13 @@
 import SongRow from "./SongRow"
-export default function Songs({number, song, artist, album, picture}){
+import topSongs from "./topSongs.json"
+
+export default function Songs({}){
     return(
         <div className="flex flex-col">
             <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover"/>
             <div class="w-full border-t border-gray-200"></div>
-            <SongRow number="1" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="2" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="3" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="4" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="5" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="6" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="7" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="8" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="9" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="10" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="11" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="12" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="13" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="14" song="firstSong" artist="firstartist" album="album" picture="picture"/>
-            <SongRow number="15" song="firstSong" artist="firstartist" album="album" picture="picture"/>
+            {topSongs.map((song, index) => <SongRow number={index+1} song={song.song} artist={song.artist} album={song.album}picture={song.album_cover}/>)}
+            
         </div>
         
         

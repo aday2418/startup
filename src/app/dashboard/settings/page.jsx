@@ -3,8 +3,9 @@
 import Image from 'next/image'
 import PageInfo from '../PageInfo'
 import Friend from '@/components/icons/Friend'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import InfoRow from './InfoRow'
+import { DarkModeContext } from '../DarkModeProvider'
 
 export default function Settings() {
     const storedFirstName = localStorage.getItem('firstName');
@@ -12,12 +13,12 @@ export default function Settings() {
     const storedSpotify = localStorage.getItem('spotifyUsername');
     const storedPreference = localStorage.getItem('darkMode');
     const storedPicture = localStorage.getItem('profilePicture');
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext)
 
-    const [darkMode, setDarkMode] = useState(storedPreference === 'true');
     const [profilePic, setProfilePic] = useState(storedPicture);
 
     const handleToggleChange = (e) => {
-        setDarkMode(e.target.checked);
+        toggleDarkMode()
     };
 
     const handleChangeProfilePicture = (e) => {
@@ -32,14 +33,9 @@ export default function Settings() {
         }
       };
 
-    const savePreferences = () => {
-        localStorage.setItem('darkMode', darkMode);
-    };
-
-    console.log(darkMode)
     return ( 
     <PageInfo title="Settings">
-        <div className='flex flex-col text-white'>
+        <div className='flex flex-col'>
             <div className='flex flex-row h-[200px] gap-8'>
                 <div className='flex flex-col justify-center gap-4 min-w-[160px] items-center'>
                     <div className='flex border rounded-full h-[150px] w-[150px] overflow-hidden '>
@@ -63,7 +59,6 @@ export default function Settings() {
                         </label>
                     <p>Dark Mode</p>
                 </div>
-                <button className='flex items-center border w-[150px] rounded-md border-white justify-center mt-4 p-1 hover:bg-gray-700' onClick={savePreferences}>Save Preferences</button>
             </div>
         </div>
     </PageInfo>    

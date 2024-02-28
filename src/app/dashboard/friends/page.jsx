@@ -26,11 +26,11 @@ export default function Friends() {
 
     return (
         <PageInfo title="Friends">
-            <div className='flex flex-col text-white'>
+            <div className='flex flex-col'>
                 <h1 className='text-2xl mb-2'>My Friends</h1>
                 <FriendGrid friends={friends}/>
                 
-                <h1 className='text-white mt-4 text-2xl mt-6 mb-6'>Add New Friends</h1>
+                <h1 className='mt-4 text-2xl mt-6 mb-6'>Add New Friends</h1>
                 <div className='flex flex-col gap-2'>
                     <div className='flex flex-row gap-2 mb-6'>
                         <p>Search For Friend: </p>

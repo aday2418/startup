@@ -77,3 +77,8 @@
     border-radius: 50%;
   }
 
+  .smooth {
+    transition-property: all;
+    transition-duration: 200ms;
+  }
+

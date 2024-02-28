@@ -12,14 +12,3 @@ export default function Tab({selected, svg, link}){
         
     )
 }
-//<h1 className="text-white text-xl tracking-wide w-fit font-medium">{pageName}</h1>
-/*<li class="mb-2">
-            <a href={link} class="flex items-center space-x-2">
-                <div className='h-[30px]'>
-                    {icon}
-                </div>
-                <span>
-                    {pageName}
-                </span>
-            </a>
-        </li>*/

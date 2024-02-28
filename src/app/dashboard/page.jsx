@@ -9,7 +9,7 @@ import Songs from './Songs'
 import Artists from './Artists'
 import Genres from './Genres'
 
-export default function Dahsboard() {
+export default function Dashboard() {
   const [tab, setTab] = useState("songs")
 
   const changeTab = (newTab) => {
@@ -23,7 +23,7 @@ export default function Dahsboard() {
 
   return (
     <PageInfo title="Dashboard">
-      <div className='flex flex-col text-white'>
+      <div className='flex flex-col'>
         <div className='flex flex-row h-[150px] gap-8'>
           <div className="flex flex-shrink-0 flex-grow-0 border rounded-full border-white h-[150px] w-[150px] overflow-hidden items-center">
             {storedPicture ? <img src={storedPicture} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor="#FFFFFF"/>}

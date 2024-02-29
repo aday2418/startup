@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import PageInfo from './PageInfo'
 import Friend from '@/components/icons/Friend'
-import { lazy, useState } from 'react'
+import { lazy, useEffect, useState } from 'react'
 import TableTab from './TableTab'
 import Songs from './Songs'
 import Artists from './Artists'
@@ -14,19 +14,25 @@ import UserDashboard from './UserDashboard'
 import fakeUsers from "./friends/fakeUsers.json"
 
 export default function Dashboard() {
-  const storedFirstName = localStorage.getItem('firstName');
-  const storedLastName = localStorage.getItem('lastName');
-  const storedSpotify = localStorage.getItem('spotifyUsername');
-  const storedPicture = localStorage.getItem('profilePicture')
+  const [user, setUser] = useState(null)
 
-  const user = {
-    firstName: storedFirstName,
-    lastName: storedLastName,
-    username: storedSpotify,
-    picture: storedPicture 
-  }
+  useEffect(() => {
+    const storedFirstName = localStorage.getItem('firstName');
+    const storedLastName = localStorage.getItem('lastName');
+    const storedSpotify = localStorage.getItem('spotifyUsername');
+    const storedPicture = localStorage.getItem('profilePicture')
+  
+    const user = {
+      firstName: storedFirstName,
+      lastName: storedLastName,
+      username: storedSpotify,
+      picture: storedPicture 
+    }
 
-  return (
+    setUser(user)
+  }, [])
+
+  return user && (
     <PageInfo title="Dashboard">
       <UserDashboard user={user}/>
     </PageInfo>

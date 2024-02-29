@@ -3,16 +3,22 @@
 import PageInfo from '../PageInfo'
 import AddFriendGrid from './AddFriendGrid'
 import FriendGrid from './FriendGrid'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import fakeUsers from './fakeUsers.json'
 import { useRouter } from 'next/navigation'
 
 
 export default function Friends() {
-    const storedFriends = localStorage.getItem('friends');
+    
+    const [friends, setFriends] = useState([]);
+    const [search, setSearch] = useState('');
 
-    const [friends, setFriends] = useState(JSON.parse(storedFriends) || [])
-    const [search, setSearch] = useState(''); 
+    useEffect(() => {
+        const storedFriends = localStorage.getItem('friends');
+        if (storedFriends) {
+            setFriends(JSON.parse(storedFriends));
+        }
+    }, []);
     
 
     const handleSearchChange = (e) => {

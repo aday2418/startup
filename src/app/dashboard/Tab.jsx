@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { DarkModeContext } from "./DarkModeProvider";
 
-export default function Tab({selected, svg, link, newTab=false}){
+export default function Tab({selected, svg, link, newTab = false}){
 
     const { darkMode } = useContext(DarkModeContext)
 

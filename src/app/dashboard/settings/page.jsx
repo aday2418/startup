@@ -7,15 +7,35 @@ import { useState, useEffect, useContext } from 'react'
 import InfoRow from './InfoRow'
 import { DarkModeContext } from '../DarkModeProvider'
 
-export default function Settings() {
-    const storedFirstName = localStorage.getItem('firstName');
-    const storedLastName = localStorage.getItem('lastName');
-    const storedSpotify = localStorage.getItem('spotifyUsername');
-    const storedPreference = localStorage.getItem('darkMode');
-    const storedPicture = localStorage.getItem('profilePicture');
-    const { darkMode, toggleDarkMode } = useContext(DarkModeContext)
+export default function Settings() { 
+    
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+    const [profilePic, setProfilePic] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [spotifyUsername, setSpotifyUsername] = useState('');
+    const [darkModePreference, setDarkModePreference] = useState(darkMode);
 
-    const [profilePic, setProfilePic] = useState(storedPicture);
+    useEffect(() => {
+        // Access localStorage only when the component mounts on the client side
+        const storedPicture = localStorage.getItem('profilePicture');
+        if (storedPicture) setProfilePic(storedPicture);
+
+        // Other localStorage operations can go here
+        const storedFirstName = localStorage.getItem('firstName');
+        const storedLastName = localStorage.getItem('lastName');
+        const storedSpotify = localStorage.getItem('spotifyUsername');
+        const storedPreference = localStorage.getItem('darkMode');
+
+        if (storedPicture) setProfilePic(storedPicture);
+        setFirstName(storedFirstName || '');
+        setLastName(storedLastName || '');
+        setSpotifyUsername(storedSpotify || '');
+        setDarkModePreference(storedPreference === 'true');
+        
+        // If you need to use these stored values, consider setting them to state here
+    }, [toggleDarkMode, darkMode]);
+
 
     const handleToggleChange = (e) => {
         toggleDarkMode()
@@ -45,9 +65,9 @@ export default function Settings() {
                     <label htmlFor="profilePic" className={`flex text-sm cursor-pointer p-1 border justify-center ${darkMode ? "border-black hover:border-white hover:bg-gray-700": "border-white hover:border-black hover:bg-gray-300"} rounded-lg`}>Change Profile Picture</label>
                 </div>
                 <div className='flex flex-col justify-top w-full gap-4'>
-                    <InfoRow blockName="First Name" passedValue={storedFirstName} localStorageKey="firstName"/>
-                    <InfoRow blockName="Last Name" passedValue={storedLastName} localStorageKey="lastName"/>
-                    <InfoRow blockName="Spotify Account" passedValue={storedSpotify} localStorageKey="spotifyUsername"/>
+                    <InfoRow blockName="First Name" passedValue={firstName} localStorageKey="firstName"/>
+                    <InfoRow blockName="Last Name" passedValue={lastName} localStorageKey="lastName"/>
+                    <InfoRow blockName="Spotify Account" passedValue={spotifyUsername} localStorageKey="spotifyUsername"/>
                 </div>
             </div>
             <h1 className='text-3xl mt-8 mb-4'>Preferences</h1>

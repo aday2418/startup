@@ -13,21 +13,41 @@
   }
   ```
 
-##### Local Storage
+#### Local Storage
 + A way to store data on the client's browser that persists even after the browser window is closed
 ```javascript
     localStorage.setItem('key', 'value');
     let data = localStorage.getItem('key');
 ```
 
-##### React Next JS States
+#### React Next JS States
 + States in Next.js (React framework) are used to manage data that changes over time in your application
 + Rendered in the client side
+```javascript
+import { useState } from 'react';
 
-##### Server vs Client
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+#### Server vs Client
 + Server: The provider of resources, data, and services. It processes requests from clients.
 + Client: The requester of resources, data, and services. It consumes and presents data provided by the server.
 
 #### Manipulating DOM
 + JavaScript can manipulate the Document Object Model (DOM) to dynamically change HTML and CS
 + Have to be careful because hackers can use this method to obtain sensitive user information
+```javascript
+document.getElementById('demo').innerHTML = 'Hello JavaScript!';
+document.querySelector('.myClass').style.display = 'none';
+```

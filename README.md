@@ -90,3 +90,25 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 | :-: | :-: | :-: | :-: |
 | **Home Page** | **Dashboard** | **Friends** | **Settings** |
 
+# Javascript Deliverable
+
++ This is the [startup site](https://startup.soundcircle.xyz)!
++ Continued coding my app using react nextjs
++ Used Javascript to build functionality in login, choosing prefrences, and loading (fake generated) Web Data
++ Finished building Light/Dark Mode for the App
++ All fake Database data is stored in local json files
+
+#### Project Requirements
++ **Simon Deployed** - Code was deployed to [startup.soundcircle.xyz](https://startup.soundcircle.xyz)
++ **Github Link** - Every page contains a link to my project github
++ **Javascript Notes** - Thorough [notes](/public/notes/notes.md) were taken detailing what I learned about CSS
++ **Git Commits** - Many more than 10 commits :)
++ **JS Login** - JavaScript support for future login where data is stored in localStorage
++ **JS Database** - JavaScript support for database data (includes loading friends, app preferences, user information)
++ **JS Websocket** - JavaScript support for websocket data (includes loading top songs, artists, and genres from spotify API)
++ **JS App Logic** - JavaScript support for interaction logic (includes coloring selected tabs + buttons; makes app usable)
+
+#### Design
++ See CSS pictures above for visual layout (Functionality was added, not much CSS was changed)
+
+

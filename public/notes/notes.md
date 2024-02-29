@@ -10,6 +10,7 @@
 + [HTML](/public/notes/html.md)
 + [HTML Deliverable](/public/notes/htmlDeliverable.md)
 + [CSS](/public/notes/css.md)
++ [Javascript](/public/notes/javascript.md)
 
 ### Test Files
 + [Conlict Test](/public/notes/conflictTest.md) - Note that this file was just for practicing handling conflicts. It doesn't contain any helpful notes

@@ -50,6 +50,18 @@ export default function GenreChart() { // Used to Fill in the data for the chart
         text: 'Percentage of Listening Activity By Genre',
       },
     },
+    scales: { //This is new to turn off gridlines
+      x: { // Assuming the x-axis is the vertical one due to indexAxis set to 'y'
+        grid: {
+          display: false, // Turn off grid lines for x-axis
+        }
+      },
+      y: { // And y-axis is the horizontal one
+        grid: {
+          display: false, // Turn off grid lines for y-axis
+        }
+      },
+    }
   };
 
   return (<Bar data={data} options={options} />);

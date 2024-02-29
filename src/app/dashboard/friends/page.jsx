@@ -5,16 +5,18 @@ import AddFriendGrid from './AddFriendGrid'
 import FriendGrid from './FriendGrid'
 import { useState } from 'react';
 import fakeUsers from './fakeUsers.json'
+import { useRouter } from 'next/navigation'
 
 
 export default function Friends() {
     const storedFriends = localStorage.getItem('friends');
-    console.log(storedFriends)
+
     const [friends, setFriends] = useState(JSON.parse(storedFriends) || [])
     const [search, setSearch] = useState(''); 
+    
 
-    const handleSearchChange = (event) => {
-        setSearch(event.target.value);
+    const handleSearchChange = (e) => {
+        setSearch(e.target.value);
     };
 
     const addFriend = (newFriend) => {

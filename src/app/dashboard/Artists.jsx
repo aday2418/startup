@@ -10,7 +10,7 @@ export default function Artists(){
     return(
         <div className="flex flex-col ">
             <ArtistRow number="" artist="Artist" song="Most Played Song" picture="Artist Photo" firstRow={true}/>
-            <div class={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
+            <div className={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
             {topArtists.map((artist, index) => <ArtistRow firstRow={false} number={index+1} artist={artist.artist} song={artist.mostPlayedSong} picture={<Image width={80} height={80} src="/images/phoebeBridgers.jpeg"/>}/>)}
         </div>
     )

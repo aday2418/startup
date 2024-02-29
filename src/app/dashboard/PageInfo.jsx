@@ -1,4 +1,5 @@
 "use client"
+
 import { DarkModeContext } from "./DarkModeProvider"
 import { useContext } from "react"
 import Link from "next/link";
@@ -15,7 +16,7 @@ export default function PageInfo({title, children, backButton = false}){
                     </Link>
                 <h1 className='text-4xl '>{title}</h1> </div> : <h1 className='text-4xl '>{title}</h1>}
             
-            <div class={`w-full border-t ${darkMode ? "border-white": "border-black"} mt-2 mb-8`}></div>
+            <div className={`w-full border-t ${darkMode ? "border-white": "border-black"} mt-2 mb-8`}></div>
             {children}
         </div>
     )

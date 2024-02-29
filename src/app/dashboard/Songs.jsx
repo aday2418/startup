@@ -9,7 +9,7 @@ export default function Songs({}){
     return(
         <div className="flex flex-col">
             <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover" firstRow={true}/>
-            <div class={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
+            <div className={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
             {topSongs.map((song, index) => <SongRow firstRow={false} number={index+1} song={song.song} artist={song.artist} album={song.album}picture={<Image width={80} height={80} src="/images/somethingInTheOrange.jpeg"/>}/>)}
             
         </div>

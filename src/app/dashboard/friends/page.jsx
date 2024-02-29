@@ -26,11 +26,15 @@ export default function Friends() {
         }
     }
 
+    const removeFriend = (friendToRemove) => {
+        setFriends(friends.filter(friend => friend.username !== friendToRemove.username))
+    }
+
     return (
         <PageInfo title="Friends">
             <div className='flex flex-col'>
                 <h1 className='text-2xl mb-2'>My Friends</h1>
-                <FriendGrid friends={friends}/>
+                <FriendGrid friends={friends} removeFriend={removeFriend}/>
                 
                 <h1 className='mt-4 text-2xl mt-6 mb-6'>Add New Friends</h1>
                 <div className='flex flex-col gap-2 justify-center'>

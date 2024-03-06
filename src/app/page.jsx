@@ -11,6 +11,8 @@ import Link from "next/link";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import LoginRow from './LoginRow'
+import { createClient } from '@supabase/supabase-js'
+
 
 
 export default function Home() {
@@ -20,9 +22,13 @@ export default function Home() {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  /*const changeFirstName = (value) => {
-    setFirstName(value)
-  }*/
+  const handleSpotifyLogin = async () => {
+    const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) 
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'spotify',
+    })
+  }
 
 
   const handleLogin = (e) => {
@@ -62,7 +68,7 @@ export default function Home() {
               <LoginRow name="Password" textType="password" variable={password} functionName={setPassword}/>
             </div>
             <div className='flex justify-center '>
-              <button className='flex min-w-[350px] bg-green-200 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
+              <button className='flex min-w-[350px] bg-green-200 border rounded-md border-black justify-center' onClick={handleSpotifyLogin}>Login</button>
             </div>
           </div>
         </div>

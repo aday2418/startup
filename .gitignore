@@ -2,6 +2,7 @@
 .env
 *.pem
 .local
+.env.local
 
 # MacOS file system files
 .DS_Store

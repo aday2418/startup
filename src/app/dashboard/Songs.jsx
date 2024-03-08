@@ -4,8 +4,9 @@ import topSongs from "./topSongs.json"
 import Image from 'next/image'
 import { DarkModeContext } from "./DarkModeProvider"
 
-export default function Songs({}){
+export default function Songs({songs}){
     const {darkMode} = useContext(DarkModeContext)
+    
     return(
         <div className="flex flex-col">
             <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover" firstRow={true}/>

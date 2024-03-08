@@ -11,7 +11,7 @@ import Genres from './Genres'
 import { useContext } from 'react'
 import { DarkModeContext } from './DarkModeProvider'
 
-export default function UserDashboard() {
+export default function UserDashboard({songs, artists}) {
   const [tab, setTab] = useState("songs")
   const {darkMode} = useContext(DarkModeContext)
   const [user, setUser] = useState(null)
@@ -63,7 +63,7 @@ export default function UserDashboard() {
             <TableTab name="Top Genres" selected={tab == "genres"} value="genres" changeTab={changeTab}/>
             </div>
             <div className={`border rounded-r-2xl p-4 ${darkMode ? "border-white" : "border-black"}`}>
-            {tab == "songs" ? <Songs/> : tab == "artists" ? <Artists/> : <Genres/>}
+            {tab == "songs" ? <Songs songs={songs}/> : tab == "artists" ? <Artists artists={artists}/> : <Genres/>}
             </div>
             
         </div>

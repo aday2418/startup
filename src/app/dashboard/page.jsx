@@ -34,11 +34,11 @@ export default async function Dashboard() {
       }
       )        
   const { data: { session } } = await supabase.auth.getSession()
-  console.log(session)
   const {provider_token, token_type, expires_in, provider_refresh_token } = session
       
   // Spotify API endpoint for fetching user profile data
-  const url = 'https://api.spotify.com/v1/me/top/tracks';
+  const topTracks = 'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=15&time_range=short_term';
+  const topArtists = 'https://api.spotify.com/v1/me/top/artists?offset=0&limit=15&time_range=short_term';
 
   // Setup the authorization header with the access token
   const headers = {
@@ -46,13 +46,15 @@ export default async function Dashboard() {
   };
 
   // Make the API call to get the user's profile data
-  const res = await fetch(url, { headers })
-  const data = await res.json()
-  console.log(data)
+  const resTracks = await fetch(topTracks, { headers })
+  const resArtists = await fetch(topArtists, { headers })
+
+  const dataTracks = await resTracks.json()
+  const dataArtists = await resArtists.json()
 
   return (
     <PageInfo title="Dashboard">
-      <UserDashboard />
+      <UserDashboard songs={dataTracks.items} artists={dataArtists.items}/>
     </PageInfo>
   )
 }

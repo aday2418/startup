@@ -35,7 +35,8 @@ export default function Home() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'spotify',
       options: {
-        redirectTo: "http://localhost:3000/auth/callback"
+        redirectTo: "http://localhost:3000/auth/callback",
+        scopes: ["user-top-read", "user-read-recently-played"]
       }
     })
   }

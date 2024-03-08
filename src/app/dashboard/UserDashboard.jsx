@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import PageInfo from './PageInfo'
 import Friend from '@/components/icons/Friend'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TableTab from './TableTab'
 import Songs from './Songs'
 import Artists from './Artists'
@@ -11,17 +11,33 @@ import Genres from './Genres'
 import { useContext } from 'react'
 import { DarkModeContext } from './DarkModeProvider'
 
-export default function UserDashboard({user}) {
+export default function UserDashboard() {
   const [tab, setTab] = useState("songs")
   const {darkMode} = useContext(DarkModeContext)
+  const [user, setUser] = useState(null)
+  
+
+  useEffect(() => {
+    const storedFirstName = localStorage.getItem('firstName');
+    const storedLastName = localStorage.getItem('lastName');
+    const storedSpotify = localStorage.getItem('spotifyUsername');
+    const storedPicture = localStorage.getItem('profilePicture')
+  
+    const newUser = {
+      firstName: storedFirstName,
+      lastName: storedLastName,
+      username: storedSpotify,
+      picture: storedPicture 
+    }
+
+    setUser(newUser)
+  }, [])
 
   const changeTab = (newTab) => {
     setTab(newTab)
   }
 
-  console.log(user)
-
-  return (
+  return user && (
         <div className='flex flex-col'>
             <div className='flex flex-row h-[150px] gap-8'>
             <div className={`flex flex-shrink-0 flex-grow-0 border rounded-full ${darkMode? "border-white" : "border-black"} h-[150px] w-[150px] overflow-hidden items-center`}>
@@ -53,5 +69,3 @@ export default function UserDashboard({user}) {
         </div>
   )
 }
-
-//<Friend fillColor="#FFFFFF" width={40} height={40} />

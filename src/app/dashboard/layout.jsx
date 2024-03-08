@@ -9,9 +9,11 @@ import DarkModeProvider from './DarkModeProvider';
 import Header from './Header';
 import DashboardContainer from './DashboardContainer';
 
-export default function DashboardLayout({children})
-{
-    
+
+export default async function DashboardLayout({children})
+{   
+
+
     return (
         <DarkModeProvider>
             <DashboardContainer children={children} />

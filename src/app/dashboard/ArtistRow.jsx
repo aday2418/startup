@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export default function ArtistRow({number, song, artist, picture, firstRow}){
     return(
         <div className="flex flex-row justify-between items-center p-2">
@@ -10,5 +8,3 @@ export default function ArtistRow({number, song, artist, picture, firstRow}){
         </div>
     )
 }
-
-//I will come back and fix the image later -- it was just too hard to find that many pictures to download and use for fake Data 

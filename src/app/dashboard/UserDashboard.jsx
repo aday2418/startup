@@ -63,7 +63,7 @@ export default function UserDashboard({songs, artists}) {
             <TableTab name="Top Genres" selected={tab == "genres"} value="genres" changeTab={changeTab}/>
             </div>
             <div className={`border rounded-r-2xl p-4 ${darkMode ? "border-white" : "border-black"}`}>
-            {tab == "songs" ? <Songs songs={songs}/> : tab == "artists" ? <Artists artists={artists}/> : <Genres/>}
+            {tab == "songs" ? <Songs songs={songs}/> : tab == "artists" ? <Artists songs={songs} artists={artists}/> : <Genres artists={artists}/>}
             </div>
             
         </div>

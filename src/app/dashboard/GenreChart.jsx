@@ -4,12 +4,16 @@ import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export default function GenreChart() { // Used to Fill in the data for the chart
+export default function GenreChart({percentages}) { // Used to Fill in the data for the chart
+
+  const genreLabels = percentages.map(item => item.genre);
+  const genreData = percentages.map(item => item.percentage);
+
   const data = {
-    labels: ['Rock', 'Indie', 'Pop', 'Electronic', 'Hip Hop', 'Jazz', 'Classical'],
+    labels: genreLabels,
     datasets: [
       {
-        data: [43, 27, 15, 9, 4, 2, 1], // Example data
+        data: genreData, 
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',

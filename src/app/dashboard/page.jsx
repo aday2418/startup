@@ -37,8 +37,8 @@ export default async function Dashboard() {
   const {provider_token, token_type, expires_in, provider_refresh_token } = session
       
   // Spotify API endpoint for fetching user profile data
-  const topTracks = 'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=15&time_range=short_term';
-  const topArtists = 'https://api.spotify.com/v1/me/top/artists?offset=0&limit=15&time_range=short_term';
+  const topTracks = 'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=medium_term';
+  const topArtists = 'https://api.spotify.com/v1/me/top/artists?offset=0&limit=15&time_range=medium_term';
 
   // Setup the authorization header with the access token
   const headers = {
@@ -51,6 +51,8 @@ export default async function Dashboard() {
 
   const dataTracks = await resTracks.json()
   const dataArtists = await resArtists.json()
+
+  console.log(dataTracks.items)
 
   return (
     <PageInfo title="Dashboard">

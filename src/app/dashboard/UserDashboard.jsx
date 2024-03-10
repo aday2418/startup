@@ -63,8 +63,9 @@ export default function UserDashboard({songs, artists}) {
                     </div>
                     <p className="text-md ">{user.username} | 10 Friends</p>
                 </div>
-                <Dropdown setDropdownChange={handleDropdownChange}/>
-                
+                <div className='flex flex-col'>
+                  <Dropdown setDropdownChange={handleDropdownChange}/>
+                </div>  
             </div>
             
             </div>

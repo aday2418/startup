@@ -37,26 +37,44 @@ export default async function Dashboard() {
   const {provider_token, token_type, expires_in, provider_refresh_token } = session
       
   // Spotify API endpoint for fetching user profile data
-  const topTracks = 'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=short_term';
-  const topArtists = 'https://api.spotify.com/v1/me/top/artists?offset=0&limit=15&time_range=short_term';
+  const topTracksShort = 'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=short_term';
+  const topArtistsShort = 'https://api.spotify.com/v1/me/top/artists?offset=0&limit=15&time_range=short_term';
+  const topTracksMedium = 'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=medium_term';
+  const topArtistsMedium = 'https://api.spotify.com/v1/me/top/artists?offset=0&limit=15&time_range=medium_term';
+  const topTracksLong = 'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=long_term';
+  const topArtistsLong = 'https://api.spotify.com/v1/me/top/artists?offset=0&limit=15&time_range=long_term';
+
 
   // Setup the authorization header with the access token
   const headers = {
-    'Authorization': `Bearer ${provider_token}`
+    'Authorization': `Bearer ${provider_token}`,
   };
 
   // Make the API call to get the user's profile data
-  const resTracks = await fetch(topTracks, { headers })
-  const resArtists = await fetch(topArtists, { headers })
+  const resTracksShortPromise = fetch(topTracksShort, { headers }).then(res => res.json())
+  const resArtistsShortPromise = fetch(topArtistsShort, { headers }).then(res => res.json())
+  const resTracksMediumPromise = fetch(topTracksMedium, { headers }).then(res => res.json())
+  const resArtistsMediumPromise = fetch(topArtistsMedium, { headers }).then(res => res.json())
+  const resTracksLongPromise = fetch(topTracksLong, { headers }).then(res => res.json())
+  const resArtistsLongPromise = fetch(topArtistsLong, { headers }).then(res => res.json())
 
-  const dataTracks = await resTracks.json()
-  const dataArtists = await resArtists.json()
+  const [resTracksShort, resArtistsShort, resTracksMedium, resArtistsMedium, resTracksLong, resArtistsLong] = await Promise.all([resTracksShortPromise, resArtistsShortPromise, resTracksMediumPromise, resArtistsMediumPromise, resTracksLongPromise, resArtistsLongPromise])
 
-  console.log(dataTracks.items)
+/*
+  const dataTracksShort = await resTracksShort.json()
+  const dataArtistsShort = await resArtistsShort.json()
+  const dataTracksMedium = await resTracksMedium.json()
+  const dataArtistsMedium = await resArtistsMedium.json()
+  const dataTracksLong = await resTracksLong.json()
+  const dataArtistsLong = await resArtistsLong.json()
+  */
+
+  const songs = [resTracksShort.items, resTracksMedium.items, resTracksLong.items]
+  const artists = [resArtistsShort.items, resArtistsMedium.items, resArtistsLong.items]
 
   return (
     <PageInfo title="Dashboard">
-      <UserDashboard songs={dataTracks.items} artists={dataArtists.items}/>
+      <UserDashboard songs={songs} artists={artists}/>
     </PageInfo>
   )
 }

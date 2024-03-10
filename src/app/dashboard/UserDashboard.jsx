@@ -10,12 +10,13 @@ import Artists from './Artists'
 import Genres from './Genres'
 import { useContext } from 'react'
 import { DarkModeContext } from './DarkModeProvider'
+import Dropdown from './Dropdown'
 
 export default function UserDashboard({songs, artists}) {
   const [tab, setTab] = useState("songs")
   const {darkMode} = useContext(DarkModeContext)
   const [user, setUser] = useState(null)
-  
+  const [dropdown, setDropdown] = useState('short-term'); 
 
   useEffect(() => {
     const storedFirstName = localStorage.getItem('firstName');
@@ -37,6 +38,16 @@ export default function UserDashboard({songs, artists}) {
     setTab(newTab)
   }
 
+  const handleDropdownChange = (dropdownValue) => {
+    setDropdown(dropdownValue);
+  };
+
+  const index = {
+    'short-term': 0,
+    'medium-term': 1,
+    'long-term': 2
+  }[dropdown];
+
   return user && (
         <div className='flex flex-col'>
             <div className='flex flex-row h-[150px] gap-8'>
@@ -52,7 +63,7 @@ export default function UserDashboard({songs, artists}) {
                     </div>
                     <p className="text-md ">{user.username} | 10 Friends</p>
                 </div>
-                <button className={`flex items-center border rounded-lg ${darkMode? "border-white  hover:bg-gray-700" : "border-black bg-gray-100 hover:bg-gray-300"} justify-center w-[160px] h-[40px] p-2`}>Refresh API Data</button>
+                <Dropdown setDropdownChange={handleDropdownChange}/>
                 
             </div>
             
@@ -63,7 +74,7 @@ export default function UserDashboard({songs, artists}) {
             <TableTab name="Top Genres" selected={tab == "genres"} value="genres" changeTab={changeTab}/>
             </div>
             <div className={`border rounded-r-2xl p-4 ${darkMode ? "border-white" : "border-black"}`}>
-            {tab == "songs" ? <Songs songs={songs}/> : tab == "artists" ? <Artists songs={songs} artists={artists}/> : <Genres artists={artists}/>}
+            {tab == "songs" ? <Songs songs={songs[index]}/> : tab == "artists" ? <Artists songs={songs[index]} artists={artists[index]}/> : <Genres artists={artists[index]}/>}
             </div>
             
         </div>

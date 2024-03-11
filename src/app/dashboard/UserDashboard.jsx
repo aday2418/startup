@@ -17,13 +17,14 @@ import { fetcher } from '@/lib/fetcher'
 
 
 export default function UserDashboard() {
-  
+
   const [tab, setTab] = useState("songs")
   const {darkMode} = useContext(DarkModeContext)
   const [user, setUser] = useState(null)
   const [dropdown, setDropdown] = useState('short_term'); 
-
-  const { data: id, isLoading: idLoading } = useSWR('/api/spotify', fetcher) //Calling my Server's endpoints here!!
+  
+  //Calling my Server's endpoints below!!
+  const { data: id, isLoading: idLoading } = useSWR('/api/spotify', fetcher) 
   const { data: songs, isLoading: songsLoading } = useSWR(`/api/spotify/songs?timeframe=${dropdown}`, fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists?timeframe=${dropdown}`, fetcher)
  

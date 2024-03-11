@@ -118,6 +118,9 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
     + Hopefully this is OK, if not I can change this in the future 
 + One of the major changes to my app is that it is now using real data from the spotify API
     + This means that a spotify Username is required to login to my app
+    + I also added a button to let the use choose the time frame for the API to filter by (short, medium, or long term)
++ I had to temporarily disable the feature for viewing friends' profiles (because as of now they are fake users without spotify accounts being loaded in from a JSON file)
+    + This will be fixed in the Database Assignment
 
 #### Being Able To Login For Grading
 + Since my app uses the Spotify API, a user has to have a spotify account in order to login
@@ -145,4 +148,11 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + **Backend Service Endpoints** - In my server, I created endpoints that are used to GET information from my server about a users Profile, Songs, and Artists. These are accessed by visiting /api/spotify, /api/spotify/songs, /api/spotify/artists
 + **Frontend Calls Endpoints** - My Server calls the endpoints listed above in the [UserDashboard](src/app/dashboard/UserDashboard.jsx) component. Doing this allows me to get the data from my server about a User's spotify username, top songs, top artists, and top Genres
 
+#### Proof of API Functionality Images
++ I took these images from logging in with my personal spotify (I have registered this account, I just don't want to post the password to it on Github)
+    + Unfortunately the example account above doesn't have enough listening history yet to load in data from the API so when you login it will be blank for a couple of days <- The rest of the app should still be usable
+
+| ![Top Songs Tab](/public/images/topSongs.png) | ![Top Artists Tab](/public/images/topArtists.png) | ![Top Genres Tab](/public/images/topGenres.png) |
+| :-: | :-: | :-: | :-: |
+| **Top Songs** | **Top Artists** | **Top Genres** | 
 

@@ -27,7 +27,7 @@ export default function Home() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'spotify',
       options: {
-        redirectTo: "http://localhost:3000/auth/callback",
+        redirectTo: (`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}/auth/callback`),
         scopes: ["user-top-read", "user-read-recently-played"]
       }
     })

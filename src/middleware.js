@@ -11,7 +11,7 @@ export async function middleware(req) {
     const { data: { session }, error } = await supabase.auth.getSession()
 
     if(!session){
-        return NextResponse.redirect("http://localhost:3000?message=login")
+        return NextResponse.redirect(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}?message=login`)
     }
 
     return res

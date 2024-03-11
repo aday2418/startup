@@ -30,5 +30,5 @@ export async function GET(request) {
     }
 
 
-    return NextResponse.redirect('http://localhost:3000/dashboard')
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}/dashboard`)
 }

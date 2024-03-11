@@ -11,12 +11,15 @@ import Genres from './Genres'
 import { useContext } from 'react'
 import { DarkModeContext } from './DarkModeProvider'
 import Dropdown from './Dropdown'
+import { createClient } from '@supabase/supabase-js'
 
-export default function UserDashboard({songs, artists}) {
+
+export default function UserDashboard({songs, artists, spotifyUsername}) {
   const [tab, setTab] = useState("songs")
   const {darkMode} = useContext(DarkModeContext)
   const [user, setUser] = useState(null)
   const [dropdown, setDropdown] = useState('short-term'); 
+  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
   useEffect(() => {
     const storedFirstName = localStorage.getItem('firstName');
@@ -33,6 +36,22 @@ export default function UserDashboard({songs, artists}) {
 
     setUser(newUser)
   }, [])
+
+  useEffect(() => {
+    const interval = 10 * 60 * 1000; // 10 minutes in milliseconds
+
+    const repeatTask = async () => {
+      await supabase.auth.refreshSession();
+      console.log("refreshing")
+      // Place your interval task code here
+    };
+
+    // Set up the interval
+    const intervalId = setInterval(repeatTask, interval);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []); // This also runs only once on component mount
 
   const changeTab = (newTab) => {
     setTab(newTab)
@@ -61,7 +80,7 @@ export default function UserDashboard({songs, artists}) {
                     <h1>{user.firstName}</h1>
                     <h1>{user.lastName}</h1>
                     </div>
-                    <p className="text-md ">{user.username} | 10 Friends</p>
+                    <p className="text-md ">{spotifyUsername} | 0 Friends</p>
                 </div>
                 <div className='flex flex-col'>
                   <Dropdown setDropdownChange={handleDropdownChange}/>

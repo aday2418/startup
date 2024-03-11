@@ -12,13 +12,18 @@ import { useContext } from 'react'
 import { DarkModeContext } from './DarkModeProvider'
 import Dropdown from './Dropdown'
 import { createClient } from '@supabase/supabase-js'
+import useSWR from 'swr'
+import { fetcher } from '@/lib/fetcher'
 
 
-export default function UserDashboard({songs, artists, spotifyUsername}) {
+export default function UserDashboard() {
   const [tab, setTab] = useState("songs")
   const {darkMode} = useContext(DarkModeContext)
   const [user, setUser] = useState(null)
-  const [dropdown, setDropdown] = useState('short-term'); 
+  const [dropdown, setDropdown] = useState('short_term'); 
+  const { data: id, isLoading: idLoading } = useSWR('/api/spotify', fetcher)
+  const { data: songs, isLoading: songsLoading } = useSWR(`/api/spotify/songs?timeframe=${dropdown}`, fetcher)
+  const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists?timeframe=${dropdown}`, fetcher)
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
   useEffect(() => {
@@ -60,13 +65,7 @@ export default function UserDashboard({songs, artists, spotifyUsername}) {
     setDropdown(dropdownValue);
   };
 
-  const index = {
-    'short-term': 0,
-    'medium-term': 1,
-    'long-term': 2
-  }[dropdown];
-
-  return user && (
+  return (user && id && songs && artists) && (
         <div className='flex flex-col'>
             <div className='flex flex-row h-[150px] gap-8'>
             <div className={`flex flex-shrink-0 flex-grow-0 border rounded-full ${darkMode? "border-white" : "border-black"} h-[150px] w-[150px] overflow-hidden items-center`}>
@@ -79,10 +78,10 @@ export default function UserDashboard({songs, artists, spotifyUsername}) {
                     <h1>{user.firstName}</h1>
                     <h1>{user.lastName}</h1>
                     </div>
-                    <p className="text-md ">{spotifyUsername} | {JSON.parse(user.friends).length} Friends</p>
+                    <p className="text-md ">{id.data} | {user.friends ? JSON.parse(user.friends).length : 0} Friends</p>
                 </div>
                 <div className='flex flex-col'>
-                  <Dropdown setDropdownChange={handleDropdownChange}/>
+                  <Dropdown dropdown={dropdown} setDropdownChange={handleDropdownChange}/>
                 </div>  
             </div>
             
@@ -93,7 +92,7 @@ export default function UserDashboard({songs, artists, spotifyUsername}) {
             <TableTab name="Top Genres" selected={tab == "genres"} value="genres" changeTab={changeTab}/>
             </div>
             <div className={`border rounded-r-2xl p-4 ${darkMode ? "border-white" : "border-black"}`}>
-            {tab == "songs" ? <Songs songs={songs[index]}/> : tab == "artists" ? <Artists songs={songs[index]} artists={artists[index]}/> : <Genres artists={artists[index]}/>}
+            {tab == "songs" ? <Songs songs={songs.data}/> : tab == "artists" ? <Artists songs={songs.data} artists={artists.data}/> : <Genres artists={artists.data}/>}
             </div>
             
         </div>

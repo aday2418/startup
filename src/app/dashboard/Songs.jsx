@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { DarkModeContext } from "./DarkModeProvider"
 
 export default function Songs({songs}){
-    
+  console.log(songs)
   const {darkMode} = useContext(DarkModeContext)  
   const shortSongs = songs.slice(0, 15);  
     return(

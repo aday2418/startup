@@ -41,7 +41,6 @@ export default function Home() {
     })
   }
 
-
   const handleLogin = (e) => {
     e.preventDefault(); // Prevent form submission if using form element
     // Save to localStorage
@@ -50,7 +49,7 @@ export default function Home() {
     localStorage.setItem('spotifyUsername', spotifyUsername);
     localStorage.setItem('password', password);
     // Navigate to dashboard
-    router.push('/dashboard');
+    handleSpotifyLogin()
   };
   
   return (
@@ -79,7 +78,7 @@ export default function Home() {
               <LoginRow name="Password" textType="password" variable={password} functionName={setPassword}/>
             </div>
             <div className='flex flex-col items-center gap-4 justify-center '>
-              <button className='flex min-w-[350px] bg-green-200 border rounded-md border-black justify-center' onClick={handleSpotifyLogin}>Login</button>
+              <button className='flex min-w-[350px] bg-green-200 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
               {urlMessage == "login" && <h1 className='text-red-500 font-bold'>Please Login Before Accessing The Dashboard</h1>}
             </div>
           </div>

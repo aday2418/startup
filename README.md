@@ -99,7 +99,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + All fake Database data is stored in local json files
 
 #### Project Requirements
-+ **Simon Deployed** - Code was deployed to [startup.soundcircle.xyz](https://startup.soundcircle.xyz)
++ **Simon Deployed** - Code was deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
 + **Github Link** - Every page contains a link to my project github
 + **Javascript Notes** - Thorough [notes](/public/notes/notes.md) were taken detailing what I learned about CSS
 + **Git Commits** - Many more than 10 commits :)
@@ -110,5 +110,39 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 
 #### Design
 + See CSS pictures above for visual layout (Functionality was added, not much CSS was changed)
+
+# Service Deliverable
++ This is the [startup site](https://startup.soundcircle.xyz)!
++ For this project, it was asked that we use the Express framework
+    + However, since I already built my app using the Next.js framework from the start, I decided to keep this framework rather than transfering the whole app over
+    + Hopefully this is OK, if not I can change this in the future 
++ One of the major changes to my app is that it is now using real data from the spotify API
+    + This means that a spotify Username is required to login to my app
+
+#### Being Able To Login For Grading
++ Since my app uses the Spotify API, a user has to have a spotify account in order to login
++ Right now my site is storing (site specific) login information using localhost, however, when you click the login button it will take you to an external link where you login using your spotify username + password
+    + This step is required or else I would not be able to use the Spotify API in my site
++ Since I know that not everyone (grading TA's) has a spotify account, I created an example Spotify account that people can use to login to the site and test its functionality
+    + Spotify Username: **examplespotifyemail@gmail.com**
+    + Spotify Password: **example12345**
+        + As of today March 11, 2024 this account is brand new -- meaning that there is no listening history yet
+            + This means that when you login for grading, the top songs, top artists, and genres will all be blank unfortunately
+            + I took pictures of the site using my personal Spotify account to show that the API is working and that data is being loaded correctly
+        + I hope that in a week, listening history will be available from the API making the example account more useful to the grader
+    + Right now my website is using the dev version of the Spotify API -- This means that only registered users that I have chosen to allow can be authenticated for my app (This can't be changed until you get an audit of your site by Spotify)
+        + **If you want to be able to login to my website using your personal Spotify account, send me a Canvas message with the email registered to your spotify account**
+        + Once I build out the app fully, I plan to get a free audit from spotify and expand the api access so that anyone can sign in 
+
+#### Project Requirements
++ **Simon Deployed** -  Simon Service deployed to Code was deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
++ **Github Link** - Every page contains a link to my project github
++ **Service Notes** - Thorough [notes](/public/notes/notes.md) were taken detailing what I learned about Node JS and Express
++ **Git Commits** - Many more than 10 commits :)
++ **HTTP Service** - For this project we were asked to use Express. However, many assignments ago I started using React with the NextJS framework. It made more sense for me to keep using NextJS rather than to switch the entire framework over to express. I was still able to create an HTTP service using this framework (which is also dependent on Node.js). 
++ **Static Middleware** - Despite using NextJS, my app still uses static middleware to serve up frontend code
++ **3rd Party Endpoints** - My app uses the spotify API. I call the 3rd party endpoints to get information from spotify. An example of this is shown [here](src/app/api/spotify/artists/route.js)
++ **Backend Service Endpoints** - In my server, I created endpoints that are used to GET information from my server about a users Profile, Songs, and Artists. These are accessed by visiting /api/spotify, /api/spotify/songs, /api/spotify/artists
++ **Frontend Calls Endpoints** - My Server calls the endpoints listed above in the [UserDashboard](src/app/dashboard/UserDashboard.jsx) component. Doing this allows me to get the data from my server about a User's spotify username, top songs, top artists, and top Genres
 
 

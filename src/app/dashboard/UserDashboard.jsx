@@ -17,13 +17,16 @@ import { fetcher } from '@/lib/fetcher'
 
 
 export default function UserDashboard() {
+  
   const [tab, setTab] = useState("songs")
   const {darkMode} = useContext(DarkModeContext)
   const [user, setUser] = useState(null)
   const [dropdown, setDropdown] = useState('short_term'); 
-  const { data: id, isLoading: idLoading } = useSWR('/api/spotify', fetcher)
+
+  const { data: id, isLoading: idLoading } = useSWR('/api/spotify', fetcher) //Calling my Server's endpoints here!!
   const { data: songs, isLoading: songsLoading } = useSWR(`/api/spotify/songs?timeframe=${dropdown}`, fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists?timeframe=${dropdown}`, fetcher)
+ 
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
   useEffect(() => {

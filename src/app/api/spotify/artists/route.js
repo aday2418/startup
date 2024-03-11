@@ -1,5 +1,5 @@
-import { supabaseServerClient } from "@/clients/supabase";
-import fetchSpotify from "@/lib/fetchSpotify";
+import { supabaseServerClient } from "../../../../clients/supabase";
+import fetchSpotify from "../../../../lib/fetchSpotify";
 
 export async function GET(request) {
     const url = new URL(request.url);

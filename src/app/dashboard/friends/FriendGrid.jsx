@@ -1,4 +1,4 @@
-import Friend from "@/components/icons/Friend"
+import Friend from "../../../components/icons/Friend"
 import FriendBlock from "./FriendBlock"
 
 export default function FriendGrid({friends, removeFriend}){

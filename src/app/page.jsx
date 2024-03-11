@@ -1,19 +1,11 @@
 "use client"
 
-import Image from 'next/image'
-import House from '/src/components/icons/House'
-import Dashboard from '/src/components/icons/Dashboard'
-import Friend from '/src/components/icons/Friend'
-import Gear from '/src/components/icons/Gear'
-import Tab from './dashboard/Tab'
-import GitHub from '@/components/icons/Github'
 import Link from "next/link";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import LoginRow from './LoginRow'
 import { createBrowserClient } from '@supabase/ssr'
-
-
+import GitHub from "../components/icons/Github"
 
 export default function Home() {
   const searchParams = useSearchParams()
@@ -70,16 +62,19 @@ export default function Home() {
         </header>
         <div className='flex flex-col h-full bg-white items-center justify-center gap-10'>
           <h1 className='text-8xl '>Welcome To SoundCircle</h1>
-          <div className='flex flex-col gap-4 '>
-            <div className='flex flex-col min-w-[270px] gap-2'>
+          <div className='flex flex-col items-center justify-center gap-4 '>
+            <div className='flex flex-col max-w-[320px]  gap-2'>
               <LoginRow name="First Name" textType="text" variable={firstName} functionName={setFirstName}/>
               <LoginRow name="Last Name" textType="text" variable={lastName} functionName={setLastName}/>
               <LoginRow name="Username" textType="text" variable={spotifyUsername} functionName={setSpotifyUsername}/>
               <LoginRow name="Password" textType="password" variable={password} functionName={setPassword}/>
             </div>
-            <div className='flex flex-col items-center gap-4 justify-center '>
+            <div className='flex flex-col items-center gap-4 justify-center max-w-[1100px]'>
               <button className='flex min-w-[320px] bg-green-200 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
               {urlMessage == "login" && <h1 className='text-red-500 font-bold'>Please Login Before Accessing The Dashboard</h1>}
+              {urlMessage == "login" && <h1 className='flex items-center justify-center text-black-500 font-semibold'>If You Are Having Trouble Logging In Check The Github Link For a Spotify Username + Password That You Can Use</h1>}
+              {urlMessage == "login" && <div className='flex flex-col items-center justify-center text-gray-500 font-medium'><h1 >You Wont Be Able To Login With A Personal Spotify Account Until You Are Registered With The Spotify API Since The App Is In Dev Mode</h1> <h1> Send Me A Canvas Message With The Email Linked To Your Spotify And I Will Register You</h1></div>}
+                
             </div>
           </div>
         </div>
@@ -89,6 +84,8 @@ export default function Home() {
               <Link href="https://github.com/aday2418/startup">
                 <GitHub fillColor=""/>
               </Link>
+                
+              
             </div>
             <h1 className='text-2xl'>Alison Day</h1>    
             </div>
@@ -97,4 +94,3 @@ export default function Home() {
     </div>
   )
 }
-

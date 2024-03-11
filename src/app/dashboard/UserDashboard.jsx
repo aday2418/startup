@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import PageInfo from './PageInfo'
-import Friend from '@/components/icons/Friend'
+import Friend from '../../components/icons/Friend'
 import { useEffect, useState } from 'react'
 import TableTab from './TableTab'
 import Songs from './Songs'
@@ -13,7 +13,7 @@ import { DarkModeContext } from './DarkModeProvider'
 import Dropdown from './Dropdown'
 import { createClient } from '@supabase/supabase-js'
 import useSWR from 'swr'
-import { fetcher } from '@/lib/fetcher'
+import { fetcher } from '../../lib/fetcher'
 
 
 export default function UserDashboard() {

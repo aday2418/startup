@@ -1,12 +1,11 @@
 "use client"
 
 import Tab from "./Tab"
-import House from "@/components/icons/House"
-import Dashboard from "@/components/icons/Dashboard"
-import Friend from "@/components/icons/Friend"
-import Gear from "@/components/icons/Gear"
+import Dashboard from "../../components/icons/Dashboard"
+import Friend from "../../components/icons/Friend"
+import Gear from "../../components/icons/Gear"
 import { usePathname } from "next/navigation";
-import GitHub from "@/components/icons/Github"
+import GitHub from "../../components/icons/Github"
 import Footer from "./Footer"
 
 

@@ -1,4 +1,4 @@
-import Friend from "@/components/icons/Friend"
+import Friend from "../../../components/icons/Friend"
 import { useContext } from "react"
 import { DarkModeContext } from "../DarkModeProvider"
 

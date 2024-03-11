@@ -45,15 +45,12 @@ export default function UserDashboard({songs, artists, spotifyUsername}) {
     const repeatTask = async () => {
       await supabase.auth.refreshSession();
       console.log("refreshing")
-      // Place your interval task code here
     };
 
-    // Set up the interval
     const intervalId = setInterval(repeatTask, interval);
 
-    // Clean up the interval on component unmount
     return () => clearInterval(intervalId);
-  }, []); // This also runs only once on component mount
+  }, []); 
 
   const changeTab = (newTab) => {
     setTab(newTab)

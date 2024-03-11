@@ -1,7 +1,6 @@
 import GenreChart from "./GenreChart"
 export default function Genres({artists}){
   const genrePercentages = calculateGenrePercentages(artists).sort((a, b) => b.percentage - a.percentage);
-  console.log(genrePercentages);
     
   function calculateGenrePercentages(artists) {
     let genreCounts = {};

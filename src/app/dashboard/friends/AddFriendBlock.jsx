@@ -7,7 +7,6 @@ export default function AddFriendBlock({user, addFriend}){
         addFriend(user)
     }
     const {darkMode} = useContext(DarkModeContext)
-    console.log("user:", user)
 
     return(
         <button className='relative flex flex-col w-[130px] p-3 gap-2 items-center' onClick={handleClick} >

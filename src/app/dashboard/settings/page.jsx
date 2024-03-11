@@ -13,7 +13,7 @@ export default function Settings() {
     const [profilePic, setProfilePic] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [spotifyUsername, setSpotifyUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [darkModePreference, setDarkModePreference] = useState(darkMode);
 
     useEffect(() => {
@@ -25,12 +25,13 @@ export default function Settings() {
         const storedFirstName = localStorage.getItem('firstName');
         const storedLastName = localStorage.getItem('lastName');
         const storedSpotify = localStorage.getItem('spotifyUsername');
+        const storedPassword = localStorage.getItem('password');
         const storedPreference = localStorage.getItem('darkMode');
 
         if (storedPicture) setProfilePic(storedPicture);
         setFirstName(storedFirstName || '');
         setLastName(storedLastName || '');
-        setSpotifyUsername(storedSpotify || '');
+        setPassword(storedPassword || '');
         setDarkModePreference(storedPreference === 'true');
         
         // If you need to use these stored values, consider setting them to state here
@@ -67,7 +68,7 @@ export default function Settings() {
                 <div className='flex flex-col justify-top w-full gap-4'>
                     <InfoRow blockName="First Name" passedValue={firstName} localStorageKey="firstName"/>
                     <InfoRow blockName="Last Name" passedValue={lastName} localStorageKey="lastName"/>
-                    <InfoRow blockName="Spotify Account" passedValue={spotifyUsername} localStorageKey="spotifyUsername"/>
+                    <InfoRow blockName="Password" passedValue={password} localStorageKey="password"/>
                 </div>
             </div>
             <h1 className='text-3xl mt-8 mb-4'>Preferences</h1>

@@ -29,7 +29,6 @@ export async function GET(request) {
           await supabase.auth.exchangeCodeForSession(code)
     }
 
-    console.log(code)
 
     return NextResponse.redirect('http://localhost:3000/dashboard')
 }

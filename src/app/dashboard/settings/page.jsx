@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import PageInfo from '../PageInfo'
-import Friend from '@/components/icons/Friend'
+import Friend from '../../../components/icons/Friend'
 import { useState, useEffect, useContext } from 'react'
 import InfoRow from './InfoRow'
 import { DarkModeContext } from '../DarkModeProvider'

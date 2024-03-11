@@ -153,6 +153,6 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
     + Unfortunately the example account above doesn't have enough listening history yet to load in data from the API so when you login it will be blank for a couple of days <- The rest of the app should still be usable
 
 | ![Top Songs Tab](/public/images/topSongs.png) | ![Top Artists Tab](/public/images/topArtists.png) | ![Top Genres Tab](/public/images/topGenres.png) |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: |
 | **Top Songs** | **Top Artists** | **Top Genres** | 
 

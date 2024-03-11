@@ -25,7 +25,7 @@ export default function Friends() {
         setSearch(e.target.value);
     };
 
-    const addFriend = (newFriend) => {
+    const addFriend = (newFriend) => {    //This is only being disabled until the database is up <- Breaking trying to load API data and read from the example JSON file (from friends that don't actually have Spotify Accounts)
         if(!friends.includes(newFriend)){
             setFriends([...friends, newFriend])
             localStorage.setItem('friends', JSON.stringify([...friends, newFriend]))

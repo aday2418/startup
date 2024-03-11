@@ -74,11 +74,11 @@ export default function Home() {
             <div className='flex flex-col min-w-[270px] gap-2'>
               <LoginRow name="First Name" textType="text" variable={firstName} functionName={setFirstName}/>
               <LoginRow name="Last Name" textType="text" variable={lastName} functionName={setLastName}/>
-              <LoginRow name="Spotify Username" textType="text" variable={spotifyUsername} functionName={setSpotifyUsername}/>
+              <LoginRow name="Username" textType="text" variable={spotifyUsername} functionName={setSpotifyUsername}/>
               <LoginRow name="Password" textType="password" variable={password} functionName={setPassword}/>
             </div>
             <div className='flex flex-col items-center gap-4 justify-center '>
-              <button className='flex min-w-[350px] bg-green-200 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
+              <button className='flex min-w-[320px] bg-green-200 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
               {urlMessage == "login" && <h1 className='text-red-500 font-bold'>Please Login Before Accessing The Dashboard</h1>}
             </div>
           </div>

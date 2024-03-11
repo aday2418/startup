@@ -25,13 +25,15 @@ export default function UserDashboard({songs, artists, spotifyUsername}) {
     const storedFirstName = localStorage.getItem('firstName');
     const storedLastName = localStorage.getItem('lastName');
     const storedSpotify = localStorage.getItem('spotifyUsername');
-    const storedPicture = localStorage.getItem('profilePicture')
+    const storedPicture = localStorage.getItem('profilePicture');
+    const storedFriends = localStorage.getItem('friends')
   
     const newUser = {
       firstName: storedFirstName,
       lastName: storedLastName,
       username: storedSpotify,
-      picture: storedPicture 
+      picture: storedPicture, 
+      friends: storedFriends
     }
 
     setUser(newUser)
@@ -80,7 +82,7 @@ export default function UserDashboard({songs, artists, spotifyUsername}) {
                     <h1>{user.firstName}</h1>
                     <h1>{user.lastName}</h1>
                     </div>
-                    <p className="text-md ">{spotifyUsername} | 0 Friends</p>
+                    <p className="text-md ">{spotifyUsername} | {JSON.parse(user.friends).length} Friends</p>
                 </div>
                 <div className='flex flex-col'>
                   <Dropdown setDropdownChange={handleDropdownChange}/>

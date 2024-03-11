@@ -2,21 +2,19 @@
 
 import Link from "next/link";
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
 import LoginRow from './LoginRow'
 import { createBrowserClient } from '@supabase/ssr'
 import GitHub from "../components/icons/Github"
+import { Suspense } from 'react'
+import ErrorMessage from "./ErrorMessage"
 
 export default function Home() {
-  const searchParams = useSearchParams()
-  const urlMessage = searchParams.get("message")
+  
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [spotifyUsername, setSpotifyUsername] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
-  const params = useSearchParams()
 
   const handleSpotifyLogin = async () => {
     const supabase = createBrowserClient(
@@ -71,10 +69,9 @@ export default function Home() {
             </div>
             <div className='flex flex-col items-center gap-4 justify-center max-w-[1100px]'>
               <button className='flex min-w-[320px] bg-green-200 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
-              {urlMessage == "login" && <h1 className='text-red-500 font-bold'>Please Login Before Accessing The Dashboard</h1>}
-              {urlMessage == "login" && <h1 className='flex items-center justify-center text-black-500 font-semibold'>If You Are Having Trouble Logging In Check The Github Link For a Spotify Username + Password That You Can Use</h1>}
-              {urlMessage == "login" && <div className='flex flex-col items-center justify-center text-gray-500 font-medium'><h1 >You Wont Be Able To Login With A Personal Spotify Account Until You Are Registered With The Spotify API Since The App Is In Dev Mode</h1> <h1> Send Me A Canvas Message With The Email Linked To Your Spotify And I Will Register You</h1></div>}
-                
+              <Suspense>
+                <ErrorMessage/>
+              </Suspense>
             </div>
           </div>
         </div>

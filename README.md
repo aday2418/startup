@@ -133,6 +133,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
             + This means that when you login for grading, the top songs, top artists, and genres will all be blank unfortunately
             + I took pictures of the site using my personal Spotify account to show that the API is working and that data is being loaded correctly
         + I hope that in a week, listening history will be available from the API making the example account more useful to the grader
+        + UPDATE: The API is now returning some data for the example account, just not a lot
     + Right now my website is using the dev version of the Spotify API -- This means that only registered users that I have chosen to allow can be authenticated for my app (This can't be changed until you get an audit of your site by Spotify)
         + **If you want to be able to login to my website using your personal Spotify account, send me a Canvas message with the email registered to your spotify account**
         + Once I build out the app fully, I plan to get a free audit from spotify and expand the api access so that anyone can sign in 

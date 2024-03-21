@@ -11,8 +11,8 @@ import ErrorMessage from "./ErrorMessage"
 export default function Home() {
   
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  //const [firstName, setFirstName] = useState('');
+  //const [lastName, setLastName] = useState('');
   const [spotifyUsername, setSpotifyUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -34,8 +34,8 @@ export default function Home() {
   const handleLogin = (e) => {
     e.preventDefault(); // Prevent form submission if using form element
     // Save to localStorage
-    localStorage.setItem('firstName', firstName);
-    localStorage.setItem('lastName', lastName);
+    //localStorage.setItem('firstName', firstName);
+    //localStorage.setItem('lastName', lastName);
     localStorage.setItem('spotifyUsername', spotifyUsername);
     localStorage.setItem('password', password);
     // Navigate to dashboard
@@ -62,13 +62,14 @@ export default function Home() {
           <h1 className='text-8xl '>Welcome To SoundCircle</h1>
           <div className='flex flex-col items-center justify-center gap-4 '>
             <div className='flex flex-col max-w-[320px]  gap-2'>
-              <LoginRow name="First Name" textType="text" variable={firstName} functionName={setFirstName}/>
-              <LoginRow name="Last Name" textType="text" variable={lastName} functionName={setLastName}/>
               <LoginRow name="Username" textType="text" variable={spotifyUsername} functionName={setSpotifyUsername}/>
               <LoginRow name="Password" textType="password" variable={password} functionName={setPassword}/>
             </div>
-            <div className='flex flex-col items-center gap-4 justify-center max-w-[1100px]'>
-              <button className='flex min-w-[320px] bg-green-200 border rounded-md border-black justify-center' onClick={handleLogin}>Login</button>
+            <div className='flex flex-col  items-center gap-4 justify-center max-w-[1100px]'>
+              <div className="flex flex-row gap-2 ">
+                <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' onClick={handleLogin}>Login</button>
+                <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' >Create Account </button>
+              </div>
               <Suspense>
                 <ErrorMessage/>
               </Suspense>
@@ -81,8 +82,6 @@ export default function Home() {
               <Link href="https://github.com/aday2418/startup">
                 <GitHub fillColor=""/>
               </Link>
-                
-              
             </div>
             <h1 className='text-2xl'>Alison Day</h1>    
             </div>

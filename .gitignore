@@ -3,6 +3,7 @@
 *.pem
 .local
 .env.local
+dbConfig.json
 
 # MacOS file system files
 .DS_Store

@@ -24,22 +24,22 @@ export default function UserDashboard() {
   const [dropdown, setDropdown] = useState('short_term'); 
   
   //Calling my Server's endpoints below!!
-  const { data: id, isLoading: idLoading } = useSWR('/api/spotify', fetcher) 
+  const { data: profile, isLoading: profileLoading } = useSWR('/api/spotify', fetcher) 
   const { data: songs, isLoading: songsLoading } = useSWR(`/api/spotify/songs?timeframe=${dropdown}`, fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists?timeframe=${dropdown}`, fetcher)
  
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
   useEffect(() => {
-    const storedFirstName = localStorage.getItem('firstName');
-    const storedLastName = localStorage.getItem('lastName');
+    //const storedFirstName = localStorage.getItem('firstName');
+    //const storedLastName = localStorage.getItem('lastName');
     const storedSpotify = localStorage.getItem('spotifyUsername');
     const storedPicture = localStorage.getItem('profilePicture');
     const storedFriends = localStorage.getItem('friends')
   
     const newUser = {
-      firstName: storedFirstName,
-      lastName: storedLastName,
+      //firstName: storedFirstName,
+      //lastName: storedLastName,
       username: storedSpotify,
       picture: storedPicture, 
       friends: storedFriends
@@ -69,7 +69,7 @@ export default function UserDashboard() {
     setDropdown(dropdownValue);
   };
 
-  return (user && id && songs && artists) && (
+  return (user && profile && songs && artists) && (
         <div className='flex flex-col'>
             <div className='flex flex-row h-[150px] gap-8'>
             <div className={`flex flex-shrink-0 flex-grow-0 border rounded-full ${darkMode? "border-white" : "border-black"} h-[150px] w-[150px] overflow-hidden items-center`}>
@@ -79,10 +79,9 @@ export default function UserDashboard() {
             <div className='flex justify-between w-full items-center pb-8'>
                 <div className='flex flex-col'>
                     <div className='flex text-3xl gap-3'>
-                    <h1>{user.firstName}</h1>
-                    <h1>{user.lastName}</h1>
+                    <h1>{profile.data.display_name}</h1>
                     </div>
-                    <p className="text-md ">{id.data} | {user.friends ? JSON.parse(user.friends).length : 0} Friends</p>
+                    <p className="text-md ">{profile.data.id} | {user.friends ? JSON.parse(user.friends).length : 0} Friends</p>
                 </div>
                 <div className='flex flex-col'>
                   <Dropdown dropdown={dropdown} setDropdownChange={handleDropdownChange}/>

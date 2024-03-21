@@ -67,7 +67,6 @@ export default function Settings() {
                 </div>
                 <div className='flex flex-col justify-top w-full gap-4'>
                     <InfoRow blockName="First Name" passedValue={firstName} localStorageKey="firstName"/>
-                    <InfoRow blockName="Last Name" passedValue={lastName} localStorageKey="lastName"/>
                     <InfoRow blockName="Password" passedValue={password} localStorageKey="password"/>
                 </div>
             </div>

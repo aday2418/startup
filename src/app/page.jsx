@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import Link from "next/link";
 import { useState } from 'react';
@@ -8,13 +8,20 @@ import GitHub from "../components/icons/Github"
 import { Suspense } from 'react'
 import ErrorMessage from "./ErrorMessage"
 
-export default function Home() {
-  
 
-  //const [firstName, setFirstName] = useState('');
-  //const [lastName, setLastName] = useState('');
+export default function Home() {
   const [spotifyUsername, setSpotifyUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const changeUsername = (newUser) => {
+    console.log({newUser})
+    setSpotifyUsername(newUser)
+  }
+
+  const changePassword = (newPass) => {
+    console.log({ spotifyUsername })
+    setPassword(newPass)
+  }
 
   const handleSpotifyLogin = async () => {
     const supabase = createBrowserClient(
@@ -31,16 +38,27 @@ export default function Home() {
     })
   }
 
-  const handleLogin = (e) => {
-    e.preventDefault(); // Prevent form submission if using form element
-    // Save to localStorage
-    //localStorage.setItem('firstName', firstName);
-    //localStorage.setItem('lastName', lastName);
-    localStorage.setItem('spotifyUsername', spotifyUsername);
-    localStorage.setItem('password', password);
-    // Navigate to dashboard
-    handleSpotifyLogin()
+  const handleLogin = async () => {
+    const username = spotifyUsername
+    const res = await fetch("/auth/login", {
+      method: "POST",
+      body: JSON.stringify({username, password})
+    })
+
+    console.log(res)
+    const data = await res.json()
+    console.log(data)
   };
+
+  const handleCreateAccount = async () => {
+    const username = spotifyUsername
+    const res = await fetch("/auth/createUser", {
+      method: "POST",
+      body: JSON.stringify({username, password})
+    })
+
+    console.log(res)
+  }
   
   return (
     <div>
@@ -62,13 +80,13 @@ export default function Home() {
           <h1 className='text-8xl '>Welcome To SoundCircle</h1>
           <div className='flex flex-col items-center justify-center gap-4 '>
             <div className='flex flex-col max-w-[320px]  gap-2'>
-              <LoginRow name="Username" textType="text" variable={spotifyUsername} functionName={setSpotifyUsername}/>
-              <LoginRow name="Password" textType="password" variable={password} functionName={setPassword}/>
+              <LoginRow name="Username" textType="text" variable={spotifyUsername} functionName={changeUsername}/>
+              <LoginRow name="Password" textType="password" variable={password} functionName={changePassword}/>
             </div>
             <div className='flex flex-col  items-center gap-4 justify-center max-w-[1100px]'>
               <div className="flex flex-row gap-2 ">
                 <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' onClick={handleLogin}>Login</button>
-                <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' >Create Account </button>
+                <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' onClick={handleCreateAccount}>Create Account </button>
               </div>
               <Suspense>
                 <ErrorMessage/>

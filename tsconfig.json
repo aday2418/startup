@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/auth/createUser/route.js", "src/app/auth/login/route.js"  ],
   "exclude": [
     "node_modules"
   ]

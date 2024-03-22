@@ -54,7 +54,7 @@ export default function UserDashboard() {
     const interval = 10 * 60 * 1000; // 10 minutes in milliseconds
 
     const repeatTask = async () => {
-      await supabase.auth.refreshSession();
+      await fetch(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}/auth/token/refresh`)
       console.log("refreshing")
     };
 

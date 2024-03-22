@@ -9,7 +9,6 @@ export async function POST(req){
     const username = body.username
     const password = body.password
 
-    console.log({ username, password})
 
     const db = mongoClient()
     const collection = db.collection('users');

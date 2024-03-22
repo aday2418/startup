@@ -6,7 +6,6 @@ export async function GET(request) {
     const url = new URL(request.url);
     const timeFrame = url.searchParams.get("timeframe"); 
 
-    console.log(timeFrame)
     const cookieStore = cookies()
     const provider_token = cookieStore.get('providerToken')
     //Calling The Spotify API Below!!

@@ -19,12 +19,8 @@ export async function GET(req) {
         }),
     }
 
-    console.log({payload})
-
     const body = await fetch("https://accounts.spotify.com/api/token", payload);
     const response = await body.json();
-
-    console.log({response})
 
     if(!response.error) {
         setAuthCookie("providerToken", response.access_token)

@@ -28,7 +28,7 @@ export default function UserDashboard() {
   const { data: songs, isLoading: songsLoading } = useSWR(`/api/spotify/songs?timeframe=${dropdown}`, fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists?timeframe=${dropdown}`, fetcher)
  
-  console.log({profile, songs, artists})
+  console.log({ profile, songs, artists })
 
   //const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
@@ -55,7 +55,6 @@ export default function UserDashboard() {
 
     const repeatTask = async () => {
       await fetch(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}/auth/token/refresh`)
-      console.log("refreshing")
     };
 
     const intervalId = setInterval(repeatTask, interval);

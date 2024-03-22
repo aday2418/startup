@@ -1,18 +1,30 @@
 'use client'
 
 import Link from "next/link";
-import { useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import LoginRow from './LoginRow'
 import GitHub from "../components/icons/Github"
 import { Suspense } from 'react'
 import ErrorMessage from "./ErrorMessage"
 import { useRouter } from "next/navigation";
+import useSWR from 'swr'
+import { fetcher } from '../lib/fetcher'
 
 
 export default function Home() {
   const router = useRouter()
   const [spotifyUsername, setSpotifyUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { data} = useSWR('/auth/userToken', fetcher) 
+
+  useEffect(() => {
+    const token = data?.data
+
+    if(token) {
+      router.push("/dashboard")
+    }
+    
+  }, [data])
 
   const changeUsername = (newUser) => {
     setSpotifyUsername(newUser)

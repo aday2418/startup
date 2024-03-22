@@ -3,6 +3,8 @@ import { DarkModeContext } from "./DarkModeProvider"
 import { useContext } from "react"
 import { createBrowserClient } from '@supabase/ssr'
 import { useRouter } from "next/navigation"
+import deleteCookies from '../../actions/deleteCookies'
+
 
 export default function Header(){
     const { darkMode } = useContext(DarkModeContext)
@@ -13,8 +15,9 @@ export default function Header(){
           process.env.NEXT_PUBLIC_SUPABASE_URL,
           process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
         )
-      
-        const { data, error } = await supabase.auth.signOut()
+        
+        await deleteCookies()
+        //const { data, error } = await supabase.auth.signOut()
         router.refresh()
       }
 

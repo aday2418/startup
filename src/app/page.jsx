@@ -7,9 +7,11 @@ import { createBrowserClient } from '@supabase/ssr'
 import GitHub from "../components/icons/Github"
 import { Suspense } from 'react'
 import ErrorMessage from "./ErrorMessage"
+import { useRouter } from "next/navigation";
 
 
 export default function Home() {
+  const router = useRouter()
   const [spotifyUsername, setSpotifyUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -48,6 +50,8 @@ export default function Home() {
     console.log(res)
     const data = await res.json()
     console.log(data)
+    router.push('/dashboard')
+    
   };
 
   const handleCreateAccount = async () => {
@@ -56,6 +60,7 @@ export default function Home() {
       method: "POST",
       body: JSON.stringify({username, password})
     })
+    router.push('/dashboard')
 
     console.log(res)
   }

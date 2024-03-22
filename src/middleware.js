@@ -1,21 +1,26 @@
-import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
-import { NextResponse } from 'next/server'
+import { cookies } from 'next/headers';
+import authenticate from './lib/authenticate';
+import redirect from './lib/redirect';
 
-export async function middleware(req) {
-    const res = NextResponse.next()
+export async function middleware(req) { //Change this to verify Supabase Session + MongoDB
+  const token = cookies().get("token")
+  console.log({ middlewareToken :token})
 
-    // Create a Supabase client configured to use cookies
-    const supabase = createMiddlewareClient({ req, res })
+  if(!token) {
+    return Response.redirect(redirect())
+  }
 
-    // Refresh session if expired - required for Server Components
-    const { data: { session }, error } = await supabase.auth.getSession()
+  const response = await fetch("http://localhost:3000/auth/token", {
+    method: "POST",
+    body: JSON.stringify({ token: token.value})
+  })
 
-    if(!session){
-        return NextResponse.redirect(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}?message=login`)
-    }
+  const { data: authenticated } = await response.json()
 
-    return res
- }
+  if(!authenticated) {
+    return Response.redirect(redirect())
+  }
+}
 
     // Ensure the middleware is only called for relevant paths.
 export const config = {

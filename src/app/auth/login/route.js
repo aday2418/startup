@@ -3,9 +3,11 @@
 import { mongoClient } from "../../../clients/mongo"
 import setAuthCookie from '../../../lib/setAuthCookie'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 
-export async function POST(req, res){
+
+export async function POST(req){
     const body = await req.json()
     const username = body.username
     const password = body.password
@@ -15,21 +17,11 @@ export async function POST(req, res){
     const user = await collection.findOne({ username })
 
     if(user && await bcrypt.compare(password, user.password)){
-        setAuthCookie(user.token)
-        return Response.json({ id: user._id })
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        setAuthCookie(token)
+        return Response.json({ token })
     }
-    
+
     return Response.json({ error: "Username or Password is incorrect"})
 }
 
-/*apiRouter.post('/auth/login', async (req, res) => {
-  const user = await DB.getUser(req.body.email);
-  if (user) {
-    if (await bcrypt.compare(req.body.password, user.password)) {
-      setAuthCookie(res, user.token);
-      res.send({ id: user._id });
-      return;
-    }
-  }
-  res.status(401).send({ msg: 'Unauthorized' });
-});*/

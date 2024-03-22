@@ -2,6 +2,7 @@ import { mongoClient } from "../../../clients/mongo"
 import bcrypt from 'bcrypt'
 import { v4 as uuidv4 } from 'uuid';
 import setAuthCookie from '../../../lib/setAuthCookie'
+import jwt from 'jsonwebtoken'
 
 export async function POST(req){
     const body = await req.json()
@@ -23,14 +24,14 @@ export async function POST(req){
     const user = {
         username: username,
         password: passwordHash,
-        token: uuidv4()
     };
 
     await collection.insertOne(user);
 
-    setAuthCookie(user.token)
-
+    // Generate JWT
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    setAuthCookie(token)
     return Response.json({
-        id: user._id,
+        token
     })
 }

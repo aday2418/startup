@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from 'react';
 import LoginRow from './LoginRow'
-import { createBrowserClient } from '@supabase/ssr'
 import GitHub from "../components/icons/Github"
 import { Suspense } from 'react'
 import ErrorMessage from "./ErrorMessage"
@@ -16,28 +15,11 @@ export default function Home() {
   const [password, setPassword] = useState('');
 
   const changeUsername = (newUser) => {
-    console.log({newUser})
     setSpotifyUsername(newUser)
   }
 
   const changePassword = (newPass) => {
-    console.log({ spotifyUsername })
     setPassword(newPass)
-  }
-
-  const handleSpotifyLogin = async () => {
-    const supabase = createBrowserClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    )
-  
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'spotify',
-      options: {
-        redirectTo: (`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}/auth/callback`),
-        scopes: ["user-top-read", "user-read-recently-played"]
-      }
-    })
   }
 
   const handleLogin = async () => {
@@ -47,10 +29,8 @@ export default function Home() {
       body: JSON.stringify({username, password})
     })
 
-    console.log(res)
     const data = await res.json()
-    console.log(data)
-    router.push('/dashboard')
+    router.push('/dashboard/onboarding')
     
   };
 
@@ -60,9 +40,8 @@ export default function Home() {
       method: "POST",
       body: JSON.stringify({username, password})
     })
-    router.push('/dashboard')
+    router.push('/dashboard/onboarding')
 
-    console.log(res)
   }
   
   return (

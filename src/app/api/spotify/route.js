@@ -1,13 +1,14 @@
-import { supabaseServerClient } from "../../../clients/supabase";
+import { cookies } from 'next/headers'
 import fetchSpotify from "../../../lib/fetchSpotify";
 
 
 export async function GET(request) {
     
-    const supabase = supabaseServerClient()        
-    const { data: { session } } = await supabase.auth.getSession()
-    const {provider_token, token_type, expires_in, provider_refresh_token } = session
-    const profile = await fetchSpotify(provider_token)
+    const cookieStore = cookies()
+    const provider_token = cookieStore.get('providerToken')
+    console.log({provider_token})
+
+    const profile = await fetchSpotify(provider_token.value)
     return Response.json({ data: profile})
 
 }

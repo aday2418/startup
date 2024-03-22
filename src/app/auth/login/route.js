@@ -18,7 +18,7 @@ export async function POST(req){
 
     if(user && await bcrypt.compare(password, user.password)){
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        setAuthCookie(token)
+        setAuthCookie("token", token)
         return Response.json({ token })
     }
 

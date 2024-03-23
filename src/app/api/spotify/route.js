@@ -1,9 +1,6 @@
-import { cookies } from 'next/headers'
-import fetchSpotify from "../../../lib/fetchSpotify";
+
 import getUser from "../../../lib/getUser"
-import updateProfile from "../../../lib/updateProfile"
 import fetchAndUpdate from "../../../lib/fetchAndUpdate"
-import authenticate from '../../../lib/authenticate';
 import userIdFromToken from "../../../lib/userIdFromToken"
 
 export async function GET(request) {

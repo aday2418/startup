@@ -18,7 +18,7 @@ export default function Artists({songs, artists}){
         <div className="flex flex-col ">
             <ArtistRow number="" artist="Artist" song="Most Played Song" picture="Artist Photo" firstRow={true}/>
             <div className={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
-            {shortArtists.map((artist, index) => <ArtistRow firstRow={false} number={index+1} artist={artist.name} song={findMostPlayedSongByArtist(artist.name)} picture={<Image width={80} height={80} alt="Artist Image" src={artist.images[0].url}/>}/>)}
+            {shortArtists.map((artist, index) => <ArtistRow firstRow={false} number={index+1} artist={artist.name} song={findMostPlayedSongByArtist(artist.name)} picture={<Image width={80} height={80} alt="Artist Image" src={artist.image.url}/>}/>)}
         </div>
     )
 }

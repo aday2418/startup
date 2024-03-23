@@ -1,6 +1,4 @@
-import fetchSpotify from "../../../../lib/fetchSpotify";
 import { URL } from "url";
-
 import getUser from "../../../../lib/getUser"
 import fetchAndUpdateSongs from "../../../../lib/fetchAndUpdateSongs"
 import userIdFromToken from "../../../../lib/userIdFromToken"
@@ -12,7 +10,7 @@ export async function GET(request) {
     const user = await getUser(userId)
 
     let songs
-    if(user?.spotify) { 
+    if(user?.songs) { 
         songs = user.songs
 
         fetchAndUpdateSongs(userId, timeFrame)

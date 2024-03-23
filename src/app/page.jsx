@@ -44,7 +44,7 @@ export default function Home() {
     //updateDatabase
     const data = await res.json()
     
-    router.push('/dashboard') //Changed from onboarding -> dashboard
+    router.push('/dashboard/onboarding') //Changed from onboarding -> dashboard
     
   };
 

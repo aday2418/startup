@@ -163,7 +163,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + Continued coding my app using react nextjs
 + The biggest changes in this app were that I migrated the app from authentication using supabase -> writing my own authentication code
     + This included having to generate auth tokens, store data securely, and write my own middleware to ensure that only authenticated users could access the dashboard pages
-    + This also meant that I had to write the callback for the Spotify API by myself (This took most of my time hahaha)
+    + This also meant that I had to write the [callback](src/app/auth/callback/route.js) for the Spotify API by myself (This took most of my time hahaha)
 + I also made sure to store all of the song, artist, genre, and profile information on MongoDB
     + Right now you still aren't able to see friend data yet but that should be coming soon!
 
@@ -172,10 +172,10 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + **Github Link** - Every page contains a link to my project github
 + **Authentication notes Notes** - Thorough [notes](/public/notes/notes.md) were taken detailing what I learned from this assignment
 + **Git Commits** - Many more than 10 commits :)
-+ **New User Registration** - New users are able to register with the "create new account" button on the home page. The first time a user does this, it will log them into the site as well. A users credentials are stored in MongoDB
-+ **MongoDB** - I use MongoDB to store a users credentials, as well as data obtained from the api (This includes a users spotify profile information, top songs, and top artists)
-+ **Credentials In MongoDB** - All credentials are stored securely in MongoDB (The password is stored in an encrypted form). When a user attempts to login, endpoints are called that verify that their username and password match the ones stored in the database. If the user is verified, an access token is then generated. This access token allows allows the user to access the dashboard (and not get kicked back to the home page by the middleware)
-+ **Restricted Funtionality Based on Authentication** - For my app, I wrote [middleware]('src/middleware.js') to ensure that only users that were currently logged in could view the dashboard. This middleware worked by validating the auth token stored in a users cookies. If a user didn't have a valid auth token, it kicked them back to the home page. 
++ **New User Registration** - New users are able to [register](src/app/auth/createUser/route.js) with the "create new account" button on the home page. The first time a user does this, it will log them into the site as well. A users credentials are stored in MongoDB.
++ **MongoDB** - I use MongoDB to store a users credentials, as well as data obtained from the api (This includes a users spotify profile information, top songs, and top artists). Mongo credentials are stored securely in a .env.local file (not accesible on github)
++ **Credentials In MongoDB** - All credentials are stored securely in MongoDB (The password is stored in an encrypted form). When a user attempts to [login](src/app/auth/login/route.js), endpoints are called that verify that their username and password match the ones stored in the database. If the user is verified, an access token is then generated. This access token allows allows the user to access the dashboard (and not get kicked back to the home page by the middleware)
++ **Restricted Funtionality Based on Authentication** - For my app, I wrote [middleware](src/middleware.js) to ensure that only users that were currently logged in could view the dashboard. This middleware worked by validating the auth token stored in a users cookies. If a user didn't have a valid auth token, it kicked them back to the home page. 
 
 #### Being Able To Login For Grading
 + Since my app uses the Spotify API, a user has to connect a spotify account after logging in 

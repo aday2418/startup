@@ -180,7 +180,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 #### Being Able To Login For Grading
 + Since my app uses the Spotify API, a user has to connect a spotify account after logging in 
     + If you don't you wont be able to see any of your top songs, artists, or genres
-+ Since I know that not everyone (grading TA's) has a spotify account, I created an example Spotify account that people can use to login to the site and test its functionality
++ Since I know that not everyone (grading TA's) has a spotify account, I created an example Spotify account that people can use to login to the site and test its functionality (This is for logging into spotify!! Not the home page username/password)
     + Spotify Username: **examplespotifyemail@gmail.com**
     + Spotify Password: **example12345**
         + Since this account is so new it only has limited data (I think it only shows 4 top artists and the short term, medium term, and long term data is all the same)

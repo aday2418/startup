@@ -10,7 +10,7 @@ export async function middleware(req) { //Change this to verify Supabase Session
     return Response.redirect(redirect())
   }
 
-  const response = await fetch("http://localhost:3000/auth/token", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}/auth/token`, {
     method: "POST",
     body: JSON.stringify({ token: token.value})
   })

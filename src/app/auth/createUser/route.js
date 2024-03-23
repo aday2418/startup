@@ -1,6 +1,5 @@
 import { mongoClient } from "../../../clients/mongo"
 import bcrypt from 'bcrypt'
-import { v4 as uuidv4 } from 'uuid';
 import setAuthCookie from '../../../lib/setAuthCookie'
 import jwt from 'jsonwebtoken'
 

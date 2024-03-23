@@ -157,3 +157,33 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 | :-: | :-: | :-: |
 | **Top Songs** | **Top Artists** | **Top Genres** | 
 
+# Login + Database Deliverable
+
++ This is the [startup site](https://startup.soundcircle.xyz)!
++ Continued coding my app using react nextjs
++ The biggest changes in this app were that I migrated the app from authentication using supabase -> writing my own authentication code
+    + This included having to generate auth tokens, store data securely, and write my own middleware to ensure that only authenticated users could access the dashboard pages
+    + This also meant that I had to write the callback for the Spotify API by myself (This took most of my time hahaha)
++ I also made sure to store all of the song, artist, genre, and profile information on MongoDB
+    + Right now you still aren't able to see friend data yet but that should be coming soon!
+
+#### Project Requirements
++ **Simon Deployed** - Code was deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
++ **Github Link** - Every page contains a link to my project github
++ **Authentication notes Notes** - Thorough [notes](/public/notes/notes.md) were taken detailing what I learned from this assignment
++ **Git Commits** - Many more than 10 commits :)
++ **New User Registration** - New users are able to register with the "create new account" button on the home page. The first time a user does this, it will log them into the site as well. A users credentials are stored in MongoDB
++ **MongoDB** - I use MongoDB to store a users credentials, as well as data obtained from the api (This includes a users spotify profile information, top songs, and top artists)
++ **Credentials In MongoDB** - All credentials are stored securely in MongoDB (The password is stored in an encrypted form). When a user attempts to login, endpoints are called that verify that their username and password match the ones stored in the database. If the user is verified, an access token is then generated. This access token allows allows the user to access the dashboard (and not get kicked back to the home page by the middleware)
++ **Restricted Funtionality Based on Authentication** - For my app, I wrote [middleware]('src/middleware.js') to ensure that only users that were currently logged in could view the dashboard. This middleware worked by validating the auth token stored in a users cookies. If a user didn't have a valid auth token, it kicked them back to the home page. 
+
+#### Being Able To Login For Grading
++ Since my app uses the Spotify API, a user has to connect a spotify account after logging in 
+    + If you don't you wont be able to see any of your top songs, artists, or genres
++ Since I know that not everyone (grading TA's) has a spotify account, I created an example Spotify account that people can use to login to the site and test its functionality
+    + Spotify Username: **examplespotifyemail@gmail.com**
+    + Spotify Password: **example12345**
+        + Since this account is so new it only has limited data (I think it only shows 4 top artists and the short term, medium term, and long term data is all the same)
+        + **If you want to be able to login to my website using your personal Spotify account, send me a Canvas message with the email registered to your spotify account**
+        + Once I build out the app fully, I plan to get a free audit from spotify and expand the api access so that anyone can sign in 
+

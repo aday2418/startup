@@ -27,6 +27,7 @@ export async function GET(req) {
   }
   setAuthCookie("providerToken", data.access_token)
   setAuthCookie("refreshToken", data.refresh_token)
+  
 
   return NextResponse.redirect(origin)
   //return NextResponse.redirect(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "http://localhost:3000" : "https://startup.soundcircle.xyz"}/dashboard`)

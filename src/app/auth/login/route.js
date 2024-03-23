@@ -8,6 +8,7 @@ import jwt from 'jsonwebtoken'
 
 
 export async function POST(req){
+
     const body = await req.json()
     const username = body.username
     const password = body.password

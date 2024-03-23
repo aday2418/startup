@@ -24,13 +24,11 @@ export default function UserDashboard() {
   const [dropdown, setDropdown] = useState('short_term'); 
   
   //Calling my Server's endpoints below!!
-  const { data: profile, isLoading: profileLoading } = useSWR('/api/spotify', fetcher) 
+  const { data: profile, isLoading: profileLoading } = useSWR('/api/spotify', fetcher) //Change this to 
   const { data: songs, isLoading: songsLoading } = useSWR(`/api/spotify/songs?timeframe=${dropdown}`, fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists?timeframe=${dropdown}`, fetcher)
- 
-  console.log({ profile, songs, artists })
-
-  //const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+  
+  console.log({ profile })
 
   useEffect(() => {
     //const storedFirstName = localStorage.getItem('firstName');
@@ -82,7 +80,7 @@ export default function UserDashboard() {
                     <div className='flex text-3xl gap-3'>
                     <h1>{profile.data.display_name}</h1>
                     </div>
-                    <p className="text-md ">{profile.data.id} | {user.friends ? JSON.parse(user.friends).length : 0} Friends</p>
+                    <p className="text-md ">{profile.data.spotify_id} | {user.friends ? JSON.parse(user.friends).length : 0} Friends</p>
                 </div>
                 <div className='flex flex-col'>
                   <Dropdown dropdown={dropdown} setDropdownChange={handleDropdownChange}/>

@@ -1,14 +1,24 @@
 import fetchSpotify from "../../../../lib/fetchSpotify";
 import { URL } from "url";
-import { cookies } from 'next/headers'
 
+import getUser from "../../../../lib/getUser"
+import fetchAndUpdateSongs from "../../../../lib/fetchAndUpdateSongs"
+import userIdFromToken from "../../../../lib/userIdFromToken"
 
 export async function GET(request) {
     const url = new URL(request.url);
-    const timeFrame = url.searchParams.get("timeframe"); 
+    const timeFrame = url.searchParams.get("timeframe");
+    const userId = userIdFromToken()
+    const user = await getUser(userId)
 
-    const cookieStore = cookies()
-    const provider_token = cookieStore.get('providerToken')
-    const songs = await fetchSpotify(provider_token.value, `/top/tracks?offset=0&limit=50&time_range=${timeFrame}`)
-    return Response.json({ data: songs.items})
+    let songs
+    if(user?.spotify) { 
+        songs = user.songs
+
+        fetchAndUpdateSongs(userId, timeFrame)
+    } else {
+        songs = await fetchAndUpdateSongs(userId, timeFrame)
+    }
+
+    return Response.json({ data: songs})
 }

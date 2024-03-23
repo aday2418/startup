@@ -11,9 +11,9 @@ export default function authenticate(token) {
   
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      
+
       if(decoded) {
-        return true
+        return decoded.userId
       } else {
         return false
       }

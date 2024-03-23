@@ -18,8 +18,8 @@ export default function Songs({songs}){
                 number={index + 1}
                 song={song.name}
                 artist={song.artists.map(artist => artist.name).join(', ')} // Handles multiple artists
-                album={song.album.name}
-                picture={<Image width={80} height={80} src={song.album.images[0].url}/>}
+                album={song.album}
+                picture={<Image width={80} height={80} src={song.image.url}/>}
             />
     ))}      
         </div>

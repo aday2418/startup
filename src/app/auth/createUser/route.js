@@ -23,6 +23,7 @@ export async function POST(req){
     const user = {
         username: username,
         password: passwordHash,
+        spotify: false
     };
 
     await collection.insertOne(user);

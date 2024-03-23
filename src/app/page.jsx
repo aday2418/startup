@@ -9,6 +9,7 @@ import ErrorMessage from "./ErrorMessage"
 import { useRouter } from "next/navigation";
 import useSWR from 'swr'
 import { fetcher } from '../lib/fetcher'
+import Songs from "./dashboard/Songs";
 
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
     if(token) {
       router.push("/dashboard")
     }
-    
+
   }, [data])
 
   const changeUsername = (newUser) => {
@@ -40,15 +41,16 @@ export default function Home() {
       method: "POST",
       body: JSON.stringify({username, password})
     })
-
+    //updateDatabase
     const data = await res.json()
-    router.push('/dashboard/onboarding')
+    
+    router.push('/dashboard') //Changed from onboarding -> dashboard
     
   };
 
   const handleCreateAccount = async () => {
     const username = spotifyUsername
-    const res = await fetch("/auth/createUser", {
+    await fetch("/auth/createUser", {
       method: "POST",
       body: JSON.stringify({username, password})
     })

@@ -13,7 +13,8 @@ export async function POST(req){
     const username = body.username
     const password = body.password
 
-    const db = mongoClient()
+    const client = mongoClient()
+    const db = client.db('soundCircle')
     const collection = db.collection('users');
     const user = await collection.findOne({ username })
 
@@ -22,6 +23,8 @@ export async function POST(req){
         setAuthCookie("token", token)
         return Response.json({ token })
     }
+
+    await client.close()
 
     return Response.json({ error: "Username or Password is incorrect"})
 }

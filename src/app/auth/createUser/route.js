@@ -9,7 +9,8 @@ export async function POST(req){
     const password = body.password
 
 
-    const db = mongoClient()
+    const client = mongoClient()
+    const db = client.db('soundCircle')
     const collection = db.collection('users');
 
     
@@ -26,6 +27,7 @@ export async function POST(req){
     };
 
     await collection.insertOne(user);
+    await client.close() //Look at this one again
 
     // Generate JWT
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });

@@ -6,7 +6,6 @@ import userIdFromToken from "../../../lib/userIdFromToken"
 export async function GET(request) {
     const userId = userIdFromToken()
     const user = await getUser(userId)
-
     let profile
     if(user?.spotify) { 
         profile = {

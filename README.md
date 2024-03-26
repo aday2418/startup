@@ -187,5 +187,3 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
         + **If you want to be able to login to my website using your personal Spotify account, send me a Canvas message with the email registered to your spotify account**
         + Once I build out the app fully, I plan to get a free audit from spotify and expand the api access so that anyone can sign in 
 
-+ **My MongoDB reached the maximum number of connections (from me improperly closing connections). I am in the process of re-deploying my code to properly close connections. The site should be back up in an hour**
-

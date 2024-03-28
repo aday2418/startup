@@ -18,7 +18,7 @@ export async function GET(request) {
             medium_term: user.mediumArtists,
             long_term: user.longArtists
         }
-        console.log(artists)
+        //console.log(artists)
 
         fetchAndUpdateArtists(userId)
     } else {

@@ -15,6 +15,8 @@ export default function Settings() {
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');
     const [darkModePreference, setDarkModePreference] = useState(darkMode);
+    const [username, setUsername] = useState('')
+    //setUsername(await getUsername())
 
     useEffect(() => {
         // Access localStorage only when the component mounts on the client side
@@ -67,7 +69,7 @@ export default function Settings() {
                     <label htmlFor="profilePic" className={`flex text-sm cursor-pointer p-1 border justify-center ${darkMode ? "border-black hover:border-white hover:bg-gray-700": "border-white hover:border-black hover:bg-gray-300"} rounded-lg`}>Change Profile Picture</label>
                 </div>
                 <div className='flex flex-col justify-top w-full gap-4'>
-                    <InfoRow blockName="First Name" passedValue={firstName} localStorageKey="firstName"/>
+                    <InfoRow blockName="Username" passedValue={firstName} localStorageKey="firstName"/>
                     <InfoRow blockName="Password" passedValue={password} localStorageKey="password"/>
                 </div>
             </div>

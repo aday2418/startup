@@ -28,8 +28,8 @@ export default function UserDashboard() {
   const { data: songs, isLoading: songsLoading } = useSWR('/api/spotify/songs', fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists`, fetcher)
 
-  console.log(artists)
-  console.log(songs)
+  //console.log(artists)
+  //console.log(songs)
 
   useEffect(() => {
     //const storedFirstName = localStorage.getItem('firstName');
@@ -81,7 +81,7 @@ export default function UserDashboard() {
                     <div className='flex text-3xl gap-3'>
                     <h1>{profile.data.display_name}</h1>
                     </div>
-                    <p className="text-md ">{profile.data.spotify_id} | {user.friends ? JSON.parse(user.friends).length : 0} Friends</p>
+                    <p className="text-md ">{profile.data.username} | {user.friends ? JSON.parse(user.friends).length : 0} Friends</p>
                 </div>
                 <div className='flex flex-col'>
                   <Dropdown dropdown={dropdown} setDropdownChange={handleDropdownChange}/>

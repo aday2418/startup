@@ -11,12 +11,13 @@ export async function GET(request) {
         profile = {
             spotify_id: user.spotify_id,
             display_name: user.display_name,
+            username: user.username,
             images: user.images
         }
 
-        fetchAndUpdate(userId)
+        fetchAndUpdate(userId, user.username)
     } else {
-        profile = await fetchAndUpdate(userId)
+        profile = await fetchAndUpdate(userId, user.username)
     }
     //console.log(profile)
     console.log({ data: profile})

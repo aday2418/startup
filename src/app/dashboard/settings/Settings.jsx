@@ -17,12 +17,12 @@ export default function Settings({user}){
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');
     const [darkModePreference, setDarkModePreference] = useState(darkMode);
-    console.log({profilePic})
+    //console.log({profilePic})
 
     /*if (user.images[0].url){
         setProfilePic(user.images[0].url)
     }
-    console.log(profilePic)*/
+    //console.log(profilePic)*/
 
     useEffect(() => {
         // Access localStorage only when the component mounts on the client side

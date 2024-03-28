@@ -6,20 +6,21 @@ import FriendGrid from './FriendGrid'
 import { useState, useEffect } from 'react';
 import fakeUsers from './fakeUsers.json'
 import { useRouter } from 'next/navigation'
+import { addMongoFriend, removeMongoFriend } from '../../../actions/setMongoValue';
 
 
-export default function Friends({allUsers}) {
+export default function Friends({allUsers, self}) {
     
-    const [friends, setFriends] = useState([]);
+    const [friends, setFriends] = useState(`${self.friends ? self.friends : []}`);
     const [search, setSearch] = useState('');
 
 
-    useEffect(() => {
+    /*useEffect(() => {
         const storedFriends = localStorage.getItem('friends');
         if (storedFriends) {
             setFriends(JSON.parse(storedFriends));
         }
-    }, []);
+    }, []);*/
     
 
     const handleSearchChange = (e) => {
@@ -29,12 +30,16 @@ export default function Friends({allUsers}) {
     const addFriend = (newFriend) => {    //This is only being disabled until the database is up <- Breaking trying to load API data and read from the example JSON file (from friends that don't actually have Spotify Accounts)
         if(!friends.includes(newFriend)){
             setFriends([...friends, newFriend])
-            localStorage.setItem('friends', JSON.stringify([...friends, newFriend]))
+            console.log(friends)
+            //setMongoValue('friends', friends)
+            addMongoFriend(newFriend, self)
         }
     }
 
     const removeFriend = (friendToRemove) => {
         setFriends(friends.filter(friend => friend.username !== friendToRemove.username))
+        removeMongoFriend(friendToRemove, self)
+
     }
 
     return (

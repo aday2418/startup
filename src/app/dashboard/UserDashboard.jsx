@@ -27,7 +27,9 @@ export default function UserDashboard() {
   const { data: profile, isLoading: profileLoading } = useSWR('/api/spotify', fetcher) //Change this to 
   const { data: songs, isLoading: songsLoading } = useSWR(`/api/spotify/songs?timeframe=${dropdown}`, fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists?timeframe=${dropdown}`, fetcher)
-  
+
+  console.log(songs)
+
   useEffect(() => {
     //const storedFirstName = localStorage.getItem('firstName');
     //const storedLastName = localStorage.getItem('lastName');
@@ -92,7 +94,7 @@ export default function UserDashboard() {
             <TableTab name="Top Genres" selected={tab == "genres"} value="genres" changeTab={changeTab}/>
             </div>
             <div className={`border rounded-r-2xl p-4 ${darkMode ? "border-white" : "border-black"}`}>
-            {tab == "songs" ? <Songs songs={songs.data}/> : tab == "artists" ? <Artists songs={songs.data} artists={artists.data}/> : <Genres artists={artists.data}/>}
+            {tab == "songs" ? <Songs songs={songs.data} dropdown={dropdown}/> : tab == "artists" ? <Artists songs={songs.data} artists={artists.data}/> : <Genres artists={artists.data}/>}
             </div>
             
         </div>

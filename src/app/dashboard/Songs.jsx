@@ -4,14 +4,24 @@ import topSongs from "./topSongs.json"
 import Image from 'next/image'
 import { DarkModeContext } from "./DarkModeProvider"
 
-export default function Songs({songs}){
-  const {darkMode} = useContext(DarkModeContext)  
-  const shortSongs = songs.slice(0, 15);  
+export default function Songs({songs, dropdown}){
+  const {darkMode} = useContext(DarkModeContext) 
+  console.log("about")
+  console.log(songs[0])
+  let timeRangeSongs
+  if(dropdown == "short_term") 
+    timeRangeSongs = songs[0]
+  else if(dropdown == "medium_term")
+    timeRangeSongs = songs[1]
+  else if(dropdown == "long_term")
+    timeRangeSongs = songs[2]
+  const songsToSlice = timeRangeSongs
+  const slicedSongs = songsToSlice.slice(0, 15);  
     return(
         <div className="flex flex-col">
             <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover" firstRow={true}/>
             <div className={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
-            {shortSongs.map((song, index) => (
+            {slicedSongs.map((song, index) => (
             <SongRow
                 firstRow={false}
                 number={index + 1}

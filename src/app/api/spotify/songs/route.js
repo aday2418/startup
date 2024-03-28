@@ -11,8 +11,7 @@ export async function GET(request) {
 
     let songs
     if(user?.songs) { 
-        songs = user.songs
-
+        songs = [user.shortSongs, user.mediumSongs, user.longSongs] //changed this!!
         fetchAndUpdateSongs(userId, timeFrame)
     } else {
         songs = await fetchAndUpdateSongs(userId, timeFrame)

@@ -5,7 +5,7 @@ import { useContext } from "react"
 
 export default function Artists({songs, artists, dropdown}){
     const {darkMode} = useContext(DarkModeContext)
-    console.log(artists)
+    //console.log(artists)
     const timeRangeArtists = artists[dropdown]
     const slicedArtists = timeRangeArtists.slice(0,15);
 

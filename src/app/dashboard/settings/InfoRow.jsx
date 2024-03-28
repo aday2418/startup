@@ -3,27 +3,24 @@
 import { useState, useEffect } from 'react'
 import { DarkModeContext } from '../DarkModeProvider';
 import { useContext } from 'react';
+import { setMongoValue } from '../../../actions/setMongoValue';
+import { useRouter } from 'next/navigation';
 
-export default function InfoRow({blockName, localStorageKey, passedValue}){
+export default function InfoRow({blockName, mongoKey, passedValue}){
+    const router = useRouter()
     const [editing, setEditing] = useState(false);
     const [value, setValue] = useState(passedValue);
 
     const { darkMode } = useContext(DarkModeContext);
 
-    useEffect(() => {
-        const storedValue = localStorage.getItem(localStorageKey);
-        if (storedValue) {
-        setValue(storedValue);
-        }
-    }, [localStorageKey]);
-
     const handleChange = (event) => {
         setValue(event.target.value);
     };
 
-    const handleSave = () => {
-        localStorage.setItem(localStorageKey, value);
+    const handleSave = async () => {
+        await setMongoValue(mongoKey, value);
         setEditing(false);
+        router.refresh()
     };
     
     return(

@@ -17,37 +17,14 @@ import { fetcher } from '../../lib/fetcher'
 
 
 export default function UserDashboard() {
-
   const [tab, setTab] = useState("songs")
   const {darkMode} = useContext(DarkModeContext)
-  const [user, setUser] = useState(null)
   const [dropdown, setDropdown] = useState('short_term'); 
   
   //Calling my Server's endpoints below!!
   const { data: profile, isLoading: profileLoading } = useSWR('/api/spotify', fetcher) //Change this to 
   const { data: songs, isLoading: songsLoading } = useSWR('/api/spotify/songs', fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists`, fetcher)
-
-  //console.log(artists)
-  //console.log(songs)
-
-  useEffect(() => {
-    //const storedFirstName = localStorage.getItem('firstName');
-    //const storedLastName = localStorage.getItem('lastName');
-    const storedSpotify = localStorage.getItem('spotifyUsername');
-    const storedPicture = localStorage.getItem('profilePicture');
-    const storedFriends = localStorage.getItem('friends')
-  
-    const newUser = {
-      //firstName: storedFirstName,
-      //lastName: storedLastName,
-      username: storedSpotify,
-      picture: storedPicture, 
-      friends: storedFriends
-    }
-
-    setUser(newUser)
-  }, [])
 
   useEffect(() => {
     const interval = 10 * 60 * 1000; // 10 minutes in milliseconds
@@ -69,19 +46,18 @@ export default function UserDashboard() {
     setDropdown(dropdownValue);
   };
 
-  return (user && profile && songs && artists) && (
+  return (profile && songs && artists) && (
         <div className='flex flex-col'>
             <div className='flex flex-row h-[150px] gap-8'>
             <div className={`flex flex-shrink-0 flex-grow-0 border rounded-full ${darkMode? "border-white" : "border-black"} h-[150px] w-[150px] overflow-hidden items-center`}>
-                {user.picture ? <img src={user.picture} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor="#FFFFFF"/>}
-                
+                {profile.data.images[1] ? <Image src={profile.data.images[1].url} alt="Profile" className="h-full w-full object-cover" width={150} height={150} /> : <Friend fillColor="#FFFFFF"/>}
             </div>
             <div className='flex justify-between w-full items-center pb-8'>
                 <div className='flex flex-col'>
                     <div className='flex text-3xl gap-3'>
                     <h1>{profile.data.display_name}</h1>
                     </div>
-                    <p className="text-md ">{profile.data.username} | {user.friends ? JSON.parse(user.friends).length : 0} Friends</p>
+                    <p className="text-md ">{profile.data.username} | 0 {/* user.friends ? JSON.parse(user.friends).length : 0*/} Friends</p>
                 </div>
                 <div className='flex flex-col'>
                   <Dropdown dropdown={dropdown} setDropdownChange={handleDropdownChange}/>
@@ -97,7 +73,6 @@ export default function UserDashboard() {
             <div className={`border rounded-r-2xl p-4 ${darkMode ? "border-white" : "border-black"}`}>
             {tab == "songs" ? <Songs songs={songs.data} dropdown={dropdown}/> : tab == "artists" ? <Artists songs={songs.data} artists={artists.data} dropdown={dropdown}/> : <Genres artists={artists.data} dropdown={dropdown}/>}
             </div>
-            
         </div>
   )
 }

@@ -7,6 +7,7 @@ export async function GET(request) {
     const userId = userIdFromToken()
     const user = await getUser(userId)
     let profile
+
     if(user?.spotify) { 
         profile = {
             spotify_id: user.spotify_id,
@@ -19,8 +20,6 @@ export async function GET(request) {
     } else {
         profile = await fetchAndUpdate(userId, user.username)
     }
-    //console.log(profile)
-    console.log({ data: profile})
 
     return Response.json({ data: profile})
 

@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 export default function Settings({user}){
     const router = useRouter()
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    const [profilePic, setProfilePic] = useState(`${user && user.images[1] ? user.images[1].url : null}`);
+    const [profilePic, setProfilePic] = useState(`${user && user.images[1] ? user.images[1].url : ''}`);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');

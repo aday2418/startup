@@ -10,13 +10,13 @@ export async function GET(request) {
     const user = await getUser(userId)
 
     let songs
-    if(user?.songs) { 
+    if(user?.shortSongs && user?.mediumSongs && user?.longSongs ) { 
         songs = {
             short_term: user.shortSongs,
             medium_term: user.mediumSongs,
             long_term: user.longSongs
         }
-        //console.log({songs})
+        console.log({songs})
         fetchAndUpdateSongs(userId)
     } else {
         songs = await fetchAndUpdateSongs(userId)

@@ -11,20 +11,13 @@ import { addMongoFriend, removeMongoFriend } from '../../../actions/setMongoValu
 
 export default function Friends({allUsers, self}) {
     
-    const [friends, setFriends] = useState(`${self.friends ? self.friends : []}`);
+    const [friends, setFriends] = useState(self.friends ? self.friends : []);
     const [search, setSearch] = useState('');
-
-
-    /*useEffect(() => {
-        const storedFriends = localStorage.getItem('friends');
-        if (storedFriends) {
-            setFriends(JSON.parse(storedFriends));
-        }
-    }, []);*/
     
 
     const handleSearchChange = (e) => {
         setSearch(e.target.value);
+        console.log({friends})
     };
 
     const addFriend = (newFriend) => {    //This is only being disabled until the database is up <- Breaking trying to load API data and read from the example JSON file (from friends that don't actually have Spotify Accounts)

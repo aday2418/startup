@@ -11,14 +11,12 @@ export async function GET(request) {
     const user = await getUser(userId)
 
     let artists
-    if(user?.artists) { 
-        //artists = user.artists
+    if(user?.shortArtists && user?.mediumArtists && user?.longArtists) { 
         artists = {
             short_term: user.shortArtists,
             medium_term: user.mediumArtists,
             long_term: user.longArtists
         }
-        //console.log(artists)
 
         fetchAndUpdateArtists(userId)
     } else {

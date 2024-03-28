@@ -25,7 +25,6 @@ export default function UserDashboard() {
   const { data: profile, isLoading: profileLoading } = useSWR('/api/spotify', fetcher) //Change this to 
   const { data: songs, isLoading: songsLoading } = useSWR('/api/spotify/songs', fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists`, fetcher)
-  //console.log(profile,songs,artists)
 
   useEffect(() => {
     const interval = 10 * 60 * 1000; // 10 minutes in milliseconds

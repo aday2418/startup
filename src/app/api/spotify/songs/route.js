@@ -16,7 +16,6 @@ export async function GET(request) {
             medium_term: user.mediumSongs,
             long_term: user.longSongs
         }
-        //console.log({songs})
         fetchAndUpdateSongs(userId)
     } else {
         songs = await fetchAndUpdateSongs(userId)

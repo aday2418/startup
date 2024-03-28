@@ -13,9 +13,6 @@ export default function Settings({user}){
     const router = useRouter()
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
     const [profilePic, setProfilePic] = useState(`${user && user.images[1] ? user.images[1].url : ''}`);
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [password, setPassword] = useState('');
     const [darkModePreference, setDarkModePreference] = useState(darkMode);
     
     router.refresh()
@@ -39,8 +36,6 @@ export default function Settings({user}){
           const reader = new FileReader();
           reader.onloadend = () => {
             const images = [0,{url: reader.result}]
-            //console.log({images})
-            //console.log(reader.result)
             setProfilePic(images[1].url);
             setMongoValue('images', images);
           };

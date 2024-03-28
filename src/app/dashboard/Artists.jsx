@@ -5,25 +5,17 @@ import { useContext } from "react"
 
 export default function Artists({songs, artists, dropdown}){
     const {darkMode} = useContext(DarkModeContext)
-    //console.log(artists)
     const timeRangeArtists = artists[dropdown]
     const slicedArtists = timeRangeArtists.slice(0,15);
 
-    /*const findMostPlayedSongByArtist = (artistName) => {
-        const song = songs.find(song => 
-            song.artists.some(artist => artist.name === artistName)
-        );
-        return song ? song.name : 'No songs within Top 50';
-    };*/
     const findMostPlayedSongByArtist = (artistName) => {
-        // Assuming `songs` is now an object with keys: short_term, medium_term, long_term
         for (let term of ['short_term', 'medium_term', 'long_term']) {
-            const songArray = songs[term]; // Access the array of songs for the current term
+            const songArray = songs[term]; 
             const song = songArray.find(song => 
                 song.artists.some(artist => artist.name === artistName)
             );
             if (song) {
-                return song.name; // Return the name of the first matching song found
+                return song.name; 
             }
         }
         return 'No songs within Top 50'; // Return this if no song matches in any of the terms

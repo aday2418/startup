@@ -3,12 +3,10 @@ import AddFriendBlock from "./AddFriendBlock"
 export default function AddFriendGrid({users, search, addFriend, friends}){
     
     const nonFriends = users.filter(user => !friends.includes(user));
-    //console.log(nonFriends)
 
     const filteredUsers = search ? nonFriends.filter(nonFriends => 
         nonFriends.username.toLowerCase().includes(search.toLowerCase())
     ).slice(0, 5) : [];
-    //console.log(filteredUsers)
 
     return(
         <div>

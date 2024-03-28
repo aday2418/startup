@@ -28,8 +28,6 @@ export default function UserDashboard() {
   const { data: songs, isLoading: songsLoading } = useSWR(`/api/spotify/songs?timeframe=${dropdown}`, fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists?timeframe=${dropdown}`, fetcher)
   
-  console.log({ profile, songs, artists })
-
   useEffect(() => {
     //const storedFirstName = localStorage.getItem('firstName');
     //const storedLastName = localStorage.getItem('lastName');

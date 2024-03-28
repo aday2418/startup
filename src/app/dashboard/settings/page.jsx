@@ -26,7 +26,7 @@ export default function Settings() {
         const storedLastName = localStorage.getItem('lastName');
         const storedSpotify = localStorage.getItem('spotifyUsername');
         const storedPassword = localStorage.getItem('password');
-        const storedPreference = localStorage.getItem('darkMode');
+        const storedPreference = localStorage.getItem('darkMode'); 
 
         if (storedPicture) setProfilePic(storedPicture);
         setFirstName(storedFirstName || '');
@@ -40,6 +40,7 @@ export default function Settings() {
 
     const handleToggleChange = (e) => {
         toggleDarkMode()
+        //updateDatabase
     };
 
     const handleChangeProfilePicture = (e) => {

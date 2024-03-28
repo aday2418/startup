@@ -1,6 +1,6 @@
 "use server"
 
-import { mongoClient } from "../../../clients/mongo"
+import { mongoClient, mongoCollection } from "../../../clients/mongo"
 import setAuthCookie from '../../../lib/setAuthCookie'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -14,8 +14,7 @@ export async function POST(req){
     const password = body.password
 
     const client = mongoClient()
-    const db = client.db('soundCircle')
-    const collection = db.collection('users');
+    const collection = mongoCollection(client, "users")
     const user = await collection.findOne({ username })
 
     if(user && await bcrypt.compare(password, user.password)){

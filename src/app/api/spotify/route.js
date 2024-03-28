@@ -18,6 +18,8 @@ export async function GET(request) {
     } else {
         profile = await fetchAndUpdate(userId)
     }
+    //console.log(profile)
+    console.log({ data: profile})
 
     return Response.json({ data: profile})
 

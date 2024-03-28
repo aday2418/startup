@@ -6,17 +6,8 @@ import { DarkModeContext } from "./DarkModeProvider"
 
 export default function Songs({songs, dropdown}){
   const {darkMode} = useContext(DarkModeContext) 
-  console.log("about")
-  console.log(songs[0])
-  let timeRangeSongs
-  if(dropdown == "short_term") 
-    timeRangeSongs = songs[0]
-  else if(dropdown == "medium_term")
-    timeRangeSongs = songs[1]
-  else if(dropdown == "long_term")
-    timeRangeSongs = songs[2]
-  const songsToSlice = timeRangeSongs
-  const slicedSongs = songsToSlice.slice(0, 15);  
+  const timeRangeSongs = songs[dropdown]
+  const slicedSongs = timeRangeSongs.slice(0, 15);  
     return(
         <div className="flex flex-col">
             <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover" firstRow={true}/>

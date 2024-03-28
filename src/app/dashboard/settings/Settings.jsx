@@ -17,30 +17,14 @@ export default function Settings({user}){
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');
     const [darkModePreference, setDarkModePreference] = useState(darkMode);
-    //console.log({profilePic})
-
-    /*if (user.images[0].url){
-        setProfilePic(user.images[0].url)
-    }
-    //console.log(profilePic)*/
+    
+    router.refresh()
 
     useEffect(() => {
-        // Access localStorage only when the component mounts on the client side
-        const storedPicture = localStorage.getItem('profilePicture');
-        //if (storedPicture) setProfilePic(storedPicture);
 
-        // Other localStorage operations can go here
-        
-        const storedSpotify = localStorage.getItem('spotifyUsername');
-        const storedPassword = localStorage.getItem('password');
         const storedPreference = localStorage.getItem('darkMode'); 
-
-        //if (storedPicture) setProfilePic(storedPicture);
-        
-        setPassword(storedPassword || '');
         setDarkModePreference(storedPreference === 'true');
         
-        // If you need to use these stored values, consider setting them to state here
     }, [toggleDarkMode, darkMode]);
 
 

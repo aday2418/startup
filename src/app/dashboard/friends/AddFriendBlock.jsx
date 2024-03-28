@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { DarkModeContext } from "../DarkModeProvider"
 
 export default function AddFriendBlock({user, addFriend}){
+    
     const handleClick = () => {
         addFriend(user)
     }

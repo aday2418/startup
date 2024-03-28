@@ -11,9 +11,15 @@ export default function AddFriendGrid({users, search, addFriend, friends}){
     //console.log(filteredUsers)
 
     return(
-        <div className='grid grid-cols-5 gap-8 w-full'>
+        <div>
+            <div className='grid grid-cols-5 gap-8 w-full'>
             {search && filteredUsers.length > 0 && filteredUsers.map((user, index) => (<AddFriendBlock key={index} user={user} addFriend={addFriend}/>))}
+            
+            </div>
+            <p className="font-bold">Right Now There Are Only 2 Real Users Whos Pages You Can Search. Both of their Usernames contain the number 1. </p>
+
         </div>
+        
     )
 }
 

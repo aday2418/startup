@@ -12,6 +12,6 @@ export async function setMongoValue(key, value){
     const userId = userIdFromToken()
     const client = mongoClient()
     const connection = mongoCollection(client, "users")
-    console.log({ userId })
+    //console.log({ userId })
     connection.updateOne({_id: new ObjectId(userId)}, {$set: {[key] : value}})
 }

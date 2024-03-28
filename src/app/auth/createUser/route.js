@@ -23,7 +23,8 @@ export async function POST(req){
         username: username,
         password: passwordHash,
         spotify: false,
-        darkMode: false
+        darkMode: false,
+        friends: []
     };
 
     await collection.insertOne(user);

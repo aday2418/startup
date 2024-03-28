@@ -4,7 +4,12 @@ const nextConfig = {
         domains: [
             "i.scdn.co",
         ]
-    }
+    },
+    experimental: {
+        serverActions: {
+          bodySizeLimit: '3mb',
+        },
+      },
 }
 
 module.exports = nextConfig

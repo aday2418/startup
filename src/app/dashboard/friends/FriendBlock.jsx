@@ -17,7 +17,7 @@ export default function FriendBlock({user, removeFriend}){
             </div>
             <Link href={`/dashboard/friends/${user.username}`}>
                 <div className={`border rounded-full overflow-hidden ${darkMode ? "border-white" : "border-black"}`}>
-                    {user.picture ? <img src={user.picture} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor={user.color}/>}
+                    {user.images[1] ? <img src={user.images[1].url} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor={""}/>}
                 </div>
                 <p className="text-center">{user.username}</p>
             </Link>

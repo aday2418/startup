@@ -5,7 +5,7 @@ import userIdFromToken from "../../../../lib/userIdFromToken"
 
 
 export async function GET(request) {
-    const url = new URL(request.url);
+    //const url = new URL(request.url);
     //const timeFrame = url.searchParams.get("timeframe");
     const userId = userIdFromToken()
     const user = await getUser(userId)

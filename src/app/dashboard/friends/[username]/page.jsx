@@ -1,18 +1,26 @@
 import PageInfo from "../../PageInfo";
-import UserDashboard from "../../UserDashboard";
+import FriendDashboard from "./FriendDashboard";
+import { mongoClient, mongoCollection } from "../../../../clients/mongo"
 import fakeUsers from '../fakeUsers.json'
 
 
-export default function FriendDashboard({ params: { username }}){
+export default async function Page({ params: { username }}){
     if(username == 'page')
     {
         return <div>User Not Found</div>
     }
-    const user = fakeUsers.find(fakeUser => fakeUser.username == username)
+    const client = mongoClient()
+    const connection = mongoCollection(client, "users")
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", username)
+    const user = await connection.findOne({username})
+    console.log(user)
+    const { _id, ...userWithoutId } = user
+    const capitalizedName = user.display_name.charAt(0).toUpperCase() + user.display_name.slice(1)
+    await client.close()
     
     return(
-        <PageInfo title={`${user.firstName} ${user.lastName}'s Dashboard`} backButton={true}>
-            <UserDashboard user={user} />
+        <PageInfo title={`${capitalizedName}'s Dashboard`} backButton={true}>
+            <FriendDashboard user={userWithoutId} />
         </PageInfo>
         
     )

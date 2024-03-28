@@ -6,6 +6,8 @@ export const DarkModeContext = createContext()
 
 
 export default function DarkModeProvider({children}){
+    //const {data: profile} = await fetch('/api/spotify')
+    //console.log(profile)
     const [darkMode, setDarkmode] = useState(false)
 
     const toggleDarkMode = () => {

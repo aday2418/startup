@@ -30,7 +30,7 @@ export default function Settings({user}){
 
     const handleToggleChange = (e) => {
         toggleDarkMode()
-        //updateDatabase
+        setMongoValue("darkMode", darkMode)
     };
 
     const handleChangeProfilePicture = (e) => {

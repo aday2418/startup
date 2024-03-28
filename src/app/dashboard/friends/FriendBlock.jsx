@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { DarkModeContext } from "../DarkModeProvider"
 import Link from "next/link";
 
-export default function FriendBlock({user, color, removeFriend}){
+export default function FriendBlock({user, removeFriend}){
     const {darkMode} = useContext(DarkModeContext)
 
     const handleClickX = () => {
@@ -15,12 +15,12 @@ export default function FriendBlock({user, color, removeFriend}){
             <div className="absolute right-0">
                 <button onClick={handleClickX} className="text-lg font-semibold opacity-0 group-hover:opacity-100 smooth">X</button>
             </div>
-            
+            <Link href={`/dashboard/friends/${user.username}`}>
                 <div className={`border rounded-full overflow-hidden ${darkMode ? "border-white" : "border-black"}`}>
                     {user.picture ? <img src={user.picture} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor={user.color}/>}
                 </div>
                 <p className="text-center">{user.username}</p>
-            
+            </Link>
         </div>
     )
 }

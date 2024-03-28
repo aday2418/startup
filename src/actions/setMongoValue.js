@@ -6,7 +6,9 @@ import { mongoCollection } from '../clients/mongo'
 import { ObjectId } from 'mongodb'
 
 export async function setMongoValue(key, value){
-    console.log({ key, value})
+    //console.log("hello")
+    //console.log(value)
+    //console.log({ key, value})
     const userId = userIdFromToken()
     const client = mongoClient()
     const connection = mongoCollection(client, "users")

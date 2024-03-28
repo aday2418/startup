@@ -5,31 +5,38 @@ import Friend from '../../../components/icons/Friend'
 import { useState, useEffect, useContext } from 'react'
 import InfoRow from './InfoRow'
 import { DarkModeContext } from '../DarkModeProvider'
-import getUsername from '../../../actions/setMongoValue'
+import getUsername, { setMongoValue } from '../../../actions/setMongoValue'
+import { useRouter } from 'next/navigation';
+
 
 export default function Settings({user}){
+    const router = useRouter()
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    const [profilePic, setProfilePic] = useState('');
+    const [profilePic, setProfilePic] = useState(`${user && user.images[1] ? user.images[1].url : null}`);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');
     const [darkModePreference, setDarkModePreference] = useState(darkMode);
+    console.log({profilePic})
+
+    /*if (user.images[0].url){
+        setProfilePic(user.images[0].url)
+    }
+    console.log(profilePic)*/
 
     useEffect(() => {
         // Access localStorage only when the component mounts on the client side
         const storedPicture = localStorage.getItem('profilePicture');
-        if (storedPicture) setProfilePic(storedPicture);
+        //if (storedPicture) setProfilePic(storedPicture);
 
         // Other localStorage operations can go here
-        const storedFirstName = localStorage.getItem('firstName');
-        const storedLastName = localStorage.getItem('lastName');
+        
         const storedSpotify = localStorage.getItem('spotifyUsername');
         const storedPassword = localStorage.getItem('password');
         const storedPreference = localStorage.getItem('darkMode'); 
 
-        if (storedPicture) setProfilePic(storedPicture);
-        setFirstName(storedFirstName || '');
-        setLastName(storedLastName || '');
+        //if (storedPicture) setProfilePic(storedPicture);
+        
         setPassword(storedPassword || '');
         setDarkModePreference(storedPreference === 'true');
         
@@ -47,11 +54,15 @@ export default function Settings({user}){
         if (file && file.type.startsWith('image/')) {
           const reader = new FileReader();
           reader.onloadend = () => {
-            setProfilePic(reader.result);
-            localStorage.setItem('profilePicture', reader.result);
+            const images = [0,{url: reader.result}]
+            //console.log({images})
+            //console.log(reader.result)
+            setProfilePic(images[1].url);
+            setMongoValue('images', images);
           };
           reader.readAsDataURL(file);
         }
+        router.refresh()
       };
 
     return ( 

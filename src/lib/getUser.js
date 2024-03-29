@@ -3,8 +3,6 @@ import { ObjectId } from 'mongodb';
 
 
 export default async function getUser(userId){
-    if(!userId) return null
-    
     const client = mongoClient()
     const connection = mongoCollection(client, "users")
     const user = await connection.findOne({_id: new ObjectId(userId)})

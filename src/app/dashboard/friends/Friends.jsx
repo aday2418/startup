@@ -14,19 +14,15 @@ export default function Friends({allUsers, self}) {
     const [friends, setFriends] = useState(self.friends ? self.friends : []);
     const [search, setSearch] = useState('');
 
-    console.log("friends state")
-    console.log(friends)
     
 
     const handleSearchChange = (e) => {
         setSearch(e.target.value);
-        console.log({friends})
     };
 
     const addFriend = (newFriend) => {    //This is only being disabled until the database is up <- Breaking trying to load API data and read from the example JSON file (from friends that don't actually have Spotify Accounts)
         if(!friends.includes(newFriend)){
             setFriends([...friends, newFriend])
-            console.log(friends)
             //setMongoValue('friends', friends)
             addMongoFriend(newFriend, self)
         }

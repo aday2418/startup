@@ -11,13 +11,8 @@ export default function Header(){
     const router = useRouter()
 
     const handleSpotifyLogout = async () => {
-        const supabase = createBrowserClient(
-          process.env.NEXT_PUBLIC_SUPABASE_URL,
-          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-        )
-        
         await deleteCookies()
-        router.push("/")
+        router.replace("/")
       }
 
     return(

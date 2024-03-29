@@ -14,9 +14,10 @@ export default function Settings({user}){
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
     const profilePic = user && user.images[1] ? user.images[1].url : ''
     
-    const handleToggleChange = (e) => {
-        setMongoValue("darkMode", !darkMode)
+    const handleToggleChange = async (e) => {
+        await setMongoValue("darkMode", !darkMode)
         toggleDarkMode()
+        //router.refresh()
     };
 
     const handleChangeProfilePicture = (e) => {
@@ -26,11 +27,9 @@ export default function Settings({user}){
           reader.onloadend = async () => {
             const images = ["0",{url: reader.result}]
             await setMongoValue('images', images);
-            console.log("on load end")
             router.refresh()
           };
           reader.readAsDataURL(file);
-          console.log("read as data url")
           router.refresh()
         }
         

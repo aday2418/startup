@@ -4,31 +4,7 @@ import FriendBlock from "./FriendBlock"
 
 export default function FriendGrid({friends, removeFriend, username}){ 
 
-    useEffect(() => {
-        // Create WebSocket connection.
-        const socket = new WebSocket('ws://localhost:80'); // Use your WebSocket server URL
-    
-        const message = {
-            eventType: 'newUser',
-            data: {
-              username
-            }
-          }
-        socket.onopen = () => {
-            // Now the socket is open, send the message
-            socket.send(JSON.stringify(message));
-        };
-    
-        // Listen for messages
-        socket.addEventListener('message', function (event) {
-          console.log('Message from server: ', event.data);
-        });
-    
-        // Clean up on component unmount
-        return () => {
-          socket.close();
-        };
-      }, []);
+   
 
     return(
         <div>

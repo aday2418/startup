@@ -28,7 +28,11 @@ wss.on('connection', (ws) => {
         console.log(global.usersOnline)
         wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN) {
-            client.send('Friends online: ' + global.usersOnline);
+              const message = {
+                eventType: "usersOnline",
+                data: global.usersOnline
+              }
+              client.send(JSON.stringify(message));
             }
         });
     };

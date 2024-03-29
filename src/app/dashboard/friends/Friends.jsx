@@ -38,7 +38,7 @@ export default function Friends({allUsers, self}) {
         <PageInfo title="Friends">
             <div className='flex flex-col'>
                 <h1 className='text-2xl mb-2'>My Friends</h1>
-                <FriendGrid friends={friends} removeFriend={removeFriend}/>
+                <FriendGrid friends={friends} removeFriend={removeFriend} username={self.username}/>
                 
                 <h1 className='mt-4 text-2xl mt-6 mb-6'>Add New Friends</h1>
                 <div className='flex flex-col gap-2 justify-center'>

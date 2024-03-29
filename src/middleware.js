@@ -5,7 +5,7 @@ import redirect from './lib/redirect';
 
 export async function middleware(req) { //Change this to verify Supabase Session + MongoDB
   const token = cookies().get("token")
-
+  console.log(token)
   if(!token) {
     return Response.redirect(redirect())
   }

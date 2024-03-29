@@ -17,8 +17,7 @@ export default function Header(){
         )
         
         await deleteCookies()
-        //const { data, error } = await supabase.auth.signOut()
-        router.refresh()
+        router.push("/")
       }
 
     return(

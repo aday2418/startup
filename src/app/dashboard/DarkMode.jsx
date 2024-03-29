@@ -6,8 +6,7 @@ export default async function DarkMode({children}){
     const userId = userIdFromToken()
     const user = await getUser(userId)
 
-    console.log(user.darkMode)
-    return (
+    return user && (
         <DarkModeProvider darkMode={user.darkMode}>
             {children}
         </DarkModeProvider>

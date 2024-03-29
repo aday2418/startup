@@ -1,10 +1,20 @@
 import Friend from "../../../components/icons/Friend"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { DarkModeContext } from "../DarkModeProvider"
 import Link from "next/link";
+import { UsersOnlineContext } from "../UsersOnlineProvider"
 
 export default function FriendBlock({user, removeFriend}){
     const {darkMode} = useContext(DarkModeContext)
+    const { usersOnline } = useContext(UsersOnlineContext)
+    const [online, setOnline] = useState(false)
+    
+    useEffect(() => {
+        if (usersOnline.includes(user.username))
+            setOnline(true)
+        else
+            setOnline(false)
+    }, [usersOnline]);
 
     const handleClickX = () => {
         removeFriend(user)
@@ -14,6 +24,9 @@ export default function FriendBlock({user, removeFriend}){
         <div className='flex flex-col w-[130px] p-3 gap-2 relative group'>
             <div className="absolute right-0">
                 <button onClick={handleClickX} className="text-lg font-semibold opacity-0 group-hover:opacity-100 smooth">X</button>
+            </div>
+            <div className="absolute left-3">
+                <div className={`w-[30px] h-[30px] ${online ? "bg-green-500": "bg-gray-500"} border-2 ${darkMode ? "border-white": "border-black"} rounded-full`}/>
             </div>
             <Link href={`/dashboard/friends/${user.username}`}>
                 <div className={`border h-[120px] w-[120px] rounded-full overflow-hidden ${darkMode ? "border-white" : "border-black"}`}>

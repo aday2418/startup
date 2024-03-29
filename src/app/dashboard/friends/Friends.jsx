@@ -3,9 +3,7 @@
 import PageInfo from '../PageInfo'
 import AddFriendGrid from './AddFriendGrid'
 import FriendGrid from './FriendGrid'
-import { useState, useEffect } from 'react';
-import fakeUsers from './fakeUsers.json'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react';
 import { addMongoFriend, removeMongoFriend } from '../../../actions/setMongoValue';
 
 
@@ -38,7 +36,7 @@ export default function Friends({allUsers, self}) {
         <PageInfo title="Friends">
             <div className='flex flex-col'>
                 <h1 className='text-2xl mb-2'>My Friends</h1>
-                <FriendGrid friends={friends} removeFriend={removeFriend} username={self.username}/>
+                <FriendGrid friends={friends} removeFriend={removeFriend}/>
                 
                 <h1 className='mt-4 text-2xl mt-6 mb-6'>Add New Friends</h1>
                 <div className='flex flex-col gap-2 justify-center'>

@@ -1,7 +1,6 @@
 import PageInfo from "../../PageInfo";
 import FriendDashboard from "./FriendDashboard";
 import { mongoClient, mongoCollection } from "../../../../clients/mongo"
-import fakeUsers from '../fakeUsers.json'
 
 
 export default async function Page({ params: { username }}){

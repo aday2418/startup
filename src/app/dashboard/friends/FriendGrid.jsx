@@ -1,10 +1,9 @@
-import { useEffect } from "react";
-import Friend from "../../../components/icons/Friend"
+
 import FriendBlock from "./FriendBlock"
 
-export default function FriendGrid({friends, removeFriend, username}){ 
+export default function FriendGrid({friends, removeFriend}){ 
 
-   
+
 
     return(
         <div>

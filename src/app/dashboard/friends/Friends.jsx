@@ -13,6 +13,9 @@ export default function Friends({allUsers, self}) {
     
     const [friends, setFriends] = useState(self.friends ? self.friends : []);
     const [search, setSearch] = useState('');
+
+    console.log("friends state")
+    console.log(friends)
     
 
     const handleSearchChange = (e) => {

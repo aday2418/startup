@@ -7,10 +7,10 @@ import { ObjectId } from 'mongodb'
 import Friend from '../components/icons/Friend'
 
 export async function setMongoValue(key, value){
-
     const userId = userIdFromToken()
     const client = mongoClient()
     const connection = mongoCollection(client, "users")
+    console.log(key, value)
     connection.updateOne({_id: new ObjectId(userId)}, {$set: {[key] : value}})
     await client.close()
 };

@@ -1,13 +1,12 @@
-
-import DarkModeProvider from './DarkModeProvider';
+import DarkMode from './DarkMode';
 import DashboardContainer from './DashboardContainer';
 
 
 export default async function DashboardLayout({children})
 {   
     return (
-        <DarkModeProvider>
+        <DarkMode>
             <DashboardContainer children={children} />
-        </DarkModeProvider>
+        </DarkMode>
     )
 }

@@ -16,7 +16,7 @@ export default function FriendBlock({user, removeFriend}){
                 <button onClick={handleClickX} className="text-lg font-semibold opacity-0 group-hover:opacity-100 smooth">X</button>
             </div>
             <Link href={`/dashboard/friends/${user.username}`}>
-                <div className={`border rounded-full overflow-hidden ${darkMode ? "border-white" : "border-black"}`}>
+                <div className={`border h-[120px] w-[120px] rounded-full overflow-hidden ${darkMode ? "border-white" : "border-black"}`}>
                     {user.images[1] ? <img src={user.images[1].url} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor={""}/>}
                 </div>
                 <p className="text-center">{user.username}</p>

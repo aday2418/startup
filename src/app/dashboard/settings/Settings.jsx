@@ -12,36 +12,28 @@ import { useRouter } from 'next/navigation';
 export default function Settings({user}){
     const router = useRouter()
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    const [profilePic, setProfilePic] = useState(`${user && user.images[1] ? user.images[1].url : ''}`);
-    const [darkModePreference, setDarkModePreference] = useState(darkMode);
+    const profilePic = user && user.images[1] ? user.images[1].url : ''
     
-    router.refresh()
-
-    useEffect(() => {
-
-        const storedPreference = localStorage.getItem('darkMode'); 
-        setDarkModePreference(storedPreference === 'true');
-        
-    }, [toggleDarkMode, darkMode]);
-
-
     const handleToggleChange = (e) => {
+        setMongoValue("darkMode", !darkMode)
         toggleDarkMode()
-        setMongoValue("darkMode", darkMode)
     };
 
     const handleChangeProfilePicture = (e) => {
         const file = e.target.files[0];
         if (file && file.type.startsWith('image/')) {
           const reader = new FileReader();
-          reader.onloadend = () => {
-            const images = [0,{url: reader.result}]
-            setProfilePic(images[1].url);
-            setMongoValue('images', images);
+          reader.onloadend = async () => {
+            const images = ["0",{url: reader.result}]
+            await setMongoValue('images', images);
+            console.log("on load end")
+            router.refresh()
           };
           reader.readAsDataURL(file);
+          console.log("read as data url")
+          router.refresh()
         }
-        router.refresh()
+        
       };
 
     return ( 

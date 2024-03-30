@@ -3,7 +3,7 @@ const { WebSocketServer, WebSocket } = require('ws');
 const http = require('http');
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 
 global.usersOnline = []
 global.userConnections = new Map()

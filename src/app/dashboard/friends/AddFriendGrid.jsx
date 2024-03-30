@@ -17,7 +17,6 @@ export default function AddFriendGrid({users, search, addFriend, friends}){
             </div>
             <p className="font-bold">Right Now Most of the Users that Already Exist Have a 1 in their username. </p>
             <p className="font-bold">That will help you search for users that have spotify information already saved in the database. </p>
-
         </div>
         
     )

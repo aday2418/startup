@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 export default function Settings({user}){
     const router = useRouter()
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    const profilePic = user && user.images ? user.images[1].url : ''
+    const profilePic = user && user.images.length > 1 ? user.images[1].url : ''
     
     const handleToggleChange = async (e) => {
         await setMongoValue("darkMode", !darkMode)

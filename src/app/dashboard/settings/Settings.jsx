@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 export default function Settings({user}){
     const router = useRouter()
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    const profilePic = user && user.images[1] ? user.images[1].url : ''
+    const profilePic = user && user.images ? user.images[1].url : ''
     
     const handleToggleChange = async (e) => {
         await setMongoValue("darkMode", !darkMode)
@@ -61,8 +61,8 @@ export default function Settings({user}){
                         </label>
                     <p>Dark Mode</p>
                 </div>
-                <p className='mt-[100px]'>Right now if you change your name or picture and then visit the dashboard, the Spotify API will override your changes. I am working on fixing this soon. </p>
-                <p> Changing your username or dark mode works as expected.</p> 
+                <p className='mt-[100px]'>If you refresh the Spotify API on the Dashboard it will override your profile picture and name changes </p>
+                <p> Changing your username or dark mode works as expected</p> 
             </div>
         </div>
     </PageInfo>    

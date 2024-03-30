@@ -17,7 +17,7 @@ export default function UsersOnlineProvider({children}){
         const username = data?.data;
         if (username && !connected) {
           // Initialize WebSocket connection
-          const newSocket = new WebSocket(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "ws://localhost:8080" : "wss://34.237.151.197:8080"}`); // Use your WebSocket server URL
+          const newSocket = new WebSocket(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "ws://localhost:8080" : "wss://websocket.soundcircle.xyz"}`); // Use your WebSocket server URL
     
           newSocket.onopen = () => {
             // Connection established
@@ -55,6 +55,8 @@ export default function UsersOnlineProvider({children}){
             socket && socket.close();
         };
       }, [data]);
+
+      console.log(usersOnline)
 
       //console.log("Checked again", usersOnline)
 

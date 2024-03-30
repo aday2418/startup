@@ -25,7 +25,7 @@ export default function Dropdown({ setDropdownChange, dropdown }){
         <div className="flex justify-center items-center my-4 min-w-[150px]">
             <select
                 onChange={handleDropdownChange}
-                className={`flex appearance-none w-full border text-center px-4 py-2 rounded shadow ${darkMode? "border-white hover:bg-gray-800 bg-black" : "border-black bg-white hover:bg-gray-200 text-black"} focus:outline-none focus:shadow-outline`}>
+                className={`flex appearance-none w-full border text-center px-4 py-2 rounded shadow ${darkMode? "border-white hover:bg-gray-800 bg-black" : "border-black bg-white hover:bg-gray-300 text-black"} focus:outline-none focus:shadow-outline`}>
                 {getOrderedOptions().map(option => (
                     <option key={option.value} value={option.value}>
                         {dropdown === option.value ? `${option.label} ▼` : option.label}

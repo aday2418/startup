@@ -6,13 +6,13 @@ import { DarkModeContext } from "./DarkModeProvider"
 
 export default function Songs({songs, dropdown}){
   const {darkMode} = useContext(DarkModeContext) 
-  const timeRangeSongs = songs[dropdown]
-  const slicedSongs = timeRangeSongs.slice(0, 15);  
+  const timeRangeSongs = songs.short_term ? songs[dropdown] : []
+  const slicedSongs = timeRangeSongs.length > 0 ? timeRangeSongs.slice(0, 15) : timeRangeSongs;  
     return(
         <div className="flex flex-col">
             <SongRow number="" song="Song" artist="Artist" album="Album" picture="Album Cover" firstRow={true}/>
             <div className={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
-            {slicedSongs.map((song, index) => (
+            {slicedSongs.length > 0 ? slicedSongs.map((song, index) => (
             <SongRow
                 firstRow={false}
                 number={index + 1}
@@ -21,7 +21,7 @@ export default function Songs({songs, dropdown}){
                 album={song.album}
                 picture={<Image width={80} height={80} src={song.image.url}/>}
             />
-    ))}      
+    )) : <p/>}      
         </div>
     ) 
 }

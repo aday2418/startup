@@ -15,7 +15,8 @@ export default function AddFriendGrid({users, search, addFriend, friends}){
             {search && filteredUsers.length > 0 && filteredUsers.map((user, index) => (<AddFriendBlock key={index} user={user} addFriend={addFriend}/>))}
             
             </div>
-            <p className="font-bold">Right Now There Are Only 2 Real Users Whos Pages You Can Search. Both of their Usernames contain the number 1. </p>
+            <p className="font-bold">Right Now Most of the Users that Already Exist Have a 1 in their username. </p>
+            <p className="font-bold">That will help you search for users that have spotify information already saved in the database. </p>
 
         </div>
         

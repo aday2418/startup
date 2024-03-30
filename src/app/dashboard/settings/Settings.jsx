@@ -49,6 +49,7 @@ export default function Settings({user}){
                 <div className='flex flex-col justify-top w-full gap-4'>
                     <InfoRow blockName="Name" passedValue={user.display_name} mongoKey="display_name"/>
                     <InfoRow blockName="Username" passedValue={user.username} mongoKey="username"/>
+                    
                 </div>
             </div>
             <h1 className='text-3xl mt-8 mb-4'>Preferences</h1>
@@ -60,6 +61,8 @@ export default function Settings({user}){
                         </label>
                     <p>Dark Mode</p>
                 </div>
+                <p className='mt-[100px]'>Right now if you change your name or picture and then visit the dashboard, the Spotify API will override your changes. I am working on fixing this soon. </p>
+                <p> Changing your username or dark mode works as expected.</p> 
             </div>
         </div>
     </PageInfo>    

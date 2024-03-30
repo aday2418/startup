@@ -44,7 +44,7 @@ export default function Home() {
     //updateDatabase
     const data = await res.json()
     
-    router.push('/dashboard/onboarding') //Changed from onboarding -> dashboard
+    router.push('/dashboard') //Changed from onboarding -> dashboard
     
   };
 
@@ -54,7 +54,7 @@ export default function Home() {
       method: "POST",
       body: JSON.stringify({username, password})
     })
-    router.push('/dashboard/onboarding')
+    router.push('/dashboard')
 
   }
   

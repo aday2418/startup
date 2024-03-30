@@ -1,7 +1,7 @@
 import GenreChart from "./GenreChart"
 export default function Genres({artists, dropdown}){
   const timeRangeArtist = artists[dropdown]
-  const genrePercentages = calculateGenrePercentages(timeRangeArtist).sort((a, b) => b.percentage - a.percentage);
+  const genrePercentages = artists[dropdown] ? calculateGenrePercentages(timeRangeArtist).sort((a, b) => b.percentage - a.percentage) : []
     
   function calculateGenrePercentages(artists) {
     let genreCounts = {};
@@ -24,7 +24,8 @@ export default function Genres({artists, dropdown}){
   
     return genrePercentages.slice(0,15);
   }
-  return(
+
+  return (
         <GenreChart percentages={genrePercentages}/>
     )
 }

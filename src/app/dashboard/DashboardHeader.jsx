@@ -6,7 +6,7 @@ import Dropdown from './Dropdown'
 export default function DashboardHeader({profile, handleSpotifyLogin, handleDropdownChange, dropdown, darkMode}){
     const displayName = profile ? profile.data.display_name : "Please Update Name In Settings"
     const username = profile ? profile.data.username : "Loading..."
-
+    const numFriends = profile ? profile.data.friends.length : 0
 
     return(
         <div className='flex flex-row h-[150px] gap-8'>
@@ -18,10 +18,10 @@ export default function DashboardHeader({profile, handleSpotifyLogin, handleDrop
                     <div className='flex text-3xl gap-3'>
                     <h1>{displayName}</h1>
                     </div>
-                    <p className="text-md ">{username} | 0 {/* user.friends ? JSON.parse(user.friends).length : 0*/} Friends</p>
+                    <p className="text-md ">{username} | {numFriends} Friends</p>
                 </div>
                 <div className='flex gap-4 flex-col mt-8'>
-                <button onClick={handleSpotifyLogin} className={`flex appearance-none w-full border text-center px-4 py-2 rounded ${darkMode? "border-white hover:bg-gray-800 bg-black " : "border-black bg-gray-200 hover:bg-gray-300 text-black"}`}> Refresh Spotify Information </button>
+                <button onClick={handleSpotifyLogin} className={`flex appearance-none w-full border text-center px-4 py-2 rounded ${darkMode? "border-white hover:bg-gray-800 bg-black " : "border-black bg-gray-200 hover:bg-gray-300 text-black"}`}> Update Spotify API </button>
                 <Dropdown dropdown={dropdown} setDropdownChange={handleDropdownChange}/>
                 </div>  
             </div>

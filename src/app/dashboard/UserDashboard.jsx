@@ -67,6 +67,8 @@ export default function UserDashboard() {
     )
   }*/
 
+  console.log(profile)
+
   return (
         <div className='flex flex-col'>
             <DashboardHeader profile={profile} handleSpotifyLogin={handleSpotifyLogin} handleDropdownChange={handleDropdownChange} dropdown={dropdown} darkMode={darkMode}/>

@@ -13,12 +13,13 @@ export async function GET(request) {
             spotify_id: user.spotify_id,
             display_name: user.display_name,
             username: user.username,
-            images: user.images
+            images: user.images,
+            friends: user.friends
         }
 
-        fetchAndUpdate(userId, user.username)
+        fetchAndUpdate(userId, user.username, user.friends)
     } else {
-        profile = await fetchAndUpdate(userId, user.username)
+        profile = await fetchAndUpdate(userId, user.username, user.friends)
     }
 
     return Response.json({ data: profile})

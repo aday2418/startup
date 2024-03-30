@@ -1,12 +1,11 @@
 import { useContext } from "react"
 import SongRow from "./SongRow"
-import topSongs from "./topSongs.json"
 import Image from 'next/image'
 import { DarkModeContext } from "./DarkModeProvider"
 
 export default function Songs({songs, dropdown}){
   const {darkMode} = useContext(DarkModeContext) 
-  const timeRangeSongs = songs.short_term ? songs[dropdown] : []
+  const timeRangeSongs = songs[dropdown] ? songs[dropdown] : []
   const slicedSongs = timeRangeSongs.length > 0 ? timeRangeSongs.slice(0, 15) : timeRangeSongs;  
     return(
         <div className="flex flex-col">

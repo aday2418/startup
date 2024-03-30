@@ -5,8 +5,8 @@ import { useContext } from "react"
 
 export default function Artists({songs, artists, dropdown}){
     const {darkMode} = useContext(DarkModeContext)
-    const timeRangeArtists = artists[dropdown]
-    const slicedArtists = timeRangeArtists.slice(0,15);
+    const timeRangeArtists = artists[dropdown] ? artists[dropdown] : []
+    const slicedArtists = timeRangeArtists.length > 0 ? timeRangeArtists.slice(0, 15) : timeRangeArtists;  
 
     const findMostPlayedSongByArtist = (artistName) => {
         for (let term of ['short_term', 'medium_term', 'long_term']) {
@@ -25,7 +25,7 @@ export default function Artists({songs, artists, dropdown}){
         <div className="flex flex-col ">
             <ArtistRow number="" artist="Artist" song="Most Played Song" picture="Artist Photo" firstRow={true}/>
             <div className={`flex w-full mb-3 border-t ${darkMode ? "border-white": "border-gray-900"}  `}></div>
-            {slicedArtists.map((artist, index) => <ArtistRow firstRow={false} number={index+1} artist={artist.name} song={findMostPlayedSongByArtist(artist.name)} picture={<Image width={80} height={80} alt="Artist Image" src={artist.image.url}/>}/>)}
+            {slicedArtists.length > 0 ? slicedArtists.map((artist, index) => <ArtistRow firstRow={false} number={index+1} artist={artist.name} song={findMostPlayedSongByArtist(artist.name)} picture={<Image width={80} height={80} alt="Artist Image" src={artist.image.url}/>}/>) : <p/>}
         </div>
     )
 }

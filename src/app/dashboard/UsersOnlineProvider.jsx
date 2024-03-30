@@ -17,7 +17,7 @@ export default function UsersOnlineProvider({children}){
         const username = data?.data;
         if (username && !connected) {
           // Initialize WebSocket connection
-          const newSocket = new WebSocket('ws://localhost:80'); // Use your WebSocket server URL
+          const newSocket = new WebSocket(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "ws://localhost:80" : "ws://34.237.151.197:80"}`); // Use your WebSocket server URL
     
           newSocket.onopen = () => {
             // Connection established

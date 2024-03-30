@@ -7,7 +7,7 @@ export default async function Page(){
     const userId = userIdFromToken()
     const self = await getUser(userId)
     const { _id, ...userWithoutId } = self
-    const allUsers = await getAllUsersExceptSelf(userId)
+    const allUsers = (await getAllUsersExceptSelf(userId))
     const users = allUsers.map(({ _id, ...userWithoutId }) => userWithoutId)
 
 

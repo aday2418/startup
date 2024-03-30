@@ -10,7 +10,7 @@ export default function FriendBlock({user, removeFriend}){
     const [online, setOnline] = useState(false)
     
     useEffect(() => {
-        if (usersOnline.includes(user.username))
+        if (usersOnline.includes(user))
             setOnline(true)
         else
             setOnline(false)
@@ -28,11 +28,11 @@ export default function FriendBlock({user, removeFriend}){
             <div className="absolute left-3">
                 <div className={`w-[30px] h-[30px] ${online ? "bg-green-500": "bg-gray-500"} border-2 ${darkMode ? "border-white": "border-black"} rounded-full`}/>
             </div>
-            <Link href={`/dashboard/friends/${user.username}`}>
+            <Link href={`/dashboard/friends/${user}`}>
                 <div className={`border h-[120px] w-[120px] rounded-full overflow-hidden ${darkMode ? "border-white" : "border-black"}`}>
-                    {user.images[1] ? <img src={user.images[1].url} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor={""}/>}
+                    {user?.images?.[1]?.url ? <img src={user.images[1].url} alt="Profile" className="h-full w-full object-cover" /> : <Friend fillColor={""}/>}
                 </div>
-                <p className="text-center">{user.username}</p>
+                <p className="text-center">{user}</p>
             </Link>
         </div>
     )

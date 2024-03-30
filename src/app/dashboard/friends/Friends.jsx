@@ -8,11 +8,8 @@ import { addMongoFriend, removeMongoFriend } from '../../../actions/setMongoValu
 
 
 export default function Friends({allUsers, self}) {
-    
     const [friends, setFriends] = useState(self.friends ? self.friends : []);
     const [search, setSearch] = useState('');
-
-    
 
     const handleSearchChange = (e) => {
         setSearch(e.target.value);
@@ -22,13 +19,13 @@ export default function Friends({allUsers, self}) {
         if(!friends.includes(newFriend)){
             setFriends([...friends, newFriend])
             //setMongoValue('friends', friends)
-            addMongoFriend(newFriend, self)
+            addMongoFriend(newFriend.username, self.username)
         }
     }
 
     const removeFriend = (friendToRemove) => {
-        setFriends(friends.filter(friend => friend.username !== friendToRemove.username))
-        removeMongoFriend(friendToRemove, self)
+        setFriends(friends.filter(friend => friend.username !== friendToRemove))
+        removeMongoFriend(friendToRemove, self.username)
 
     }
 

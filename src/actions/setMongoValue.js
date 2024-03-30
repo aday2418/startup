@@ -18,11 +18,11 @@ export async function addMongoFriend(newFriend, self){
     const client = mongoClient()
     const connection = mongoCollection(client, "users")
     const res = await connection.updateOne(
-        { username: self.username }, 
+        { username: self }, 
         {$push: { friends : newFriend }}
       );
     const res2 = await connection.updateOne(
-        { username: newFriend.username }, 
+        { username: newFriend }, 
         {$push: { friends : self }}
       );
     await client.close()
@@ -33,16 +33,18 @@ export async function removeMongoFriend(friendToRemove, self) {
     const client = mongoClient();
     const connection = mongoCollection(client, "users");
 
+    console.log(self, friendToRemove)
+
     // Remove `friendToRemove` from the `self` user's friends list
     const res1 = await connection.updateOne(
-        { username: self.username }, 
-        { $pull: { friends: { username: friendToRemove.username } } }
+        { username: self }, 
+        { $pull: { friends: { friendToRemove } } }
     );
 
     // Remove `self` from the `friendToRemove` user's friends list
     const res2 = await connection.updateOne(
-        { username: friendToRemove.username },
-        { $pull: { friends: { username: self.username } } }
+        { username: friendToRemove },
+        { $pull: { friends: { self } } }
     );
 
     await client.close();

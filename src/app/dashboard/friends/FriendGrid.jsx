@@ -2,8 +2,10 @@
 import FriendBlock from "./FriendBlock"
 
 export default function FriendGrid({friends, removeFriend}){ 
+    console.log({friends})
 
-
+//console.log("Friends")
+//console.log(removeFriend)
 
     return(
         <div>
@@ -16,3 +18,4 @@ export default function FriendGrid({friends, removeFriend}){
         
     )
 }
+/**/

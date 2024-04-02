@@ -20,7 +20,7 @@ export default function UserDashboard() {
   const { data: songs, isLoading: songsLoading } = useSWR('/api/spotify/songs', fetcher)
   const { data: artists, isLoading: artistsLoading } = useSWR(`/api/spotify/artists`, fetcher)
 
-  console.log({profile})
+  //console.log({profile})
 
   useEffect(() => {
     const interval = 10 * 60 * 1000; // 10 minutes in milliseconds
@@ -55,7 +55,7 @@ export default function UserDashboard() {
     window.location.assign(`https://accounts.spotify.com/authorize?${params}`);
 }
 
-  console.log(profile)
+  //console.log(profile)
 
   return (
         <div className='flex flex-col'>

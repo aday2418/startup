@@ -7,8 +7,8 @@ import { useState } from 'react';
 import { addMongoFriend, removeMongoFriend } from '../../../actions/setMongoValue';
 
 
-export default function Friends({allUsers, self}) {
-    const [friends, setFriends] = useState(self.friends ? self.friends : []);
+export default function Friends({allUsers, self, passedFriends}) {
+    const [friends, setFriends] = useState(passedFriends ? passedFriends : []);
     const [search, setSearch] = useState('');
 
     const handleSearchChange = (e) => {
@@ -24,8 +24,10 @@ export default function Friends({allUsers, self}) {
     }
 
     const removeFriend = (friendToRemove) => {
-        setFriends(friends.filter(friend => friend.username !== friendToRemove))
-        removeMongoFriend(friendToRemove, self.username)
+        //console.log({friendToRemove})
+        setFriends(friends.filter(friend => friend.username !== friendToRemove.username))
+        console.log("About to enter remove function")
+        removeMongoFriend(friendToRemove.username, self.username)
 
     }
 

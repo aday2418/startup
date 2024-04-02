@@ -1,6 +1,7 @@
 import AddFriendBlock from "./AddFriendBlock"
 
 export default function AddFriendGrid({users, search, addFriend, friends}){
+    
     const nonFriends = users.filter(user => 
         !Object.values(friends).some(friend => friend.username === user.username)
     );

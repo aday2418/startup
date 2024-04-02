@@ -12,7 +12,6 @@ export default async function Page(){
         const allUsers = (await getAllUsersExceptSelf(userId))
         const users = allUsers.map(({ _id, ...userWithoutId }) => userWithoutId)
         const friendUsernames = self.friends
-        //console.log(friendUsernames)
         const friends = await getFriends(friendUsernames)
         const friendsWithoutIds = friends.map(({ _id, ...rest }) => rest)
 

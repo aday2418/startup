@@ -10,7 +10,7 @@ export default function FriendBlock({user, removeFriend}){
     const [online, setOnline] = useState(false)
     
     useEffect(() => {
-        if (usersOnline.includes(user))
+        if (usersOnline.includes(user.username))
             setOnline(true)
         else
             setOnline(false)
@@ -20,7 +20,7 @@ export default function FriendBlock({user, removeFriend}){
         removeFriend(user)
     }
 
-    //console.log({user})
+    console.log({usersOnline})
 
     return(
         <div className='flex flex-col w-[130px] p-3 gap-2 relative group'>

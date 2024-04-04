@@ -208,6 +208,7 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + Once you get to the dashboard, there will be a button named "Update Spotify API"
     + Once you click this button you will be prompted to login to Spotify
         + The spotify API that I am using is currently in dev mode. This means that all spotify users have to be pre-registered to access API data. This means that if you sign into a personal account that you will not be able to see any information on the dashboard and it will be stuck in a perpetual "loading" state
+        + Instead, I created an example spotify account that you can login to to see how the API data is displayed:
 
         + **Spotify Username: examplespotifyemail@gmail.com**
         + **Spotify Password: example12345**

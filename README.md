@@ -203,6 +203,11 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
 + **Data sent over WebSocket connection** - The data passed over the websocket connection is a user's username. Once a user signs into their account, their username is added to an array that contains the information for all active users. As soon as a user logs off, their username is then removed from this array. Essentially, the frontend sends the backend the current user's username. The backend then responds to the frontend with an array of all users currently logged on.
 + **WebSocket data displayed in the application interface** - My Websocket data is displayed on the friends page. Once you add friends to your account, each of your friends will have a grey or green circle on the top left of their profile picture. If the circle is grey it means that the user is not currently active, and if it is green it means that they are logged in and active.
 
+| ![Websocket Data](public/images/websocket.png) | 
+| :-: |
+| **Websocket Data** |
++ Green means a user is logged in currently and grey means they are not
+
 #### Being Able To Login For Grading (UPDATED INFORMATION)
 + Logging In on the Home Page Works Normally -- You can create any account you want + login
 + Once you get to the dashboard, there will be a button named "Update Spotify API"

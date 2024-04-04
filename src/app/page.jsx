@@ -21,9 +21,14 @@ export default function Home() {
   const [password, setPassword] = useState('');
   const { data} = useSWR('/auth/userToken', fetcher) 
   const searchParams = useSearchParams()
-  const url = searchParams.get('message')
+  const [url, setUrl] = useState('')  
 
   useEffect(() => {
+    const message = searchParams.get('message')
+    
+    if(message)
+      setUrl(message)
+
     const token = data?.data
     
     if(token) {

@@ -4,7 +4,7 @@ import Friend from '../../components/icons/Friend'
 import Dropdown from './Dropdown'
 
 export default function DashboardHeader({profile, handleSpotifyLogin, handleDropdownChange, dropdown, darkMode, ownPage}){
-    const displayName = profile ? profile.data.display_name : "Please Update Name In Settings"
+    const displayName = profile ? profile.data.display_name : "Loading..."
     const username = profile ? profile.data.username : "Loading..."
     const numFriends = profile ? profile.data.friends.length : 0
     const image = profile?.data?.images?.[1]?.url || null

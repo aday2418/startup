@@ -2,24 +2,29 @@
 import getUser from "../../../lib/getUser"
 import fetchAndUpdate from "../../../lib/fetchAndUpdate"
 import userIdFromToken from "../../../lib/userIdFromToken"
+import { cookies } from "next/headers"
+
 
 export async function GET(request) {
     const userId = userIdFromToken()
     const user = await getUser(userId)
-    let profile
 
-    if(user?.spotify) { 
-        profile = {
-            spotify_id: user.spotify_id,
-            display_name: user.display_name,
-            username: user.username,
-            images: user.images,
-            friends: user.friends
-        }
+    let profile = {
+        spotify_id: user.spotify_id,
+        display_name: user.display_name,
+        username: user.username,
+        images: user.images,
+        friends: user.friends
+    }
+    const cookieStore = cookies()
+    const provider_token = cookieStore.get('providerToken')
 
-        fetchAndUpdate(userId, user.username, user.friends)
-    } else {
-        profile = await fetchAndUpdate(userId, user.username, user.friends)
+    if(provider_token){
+        console.log("Entering Fetch And Update!!!!!!!!!!!!!!!!!!")
+        const res = await fetchAndUpdate(userId, user.username, user.friends, provider_token)
+        if (res)
+            profile = res
+        console.log(profile)
     }
 
     return Response.json({ data: profile})

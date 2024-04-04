@@ -6,21 +6,26 @@ import LoginRow from './LoginRow'
 import GitHub from "../components/icons/Github"
 import { Suspense } from 'react'
 import ErrorMessage from "./ErrorMessage"
-import { useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import useSWR from 'swr'
 import { fetcher } from '../lib/fetcher'
 import Songs from "./dashboard/Songs";
+import login from "../actions/loginAction"
+import createUser from "../actions/createUserAction"
+
 
 
 export default function Home() {
   const router = useRouter()
-  const [spotifyUsername, setSpotifyUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { data} = useSWR('/auth/userToken', fetcher) 
+  const searchParams = useSearchParams()
+  const url = searchParams.get('message')
 
   useEffect(() => {
     const token = data?.data
-
+    
     if(token) {
       router.push("/dashboard")
     }
@@ -28,7 +33,7 @@ export default function Home() {
   }, [data])
 
   const changeUsername = (newUser) => {
-    setSpotifyUsername(newUser)
+    setUsername(newUser)
   }
 
   const changePassword = (newPass) => {
@@ -36,25 +41,18 @@ export default function Home() {
   }
 
   const handleLogin = async () => {
-    const username = spotifyUsername
-    const res = await fetch("/auth/login", {
-      method: "POST",
-      body: JSON.stringify({username, password})
-    })
-    //updateDatabase
-    const data = await res.json()
-    
+    const res = await login(username, password)
+    console.log(username, password)
+    console.log("worked")
     router.push('/dashboard') //Changed from onboarding -> dashboard
     
   };
 
   const handleCreateAccount = async () => {
-    const username = spotifyUsername
-    await fetch("/auth/createUser", {
-      method: "POST",
-      body: JSON.stringify({username, password})
-    })
-    router.push('/dashboard')
+    console.log(username, password)
+    const res = await createUser(username, password)
+    console.log("Create User Worked")
+    router.push('/dashboard') //Changed from onboarding -> dashboard
 
   }
   
@@ -78,7 +76,7 @@ export default function Home() {
           <h1 className='text-8xl '>Welcome To SoundCircle</h1>
           <div className='flex flex-col items-center justify-center gap-4 '>
             <div className='flex flex-col max-w-[320px]  gap-2'>
-              <LoginRow name="Username" textType="text" variable={spotifyUsername} functionName={changeUsername}/>
+              <LoginRow name="Username" textType="text" variable={username} functionName={changeUsername}/>
               <LoginRow name="Password" textType="password" variable={password} functionName={changePassword}/>
             </div>
             <div className='flex flex-col  items-center gap-4 justify-center max-w-[1100px]'>
@@ -86,9 +84,7 @@ export default function Home() {
                 <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' onClick={handleLogin}>Login</button>
                 <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' onClick={handleCreateAccount}>Create Account </button>
               </div>
-              <Suspense>
-                <ErrorMessage/>
-              </Suspense>
+              {url ? <ErrorMessage/> : <div/>}
             </div>
           </div>
         </div>

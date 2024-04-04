@@ -5,6 +5,7 @@ export default function setAuthCookie(key, value) {
         secure: true,
         httpOnly: true,
         sameSite: 'strict',
+        path: "/"
     });
 
 }

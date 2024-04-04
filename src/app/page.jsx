@@ -20,15 +20,8 @@ export default function Home() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { data} = useSWR('/auth/userToken', fetcher) 
-  const searchParams = useSearchParams()
-  const [url, setUrl] = useState('')  
 
   useEffect(() => {
-    const message = searchParams.get('message')
-    
-    if(message)
-      setUrl(message)
-
     const token = data?.data
     
     if(token) {
@@ -89,7 +82,10 @@ export default function Home() {
                 <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' onClick={handleLogin}>Login</button>
                 <button className='flex min-w-[130px] bg-green-200 border rounded-md border-black justify-center px-4' onClick={handleCreateAccount}>Create Account </button>
               </div>
-              {url ? <ErrorMessage/> : <div/>}
+              <Suspense>
+                <ErrorMessage/>
+              </Suspense>
+              
             </div>
           </div>
         </div>
@@ -107,3 +103,5 @@ export default function Home() {
     </div>
   )
 }
+
+//{url ? <ErrorMessage/> : <div/>}

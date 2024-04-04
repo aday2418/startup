@@ -17,10 +17,9 @@ export default function UsersOnlineProvider({children}){
         const username = data?.data;
         if (username && !connected) {
           // Initialize WebSocket connection
-          const newSocket = new WebSocket(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "ws://localhost:8080" : "wss://websocket.soundcircle.xyz"}`); // Use your WebSocket server URL
+          const newSocket = new WebSocket(`${process.env.NEXT_PUBLIC_NODE_ENV == 'DEV' ? "ws://localhost:8080" : "wss://websocket.soundcircle.xyz"}`); 
     
           newSocket.onopen = () => {
-            // Connection established
             setConnected(true);
             const message = {
               eventType: 'newUser',
@@ -38,15 +37,12 @@ export default function UsersOnlineProvider({children}){
             if(res.eventType == 'usersOnline') {
                 setUsersOnline(res.data)
             }
-
-            // Here you can handle incoming messages, for example, update usersOnline state
           };
     
           newSocket.onclose = () => {
             setConnected(false);
           };
     
-          // Save the socket in state
           setSocket(newSocket);
         }
 

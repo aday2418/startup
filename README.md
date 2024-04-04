@@ -187,3 +187,32 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
         + **If you want to be able to login to my website using your personal Spotify account, send me a Canvas message with the email registered to your spotify account**
         + Once I build out the app fully, I plan to get a free audit from spotify and expand the api access so that anyone can sign in 
 
+# Websocket Deliverable
++ This is the [startup site](https://startup.soundcircle.xyz)!
++ Continued coding my app using react nextjs
++ For this assignment I created a seperate [Websocket Server](index.js) in express 
++ The purpose of the websocket data was to show users when their friends are/aren't logged into the app
+
+#### Project Requirements
++ **Simon Deployed** - Code was deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
++ **Github Link** - Every page contains a link to my project github
++ **Authentication notes Notes** - Thorough [notes](/public/notes/notes.md) were taken detailing what I learned from this assignment
++ **Git Commits** - Many more than 10 commits :)
++ **Backend Listens For Websocket Connection** - My backend is [here](index.js). Since I created the backend using express, I couldn't host it on the same domain that my nextJS app was running on. Because of this, I set up a new subdomain [websocket.soundcircle.xyz](https://websocket.soundcircle.xyz/) to host the Websocket Server.
++ **Frontend makes WebSocket connection** - My frontend that connects to the websocket is [here](src/app/dashboard/UsersOnlineProvider.jsx). The frontend connection has environment variables to be able to connect to the server on both localhost and in production
++ **Data sent over WebSocket connection** - The data passed over the websocket connection is a user's username. Once a user signs into their account, their username is added to an array that contains the information for all active users. As soon as a user logs off, their username is then removed from this array. Essentially, the frontend sends the backend the current user's username. The backend then responds to the frontend with an array of all users currently logged on.
++ **WebSocket data displayed in the application interface** - My Websocket data is displayed on the friends page. Once you add friends to your account, each of your friends will have a grey or green circle on the top left of their profile picture. If the circle is grey it means that the user is not currently active, and if it is green it means that they are logged in and active.
+
+#### Being Able To Login For Grading (UPDATED INFORMATION)
++ Logging In on the Home Page Works Normally -- You can create any account you want + login
++ Once you get to the dashboard, there will be a button named "Update Spotify API"
+    + Once you click this button you will be prompted to login to Spotify
+        + The spotify API that I am using is currently in dev mode. This means that all spotify users have to be pre-registered to access API data. This means that if you sign into a personal account that you will not be able to see any information on the dashboard and it will be stuck in a perpetual "loading" state
+
+        + **Spotify Username: examplespotifyemail@gmail.com**
+        + **Spotify Password: example12345**
+            + Note that because this account is so new that the short, medium, and long term data on the dashboard will all be the same. To see this feature working, click on friend profiles (in the friends tab) to view their dahsboards and listening history
+        
+    + If you are not prompted to sign in to spotify after hitting the "Update Spotify API" button, this means that you are propbably already logged into your personal spotify account on your computer + that this is cached in your browser. If you want to see song data for the example account, re-visit my site in a Private Browser and sign into the example Spotify account (see above)
+
+

@@ -20,7 +20,6 @@ export async function GET(request) {
     const provider_token = cookieStore.get('providerToken')
 
     if(provider_token){
-        console.log("Entering Fetch And Update!!!!!!!!!!!!!!!!!!")
         const res = await fetchAndUpdate(userId, user.username, user.friends, provider_token)
         if (res)
             profile = res

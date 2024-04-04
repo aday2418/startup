@@ -14,8 +14,6 @@ export default async function fetchAndUpdate(userId, username, friends, provider
         }
     
         await updateProfile(userId, spotifyProfile)
-    }
-    else{
-        return null
+        return spotifyProfile
     }
 }

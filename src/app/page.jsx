@@ -1,15 +1,14 @@
 'use client'
 
 import Link from "next/link";
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import LoginRow from './LoginRow'
 import GitHub from "../components/icons/Github"
 import { Suspense } from 'react'
 import ErrorMessage from "./ErrorMessage"
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import useSWR from 'swr'
 import { fetcher } from '../lib/fetcher'
-import Songs from "./dashboard/Songs";
 import login from "../actions/loginAction"
 import createUser from "../actions/createUserAction"
 

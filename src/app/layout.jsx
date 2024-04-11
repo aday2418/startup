@@ -15,5 +15,3 @@ export default function RootLayout({ children }) {
   )
 }
 
-//Needs proper use of BODY, NAV, MAIN, HEADER, FOOTER (Layout will handle header, footer, nav) <-- All in this file!!
-

@@ -4,7 +4,6 @@ import userIdFromToken from '../lib/userIdFromToken'
 import { mongoClient } from '../clients/mongo'
 import { mongoCollection } from '../clients/mongo'
 import { ObjectId } from 'mongodb'
-import Friend from '../components/icons/Friend'
 
 export async function setMongoValue(key, value){
     const userId = userIdFromToken()

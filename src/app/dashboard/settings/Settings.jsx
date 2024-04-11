@@ -5,7 +5,7 @@ import Friend from '../../../components/icons/Friend'
 import { useState, useEffect, useContext } from 'react'
 import InfoRow from './InfoRow'
 import { DarkModeContext } from '../DarkModeProvider'
-import getUsername, { setMongoValue } from '../../../actions/setMongoValue'
+import { setMongoValue } from '../../../actions/setMongoValue'
 import { useRouter } from 'next/navigation';
 
 

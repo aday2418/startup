@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { DarkModeContext } from '../DarkModeProvider';
 import { useContext } from 'react';
 import { setMongoValue } from '../../../actions/setMongoValue';

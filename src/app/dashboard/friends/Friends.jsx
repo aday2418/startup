@@ -18,13 +18,11 @@ export default function Friends({allUsers, self, passedFriends}) {
     const addFriend = (newFriend) => {    //This is only being disabled until the database is up <- Breaking trying to load API data and read from the example JSON file (from friends that don't actually have Spotify Accounts)
         if(!friends.includes(newFriend)){
             setFriends([...friends, newFriend])
-            //setMongoValue('friends', friends)
             addMongoFriend(newFriend.username, self.username)
         }
     }
 
     const removeFriend = (friendToRemove) => {
-        //console.log({friendToRemove})
         setFriends(friends.filter(friend => friend.username !== friendToRemove.username))
         console.log("About to enter remove function")
         removeMongoFriend(friendToRemove.username, self.username)

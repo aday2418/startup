@@ -1,8 +1,4 @@
-
 import jwt from 'jsonwebtoken';
-import { cookies } from 'next/headers'
-import { decode } from 'punycode';
-
 
 export default function authenticate(token) {
     if (!token) {

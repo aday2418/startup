@@ -1,5 +1,5 @@
 "use client"
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { DarkModeContext } from './DarkModeProvider';
 
 export default function Dropdown({ setDropdownChange, dropdown }){

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import PageInfo from './PageInfo'
 import Friend from '../../components/icons/Friend'
 import Dropdown from './Dropdown'
 

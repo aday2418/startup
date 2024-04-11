@@ -1,15 +1,8 @@
 "use client"
 
-import Image from 'next/image'
-import Friend from '../../../../components/icons/Friend'
 import { useEffect, useState } from 'react'
-import TableTab from '../../TableTab'
-import Songs from '../../Songs'
-import Artists from '../../Artists'
-import Genres from '../../Genres'
 import { useContext } from 'react'
 import { DarkModeContext } from '../../DarkModeProvider'
-import Dropdown from '../../Dropdown'
 import DashboardHeader from "../../DashboardHeader"
 import DashboardTable from "../../DashboardTable"
 

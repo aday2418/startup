@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import PageInfo from '../PageInfo'
 import { randomBytes } from 'crypto';
 
+//This page isn't being used right now.. might be used later
+
 
 export default function Onboarding() {
     useEffect(() => {

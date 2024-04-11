@@ -1,4 +1,5 @@
 import GenreChart from "./GenreChart"
+
 export default function Genres({artists, dropdown}){
   const timeRangeArtist = artists[dropdown]
   const genrePercentages = artists[dropdown] ? calculateGenrePercentages(timeRangeArtist).sort((a, b) => b.percentage - a.percentage) : []

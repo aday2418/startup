@@ -2,7 +2,7 @@
 
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { DarkModeContext } from "./DarkModeProvider";
 
 

@@ -5,7 +5,6 @@ import { createBrowserClient } from '@supabase/ssr'
 import { useRouter } from "next/navigation"
 import deleteCookies from '../../actions/deleteCookies'
 
-
 export default function Header(){
     const { darkMode } = useContext(DarkModeContext)
     const router = useRouter()

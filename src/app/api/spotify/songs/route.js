@@ -1,4 +1,3 @@
-import { URL } from "url";
 import getUser from "../../../../lib/getUser"
 import fetchAndUpdateSongs from "../../../../lib/fetchAndUpdateSongs"
 import userIdFromToken from "../../../../lib/userIdFromToken"

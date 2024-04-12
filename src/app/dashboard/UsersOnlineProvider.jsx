@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState, useRef } from "react"
 import useSWR from 'swr'
 import { fetcher } from "../../lib/fetcher"
 
@@ -11,6 +11,11 @@ export default function UsersOnlineProvider({children}){
     const [usersOnline, setUsersOnline] = useState([])
     const [connected, setConnected] = useState(false)
     const [socket, setSocket] = useState(null);
+    const socketRef = useRef(socket);
+
+    useEffect(() => {
+        socketRef.current = socket;  // Update the ref whenever socket changes
+    }, [socket]);
 
     useEffect(() => {
         // This ensures the effect only runs once the user data is loaded and a connection hasn't been established yet.
@@ -48,11 +53,17 @@ export default function UsersOnlineProvider({children}){
 
         // Cleanup function to close the socket when the component unmounts or when `data` changes
         return () => {
-            socket && socket.close();
+          console.log("Unmounting")
+          //console.log(socket)
+          //socket && socket.close();
+          console.log(socketRef.current);
+          socketRef.current && socketRef.current.close();
+          
         };
       }, [data]);
 
       console.log(usersOnline)
+      console.log(socket)
 
       //console.log("Checked again", usersOnline)
 

@@ -29,19 +29,16 @@ export async function addMongoFriend(newFriend, self){
 }
 
 export async function removeMongoFriend(friendToRemove, self) {
-    console.log("In remove function")
     const client = mongoClient();
     const connection = mongoCollection(client, "users");
-    console.log("remove friend function")
-    console.log(self, friendToRemove)
+    //console.log(self, friendToRemove)
 
-    // Remove `friendToRemove` from the `self` user's friends list
+    // Remove from both yours and your friends lists of friends
     const res1 = await connection.updateOne(
         { username: self }, 
         { $pull: { friends:  friendToRemove  } }
     );
 
-    // Remove `self` from the `friendToRemove` user's friends list
     const res2 = await connection.updateOne(
         { username: friendToRemove },
         { $pull: { friends:  self  } }

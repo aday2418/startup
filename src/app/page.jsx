@@ -39,16 +39,12 @@ export default function Home() {
 
   const handleLogin = async () => {
     const res = await login(username, password)
-    console.log(username, password)
-    console.log("worked")
     router.push('/dashboard') //Changed from onboarding -> dashboard
     
   };
 
   const handleCreateAccount = async () => {
-    console.log(username, password)
     const res = await createUser(username, password)
-    console.log("Create User Worked")
     router.push('/dashboard') //Changed from onboarding -> dashboard
 
   }

@@ -10,9 +10,7 @@ export default async function Page({ params: { username }}){
     }
     const client = mongoClient()
     const connection = mongoCollection(client, "users")
-    //console.log(username)
     const user = await connection.findOne({username})
-    //console.log({user})
     const { _id, ...userWithoutId } = user
     const capitalizedName = user.display_name.charAt(0).toUpperCase() + user.display_name.slice(1)
     await client.close()

@@ -20,7 +20,6 @@ export default function FriendBlock({user, removeFriend}){
         removeFriend(user)
     }
 
-    console.log({usersOnline})
 
     return(
         <div className='flex flex-col w-[130px] p-3 gap-2 relative group'>

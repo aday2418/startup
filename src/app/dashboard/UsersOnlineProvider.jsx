@@ -18,7 +18,6 @@ export default function UsersOnlineProvider({children}){
     }, [socket]);
 
     useEffect(() => {
-        // This ensures the effect only runs once the user data is loaded and a connection hasn't been established yet.
         const username = data?.data;
         if (username && !connected) {
           // Initialize WebSocket connection
@@ -51,21 +50,16 @@ export default function UsersOnlineProvider({children}){
           setSocket(newSocket);
         }
 
-        // Cleanup function to close the socket when the component unmounts or when `data` changes
+        // Component unmounts or when data changes
         return () => {
-          console.log("Unmounting")
-          //console.log(socket)
-          //socket && socket.close();
-          console.log(socketRef.current);
+          //console.log(socketRef.current);
           socketRef.current && socketRef.current.close();
           
         };
       }, [data]);
 
       console.log(usersOnline)
-      console.log(socket)
-
-      //console.log("Checked again", usersOnline)
+      //console.log(socket)
 
     return(
         <UsersOnlineContext.Provider value={{usersOnline}}>

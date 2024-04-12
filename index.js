@@ -41,7 +41,7 @@ wss.on('connection', (ws) => {
     
 
   ws.on('message', (message) => {
-    console.log("recieved message")
+    //console.log("recieved message")
     const res = JSON.parse(message)
     console.log(res)
 

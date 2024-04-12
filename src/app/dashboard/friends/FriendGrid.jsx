@@ -2,9 +2,6 @@
 import FriendBlock from "./FriendBlock"
 
 export default function FriendGrid({friends, removeFriend}){ 
-    console.log({friends})
-
-
     return(
         <div>
             {friends.length > 0 ? <div className='grid grid-cols-5 gap-8 w-full'>

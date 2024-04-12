@@ -24,7 +24,6 @@ export default function Friends({allUsers, self, passedFriends}) {
 
     const removeFriend = (friendToRemove) => {
         setFriends(friends.filter(friend => friend.username !== friendToRemove.username))
-        console.log("About to enter remove function")
         removeMongoFriend(friendToRemove.username, self.username)
 
     }

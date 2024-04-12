@@ -23,7 +23,6 @@ export async function GET(request) {
         const res = await fetchAndUpdate(userId, user.username, user.friends, provider_token)
         if (res)
             profile = res
-        console.log(profile)
     }
 
     return Response.json({ data: profile})

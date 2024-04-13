@@ -221,4 +221,36 @@ Each user gets a personalized dashboard showcasing their music stats. Users will
         
     + If you are not prompted to sign in to spotify after hitting the "Update Spotify API" button, this means that you are propbably already logged into your personal spotify account on your computer + that this is cached in your browser. If you want to see song data for the example account, re-visit my site in a Private Browser and sign into the example Spotify account (see above)
 
+# React Deliverable
++ This is the [startup site](https://startup.soundcircle.xyz)!
++ Up to this point, I have been coding my project entirely in React Next.JS
+    + Next.JS is a framework similar to Vite
+    + One of the main differences is that nextJS focuses heavily on features for server/client side rendering 
++ Because of this, all of the files in my project are written in React
+
+#### Project Requirements
++ **Simon Deployed** - Code was deployed to [simon.soundcircle.xyz](https://simon.soundcircle.xyz)
++ **Github Link** - Every page contains a link to my project github in the footer
++ **Authentication notes Notes** - Thorough [notes](/public/notes/notes.md) were taken detailing what I learned from this assignment
++ **Git Commits** - Many more than 10 commits :)
++ **Bundled Using Framework** - For this requirement we were asked to bundle our project using Vite. However, since I coded my entire project using NextJS, it made more sense not to switch frameworks.
++ **Multiple Functional React Components** - My entire project is coded in react!!
++ **React Router** - I use react router OFTEN in my project. For just one example of where I use this check out the [Home Page](src/app/page.jsx) of my project
++ **React Hooks** - I use A LOT of react hooks in my project including useState, useEffect, useContext, and useRef. For an example where I use some of these check out the [Users Online Provider](src/app/dashboard/UsersOnlineProvider.jsx) page of my project
+
+#### Being Able To Login For Grading 
++ Logging In on the Home Page Works Normally -- You can create any account you want + login
++ Once you get to the dashboard, there will be a button named "Update Spotify API"
+    + Once you click this button you will be prompted to login to Spotify
+        + The spotify API that I am using is currently in dev mode. This means that all spotify users have to be pre-registered to access API data. This means that if you sign into a personal account that you will not be able to see any information on the dashboard and it will be stuck in a perpetual "loading" state
+        + Instead, I created an example spotify account that you can login to to see how the API data is displayed:
+
+        + **Spotify Username: examplespotifyemail@gmail.com**
+        + **Spotify Password: example12345**
+            + Note that because this account is so new that the short, medium, and long term data on the dashboard will all be the same. To see this feature working, click on friend profiles (in the friends tab) to view their dahsboards and listening history
+        
+    + If you are not prompted to sign in to spotify after hitting the "Update Spotify API" button, this means that you are propbably already logged into your personal spotify account on your computer + that this is cached in your browser. If you want to see song data for the example account, re-visit my site in a Private Browser and sign into the example Spotify account (see above)
+
+
+
 

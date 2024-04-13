@@ -13,6 +13,8 @@
 + [Javascript](/public/notes/javascript.md)
 + [Services](/public/notes/services.md)
 + [MongoDB](/public/notes/mongo.md)
++ [Websockets](/public/notes/websockets.md)
++ [React](/public/notes/react.md)
 
 ### Test Files
 + [Conlict Test](/public/notes/conflictTest.md) - Note that this file was just for practicing handling conflicts. It doesn't contain any helpful notes
